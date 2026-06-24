@@ -71,9 +71,10 @@
 
 - 方式：GitHub 仓库 + Netlify 连接，**push 即自动部署**。
 - 站点类型：静态站，无需构建（publish 目录 = 仓库根目录）。
-- GitHub 仓库地址：_（部署后回填）_
-- Netlify 网址：_（部署后回填）_
-- 更新网页 = 改完 data.json 后 git push 即可，约1分钟后线上生效。
+- GitHub 仓库地址：https://github.com/diabolus897/jdh-intel.git （分支 main）
+- Netlify 站点名：jdh-intel（原自动名 silly-pasca-14d103）
+- **线上网址（发同事内测）：https://jdh-intel.netlify.app/**
+- 更新网页 = 改完 data.json 后 git push 即可，约1分钟后线上自动生效。
 
 ## 9. 联系人
 
