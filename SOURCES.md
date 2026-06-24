@@ -62,15 +62,25 @@
 
 ---
 
-## 四、其他 5 部门信源（待补，沿用 AGENTS.md 建议信源）
+## 四、其他 5 部门信源（来自业务周报 prompt，详细检索方法见 SEARCH_GUIDE.md）
 
-> 下列暂以 AGENTS.md 各部门「建议信源」为准，待对应部门重抓后回填实测标记。
+> 下列为各业务人工沉淀的必查信源。完整检索象限/品牌哨兵/筛选要点见 `SEARCH_GUIDE.md`。实测标记（★出料/✗失效）待对应部门重抓后回填。
 
-- **营养保健 nutri**：NutraIngredients、Nutraceuticals World、市场监管总局/海关总署、东方财富、品牌官网
-- **医药 pharma**：NMPA、国家医保局、丁香园 Insight/ByDrug、药智网、Endpoints/FierceBiotech、巨潮资讯
-- **医疗器械 device**：NMPA、中国食品药品网、动脉网、厂商公告
-- **即时零售 instant**：亿邦动力、36氪、连锁药店公告、中康数据
-- **消费医疗 medical**：医美部落、新氧、弗若斯特沙利文、爱美客/华熙生物公告、NMPA
+- **医药 pharma**：
+  - 国内：医药魔方 ByDrug、丁香园 Insight、药智网、咸达数据、CDE/NMPA
+  - 美国：Endpoints News、FierceBiotech、FDA、药明康德 PDUFA 汇总、BioPharma Dive
+  - 辅助：港交所/SEC/上交所公告、医脉通、生物制品圈、E药经理人
+- **医疗器械 device**：
+  - 新品：NMPA/CMDE 公示、动脉网、医械之家、思宇MedTech、器械之家、健康界；FDA 510(k)/De Novo/PMA、MedTech Dive、MassDevice；Medical Device Network、MedTech Europe；日経メディカル；CMEF/Medica/Arab Health 展后
+  - 融资：动脉网、亿欧大健康、36氪医疗、IT桔子、烯牛数据、鲸准、企查查/天眼查；Crunchbase News、MobiHealthNews、Sifted、日経STARTUP
+- **营养保健 nutri**：
+  - 成品先行：电商上新/DTC官网/社媒/iHerb·Amazon；再查 备案/媒体/原料商
+  - 行业媒体：NutraIngredients、Nutraceuticals World；监管：市场监管总局/海关总署
+  - 品牌哨兵 Top40 + 海外清单见 SEARCH_GUIDE.md
+- **消费医疗 medical**：
+  - 国内：NMPA/CMDE、上市公司公告、新氧/美团医美、爱康/美年体检套餐、医美行业媒体、融资新闻
+  - 海外：FDA/CE、设备厂商官网、ASDS/AAD/IMCAS 会议、医疗科技融资
+- **即时零售 instant**：亿邦动力、36氪、连锁药店公告、中康数据（该业务周报输入待补）
 
 ---
 

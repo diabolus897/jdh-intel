@@ -22,6 +22,7 @@
 | **PROJECT_STATUS.md** | 当前进展 / data.json 状态 / 待办 | 第二个读，了解"现在到哪了" |
 | **AGENTS.md** | 口径权威：6 部门配置、数据契约、质量铁律 | 抓取/改口径前必读 |
 | **SOURCES.md** | 信源地图：哪个源出料、工具坑、绕过技巧（**信源唯一权威**） | 抓取前查，少走弯路 |
+| **SEARCH_GUIDE.md** | 检索手册：各部门必查信源、检索象限、品牌哨兵、筛选要点 | 抓某部门前连同 AGENTS 一起读 |
 | **PLAYBOOK.md** | 执行剧本：子 agent 切分、prompt 模板、SOP | 实际抓取时照着跑 |
 | **validate.py** | 自检脚本 | 写完 data.json 跑 `python3 validate.py` |
 | `data.json` | 前端读取的唯一数据源 | 每日产出 |
