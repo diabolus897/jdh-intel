@@ -48,6 +48,63 @@ def valid_date(s):
         return False
 
 
+# instant 竞对卡片字段
+CARD_FEED_FIELDS = {"title", "summary", "date", "source", "url"}
+FIN_FIELDS = {"label"}  # periods 至少要有 label；其余指标可缺(留空表示未查到)
+
+
+def check_layers(did, dim, layers):
+    """校验即时零售竞对的卡片化布局。返回卡片总数。"""
+    if not isinstance(layers, list):
+        err(f"[{did}/{dim}] layers 不是数组")
+        return 0
+    total = 0
+    for li, layer in enumerate(layers):
+        if layer.get("type") not in ("o2o", "chain"):
+            err(f"[{did}/{dim}] layers[{li}] type 应为 o2o/chain，实际 {layer.get('type')!r}")
+        if not layer.get("title"):
+            err(f"[{did}/{dim}] layers[{li}] 缺 title")
+        cards = layer.get("cards", [])
+        if not isinstance(cards, list):
+            err(f"[{did}/{dim}] layers[{li}] cards 不是数组")
+            continue
+        for ci, c in enumerate(cards):
+            total += 1
+            tag = f"[{did}/{dim}] {layer.get('type')}卡[{c.get('name','?')}]"
+            if not c.get("name"):
+                err(f"{tag} 缺 name")
+            # 财报小卡（仅 chain 卡有；可选但若有则校验）
+            fin = c.get("financials")
+            if fin is not None:
+                periods = fin.get("periods", [])
+                if not periods:
+                    err(f"{tag} financials 无 periods")
+                for pi, p in enumerate(periods):
+                    if not p.get("label"):
+                        err(f"{tag} periods[{pi}] 缺 label")
+                if fin.get("url") and not str(fin["url"]).startswith("http"):
+                    err(f"{tag} financials.url 非法：{fin.get('url')!r}")
+            # 卡内动态流
+            feed = c.get("items", [])
+            if not isinstance(feed, list):
+                err(f"{tag} items 不是数组")
+                continue
+            real_dates = []
+            for fi, it in enumerate(feed):
+                miss = CARD_FEED_FIELDS - set(it.keys())
+                if miss:
+                    err(f"{tag} items[{fi}] 缺字段 {miss}")
+                if not str(it.get("url", "")).startswith("http"):
+                    err(f"{tag} items[{fi}] url 非法：{it.get('url')!r}")
+                if not valid_date(it.get("date", "")):
+                    err(f"{tag} items[{fi}] date 格式错：{it.get('date')!r}")
+                if it.get("date") != "待核":
+                    real_dates.append(it.get("date"))
+            if real_dates != sorted(real_dates, reverse=True):
+                err(f"{tag} items 日期非倒序：{real_dates}")
+    return total
+
+
 def check(path="data.json"):
     try:
         with open(path, encoding="utf-8") as f:
@@ -110,6 +167,11 @@ def check(path="data.json"):
         cnt = []
         for s in sections:
             dim = s.get("dim", "?")
+            # 即时零售竞对：卡片化布局（layers），单独校验
+            if did == "instant" and "layers" in s:
+                n = check_layers(did, dim, s["layers"])
+                cnt.append(f"{dim}:{n}卡")
+                continue
             items = s.get("items", [])
             if not isinstance(items, list):
                 err(f"[{did}/{dim}] items 不是数组")
