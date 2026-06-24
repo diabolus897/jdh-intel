@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>首席情报官 · 每日动态情报</title>
+<style>
+  :root{
+    --bg:#EDF0EE;--paper:#FFF;--ink:#14201B;--ink2:#54635C;--ink3:#8A958E;
+    --brand:#0E6E54;--brand-deep:#0A5340;--brand-soft:#E6F2EC;
+    --line:rgba(20,33,28,.09);--line2:rgba(20,33,28,.15);
+    --hi:#C0392B;--hi-bg:#FBEAE8;--mid:#B26A09;--mid-bg:#FAF0DC;--lo:#6B756F;--lo-bg:#EEEEEB;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{background:var(--bg);color:var(--ink);font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Microsoft YaHei",sans-serif;line-height:1.6;-webkit-font-smoothing:antialiased}
+  a{color:inherit}
+
+  /* ---------- header ---------- */
+  header{background:linear-gradient(170deg,#0F745A,#093F31);color:#fff;position:sticky;top:0;z-index:20;box-shadow:0 1px 0 rgba(0,0,0,.06)}
+  .hd{max-width:1120px;margin:0 auto;padding:16px 24px 0}
+  .brand{display:flex;align-items:baseline;gap:11px}
+  .brand h1{font-size:18px;font-weight:680;letter-spacing:.2px}
+  .depttabs{display:flex;gap:4px;margin-top:14px;overflow-x:auto;scrollbar-width:none}
+  .depttabs::-webkit-scrollbar{display:none}
+  .dtab{padding:10px 17px;color:rgba(255,255,255,.62);font-size:14px;white-space:nowrap;cursor:pointer;border-bottom:2.5px solid transparent;transition:.15s;border-radius:7px 7px 0 0}
+  .dtab:hover{color:#fff;background:rgba(255,255,255,.07)}
+  .dtab.on{color:#fff;border-bottom-color:#74E6BC;font-weight:650}
+
+  /* ---------- page ---------- */
+  .page{max-width:1120px;margin:0 auto;padding:24px 24px 72px}
+  .statusbar{display:flex;gap:16px;flex-wrap:wrap;align-items:center;font-size:12.5px;color:var(--ink3)}
+  .statusbar b{color:var(--ink2);font-weight:600}
+  .pulse{display:inline-block;width:7px;height:7px;border-radius:50%;background:#28C28A;margin-right:6px;box-shadow:0 0 0 3px rgba(40,194,138,.18)}
+  h2.dept{font-size:25px;font-weight:720;letter-spacing:-.4px;margin:7px 0 0}
+  .lead{font-size:14.5px;color:var(--ink2);background:var(--paper);border:1px solid var(--line);border-left:3px solid var(--brand);border-radius:0 11px 11px 0;padding:13px 17px;margin:14px 0 8px}
+
+  /* ---------- eyebrow ---------- */
+  .eyebrow{display:flex;align-items:center;gap:9px;font-size:12px;font-weight:700;letter-spacing:1.6px;color:var(--ink3);margin:26px 0 13px}
+  .eyebrow::after{content:"";flex:1;height:1px;background:var(--line)}
+
+  /* ---------- 今日必读 ---------- */
+  .musts{display:grid;grid-template-columns:repeat(auto-fit,minmax(290px,1fr));gap:13px}
+  .must{background:var(--paper);border:1px solid var(--line);border-radius:12px;padding:15px 16px 14px;position:relative;transition:.16s}
+  .must:hover{border-color:var(--line2);box-shadow:0 4px 18px rgba(20,33,28,.06);transform:translateY(-1px)}
+  .must .no{font-size:12px;font-weight:800;color:var(--brand);letter-spacing:.5px}
+  .must .mt{font-size:15.5px;font-weight:680;line-height:1.38;margin:5px 0 6px}
+  .must .mt a{text-decoration:none}.must .mt a:hover{color:var(--brand)}
+  .must .mn{font-size:12.5px;color:var(--ink2);line-height:1.55}
+  .must .tagrow{margin-top:10px;display:flex;gap:6px;flex-wrap:wrap}
+
+  /* ---------- tags ---------- */
+  .dimtag{font-size:11px;font-weight:650;padding:2px 8px;border-radius:6px}
+  .rel{font-size:10.5px;font-weight:750;padding:2px 7px;border-radius:6px;letter-spacing:.3px}
+  .rel.hi{background:var(--hi-bg);color:var(--hi)}.rel.mid{background:var(--mid-bg);color:var(--mid)}.rel.lo{background:var(--lo-bg);color:var(--lo)}
+
+  /* ---------- 维度分区 ---------- */
+  .sec{margin-top:24px}
+  .sec-h{display:flex;align-items:center;gap:9px;cursor:pointer;user-select:none;padding-bottom:4px}
+  .sec-bar{width:4px;height:17px;border-radius:2px}
+  .sec-t{font-size:16px;font-weight:680}
+  .sec-c{font-size:12px;color:var(--ink3);font-weight:500}
+  .sec-chev{margin-left:auto;color:var(--ink3);font-size:13px;transition:.2s}
+  .sec.collapsed .sec-chev{transform:rotate(-90deg)}.sec.collapsed .items{display:none}
+  .items{display:grid;grid-template-columns:repeat(auto-fit,minmax(335px,1fr));gap:12px;margin-top:11px}
+  .item{background:var(--paper);border:1px solid var(--line);border-radius:11px;padding:14px 15px;transition:.16s}
+  .item:hover{border-color:var(--line2);box-shadow:0 3px 14px rgba(20,33,28,.05)}
+  .it{font-size:14.5px;font-weight:660;line-height:1.4}
+  .id{font-size:12.8px;color:var(--ink2);margin-top:5px;line-height:1.58}
+  .tk{font-size:12.3px;color:var(--brand-deep);background:var(--brand-soft);border-radius:7px;padding:6px 11px;display:block;margin-top:9px;line-height:1.5}
+  .im{margin-top:9px;padding-top:9px;border-top:1px solid var(--line);font-size:11.5px;color:var(--ink3);display:flex;gap:9px;align-items:center;flex-wrap:wrap}
+  .im a{color:var(--brand);font-weight:600;text-decoration:none;margin-left:auto}
+  .im a:hover{text-decoration:underline}
+  .empty-dim{grid-column:1/-1;padding:14px 16px;border:1px dashed var(--line2);border-radius:10px;font-size:13px;color:var(--ink3)}
+
+  .state{padding:80px 0;text-align:center;color:var(--ink3);font-size:14px}
+  .state b{display:block;color:var(--ink2);font-size:15px;margin-bottom:6px}
+  .foot{margin-top:40px;padding-top:18px;border-top:1px solid var(--line);font-size:12px;color:var(--ink3);line-height:1.8}
+  .foot b{color:var(--ink2);font-weight:600}
+
+  @media(max-width:640px){
+    .hd,.page{padding-left:16px;padding-right:16px}
+    h2.dept{font-size:22px}
+    .items{grid-template-columns:1fr}
+  }
+</style>
+</head>
+<body>
+<header><div class="hd">
+  <div class="brand"><h1>首席情报官 · 每日动态情报</h1></div>
+  <div class="depttabs" id="depttabs"></div>
+</div></header>
+<div class="page" id="page"><div class="state">正在加载…</div></div>
+
+<script>
+const DIMSTYLE={
+  "竞对动态":["#993556","#FBEAF0"],"政策动态":["#0C447C","#E6F1FB"],
+  "工业动态":["#3C3489","#EEEDFE"],"新品动态":["#0F6E56","#E1F5EE"],
+  "新技术·新模式":["#854F0B","#FAEEDA"],"行业·资本":["#3B6D11","#EAF3DE"]
+};
+const DIM_ORDER=["竞对动态","政策动态","工业动态","新品动态","新技术·新模式","行业·资本"];
+function orderDims(arr){return [...arr].sort((a,b)=>(DIM_ORDER.indexOf(a)+99)%100-(DIM_ORDER.indexOf(b)+99)%100);}
+
+const FALLBACK_DATA={"generated":"—","depts":[{"id":"nutri","name":"营养保健","dims":["竞对动态","政策动态","工业动态","新品动态"],"brief":null}]};
+
+let DATA=null, cur=null;
+const $=id=>document.getElementById(id);
+function esc(t){return (t||"").replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;")}
+function relLabel(r){return r==="hi"?"高相关":r==="mid"?"中相关":"低相关"}
+function dimTag(d){const s=DIMSTYLE[d]||["#5F5E5A","#F1EFE8"];return `<span class="dimtag" style="background:${s[1]};color:${s[0]}">${d}</span>`}
+function dateVal(d){const m=(d||"").match(/(\d{4})-(\d{1,2})(?:-(\d{1,2}))?/);if(!m)return 0;return new Date(+m[1],+m[2]-1,+(m[3]||1)).getTime();}
+
+function renderTabs(){
+  $('depttabs').innerHTML=DATA.depts.map(d=>
+    `<div class="dtab ${d.id===cur?'on':''}" onclick="setDept('${d.id}')">${d.name}</div>`).join('');
+}
+function setDept(id){cur=id;renderTabs();render();window.scrollTo(0,0);}
+
+function renderBrief(dep){
+  const b=dep.brief;
+  let h=`<div class="statusbar"><span><span class="pulse"></span>更新 <b>${esc(DATA.generated)}</b></span><span>窗口 <b>近 7 日</b></span><span>按时间倒序</span></div>
+    <h2 class="dept">${dep.name} · 今日动态</h2>
+    <div class="lead">${esc(b.lead)}</div>
+    <div class="eyebrow">今日必读</div><div class="musts">`;
+  (b.musts||[]).forEach((m,i)=>{
+    h+=`<div class="must"><div class="no">必读 ${String(i+1).padStart(2,'0')}</div>
+      <div class="mt"><a href="${esc(m.url)}" target="_blank" rel="noopener">${esc(m.title)}</a></div>
+      <div class="mn">${esc(m.note)}</div>
+      <div class="tagrow">${dimTag(m.dim)}<span class="rel ${m.rel}">${relLabel(m.rel)}</span></div></div>`;
+  });
+  h+=`</div>`;
+  // 维度分区：竞对在前，items 按日期倒序
+  const secs=[...(b.sections||[])].sort((a,b2)=>DIM_ORDER.indexOf(a.dim)-DIM_ORDER.indexOf(b2.dim));
+  secs.forEach(s=>{
+    const st=DIMSTYLE[s.dim]||["#5F5E5A","#F1EFE8"];
+    const items=[...(s.items||[])].sort((a,b2)=>dateVal(b2.date)-dateVal(a.date));
+    h+=`<div class="sec"><div class="sec-h" onclick="this.parentNode.classList.toggle('collapsed')">
+      <span class="sec-bar" style="background:${st[0]}"></span><span class="sec-t">${s.dim}</span>
+      <span class="sec-c">${items.length} 条</span><span class="sec-chev">▾</span></div><div class="items">`;
+    if(!items.length){h+=`<div class="empty-dim">今日暂无最新动态</div>`;}
+    else items.forEach(it=>{
+      const tk=it.takeaway?`<div class="tk">→ 对JDH：${esc(it.takeaway)}</div>`:'';
+      h+=`<div class="item"><div class="it">${esc(it.title)}</div><div class="id">${esc(it.summary)}</div>${tk}
+        <div class="im"><span class="rel ${it.rel}">${relLabel(it.rel)}</span><span>${esc(it.source)} · ${esc(it.date)}</span><a href="${esc(it.url)}" target="_blank" rel="noopener">原文 ↗</a></div></div>`;
+    });
+    h+=`</div></div>`;
+  });
+  return h;
+}
+
+function renderSkeleton(dep){
+  let h=`<div class="statusbar"><span><span class="pulse"></span>更新 <b>${esc(DATA.generated)}</b></span></div>
+    <h2 class="dept">${dep.name} · 今日动态</h2>
+    <div class="lead">本部门今日暂无加工结果，稍后自动更新。</div>`;
+  orderDims(dep.dims).forEach(dim=>{
+    const st=DIMSTYLE[dim]||["#5F5E5A","#F1EFE8"];
+    h+=`<div class="sec"><div class="sec-h"><span class="sec-bar" style="background:${st[0]}"></span><span class="sec-t">${dim}</span><span class="sec-c">—</span></div>
+      <div class="items"><div class="empty-dim">今日暂无最新动态</div></div></div>`;
+  });
+  return h;
+}
+
+function render(){
+  const dep=DATA.depts.find(d=>d.id===cur);
+  $('page').innerHTML=(dep.brief?renderBrief(dep):renderSkeleton(dep))+
+    `<div class="foot"><b>战略与综合支持部</b> 出品　/　相关问题咨询：wangchunhao.7、xiaoyuyan3</div>`;
+}
+
+fetch('data.json?_='+Date.now())
+  .then(r=>{if(!r.ok)throw new Error(r.status);return r.json();})
+  .then(d=>{DATA=d;cur=d.depts[0].id;renderTabs();render();})
+  .catch(()=>{DATA=FALLBACK_DATA;cur=DATA.depts[0].id;renderTabs();render();});
+</script>
+</body>
+</html>
