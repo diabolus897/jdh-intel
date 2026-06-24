@@ -17,6 +17,39 @@
 
 ---
 
+## 一·五、RSS / 直连源清单（2026-06-24 实测，抓取时优先直连，跳过搜索引擎拒答坑）
+
+> 用法：本站是静态站、无服务端订阅。RSS 的用法是**抓取时直接 fetch 这些 feed**，比 web_search 稳。
+> fetch RSS 用带 UA 的请求（`Mozilla/5.0`），部分源裸连会 403。实测均为当日最新内容、新鲜度好。
+
+**✅ 可用 RSS feed（已验证返回当日内容）**：
+| 源 | feed 地址 | 服务维度 |
+|---|---|---|
+| FierceBiotech | `https://www.fiercebiotech.com/rss/xml` | 医药 新品/工业（约25条/次）|
+| Endpoints News | `https://endpts.com/feed` | 医药 新品/BD（注意是 `/feed` 无斜杠，`/feed/` 会301）|
+| BioPharma Dive | `https://www.biopharmadive.com/feeds/news/` | 医药 工业/融资 |
+| MedTech Dive | `https://www.medtechdive.com/feeds/news/` | 医疗器械 工业/新品 |
+| Crunchbase News | `https://news.crunchbase.com/feed/` | 跨部门 融资 |
+| Sifted | `https://sifted.eu/feed` | 跨部门 欧洲融资 |
+| 36氪 | `https://36kr.com/feed` | 即时零售/跨部门 行业·资本（约11条，当日刷新）|
+
+**⚠ 无 RSS 但 HTTP200 可直接 fetch HTML 列表页解析**：
+- 动脉网 `https://www.vbdata.cn/`（器械/消费医疗 新品·融资主力源）
+- 36氪快讯 `https://36kr.com/information/web_news/`
+- NMPA 要闻列表 `https://www.nmpa.gov.cn/yaowen/ypjgyw/index.html`（官方，无feed，直接抓列表页）
+- CDE/各官方站：基本无 RSS，走列表页 fetch 或站内检索
+
+**✗ feed 失效/反爬（别浪费时间试 RSS，改用搜索或列表页）**：
+- MassDevice `/feed/` → 403　｜　MobiHealthNews `/rss.xml` → 403
+- Medical Device Network `/feed/` → 连接失败　｜　虎嗅 `/rss/0.xml` → 失败
+- NutraIngredients / Nutraceuticals World → 301/403（走站内或搜索）
+- 晚点 LatePost → 无公开 RSS（走官网 `latepost.com` 列表页 fetch）
+- 创业邦 `rss.cyzone.cn` → 返回非XML（走官网列表页）
+
+> 维护：发现新可用 feed 或某 feed 失效，回填本表。RSS 不是必须，是"能省事就省事"的加速层；核心仍是 fetch 原文核日期。
+
+---
+
 ## 二、通用权威源（跨部门，最高优先级）
 
 | 源 | 用途 | 备注 |
