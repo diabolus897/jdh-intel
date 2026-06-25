@@ -119,6 +119,7 @@ prompt 要点：
   · 战略要点 2-3 条(取自年报「管理层讨论与分析」未来战略/举措)
   · 投资者交流/业绩说明会纪要(标题+月份+url,如老百姓2025年报暨2026一季报解读会纪要)
 来源用巨潮资讯(投资者关系/纪要)/公司IR/财报报道，**逐项带 url，查不到不写该字段、不编造**。
+**取数路径见 SOURCES.md「二·五、上市公司财报&投资者纪要获取手册」**：财务数字走东财F10(`emweb.eastmoney.com/PC_HSF10/...code=SH603883`)、纪要走巨潮全文检索(`cninfo.com.cn/new/fulltextSearch?keyWord=`)，均用 `r.jina.ai/` 兜底。
 **注意：老百姓正确股票代码是 603883.SH，不是 002424(那是贵州百灵)。**
 ```
 写入：instant 连锁 layers[1]（type=chain）三张卡的 financials（coverage/periods/strategy/memo）+ items。
