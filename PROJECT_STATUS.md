@@ -20,7 +20,9 @@
 | `PLAYBOOK.md` | 执行剧本：子agent切分、prompt模板、SOP | 流程优化时改 |
 | `validate.py` | data.json 结构自检脚本 | 契约变更时改 |
 | `linkcheck.py` | 死链检测脚本（链接真实性护栏，需 requests） | 分级逻辑变更时改 |
-| `data.json` | 每日情报数据（前端读取的唯一数据源） | 每天由 agent 抓取生成 |
+| `archive.py` | 每日归档脚本：生成 archive/data-<日期>.json + 重建 manifest.json | 数据流变更时改 |
+| `data.json` | 每日情报数据（前端默认数据源 = 最新一天副本） | 每天由 agent 抓取生成 |
+| `manifest.json` / `archive/` | 历史日历：日期清单（倒序）+ 各日归档文件 | archive.py 自动维护 |
 | `index.html` | 前端展示（静态，`fetch('data.json')`） | 基本固定，少改 |
 | `PROJECT_STATUS.md` | 本交接文档 | 每轮收尾时更新 |
 | `.claude/launch.json` | 本地预览配置（node `npx serve` 起 8765 端口） | 固定 |
@@ -28,6 +30,7 @@
 ## 3. 数据契约要点（前端按此严格读取，字段/层级不能改）
 
 - 顶层：`{ "generated": "YYYY-MM-DD", "depts": [...] }`
+- **【2026-06-25 新增】历史日历归档**：根 `data.json` = 最新一天副本（前端默认&兜底都读它）；历史在 `archive/data-<日期>.json`；`manifest.json = {dates:[新→旧], latest}` 是前端日期选择器数据源。三者由 `python3 archive.py` 自动维护，**必须随每日 push 进 git**。前端 manifest 加载失败时自动回退读 data.json（老入口/旧缓存兼容）。
 - `depts` 固定 6 个、顺序固定：`nutri / pharma / device / consumer / instant / medical`
 - 每个 dept：`{id, name, dims[], brief}`；`brief = {lead, musts[], sections[]}` 或 `null`
 - `musts`：跨维度挑 3 条最重要（优先 hi），字段 `{dim, rel, title, note, url}`

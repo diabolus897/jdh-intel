@@ -25,6 +25,14 @@
   .dtab{padding:10px 17px;color:rgba(255,255,255,.62);font-size:14px;white-space:nowrap;cursor:pointer;border-bottom:2.5px solid transparent;transition:.15s;border-radius:7px 7px 0 0}
   .dtab:hover{color:#fff;background:rgba(255,255,255,.07)}
   .dtab.on{color:#fff;border-bottom-color:#74E6BC;font-weight:650}
+  .brand{justify-content:space-between}
+  .datepick{display:flex;align-items:center;gap:7px;flex-shrink:0}
+  .datepick .dp-ico{font-size:13px;opacity:.85}
+  #datesel{appearance:none;-webkit-appearance:none;background:rgba(255,255,255,.12);color:#fff;border:1px solid rgba(255,255,255,.25);border-radius:7px;padding:5px 26px 5px 11px;font-size:13px;font-family:inherit;cursor:pointer;outline:none;background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='10' height='10' viewBox='0 0 10 10'><path d='M1 3l4 4 4-4' stroke='white' stroke-width='1.5' fill='none' stroke-linecap='round'/></svg>");background-repeat:no-repeat;background-position:right 9px center}
+  #datesel:hover{background-color:rgba(255,255,255,.2)}
+  #datesel option{color:#14201B}
+  .dp-latest{font-size:10.5px;font-weight:700;color:#74E6BC;background:rgba(116,230,188,.14);padding:2px 7px;border-radius:5px;white-space:nowrap}
+  .dp-hist{font-size:10.5px;font-weight:700;color:#F0C56A;background:rgba(240,197,106,.16);padding:2px 7px;border-radius:5px;white-space:nowrap}
 
   /* ---------- page ---------- */
   .page{max-width:1120px;margin:0 auto;padding:24px 24px 72px}
@@ -120,7 +128,14 @@
 </head>
 <body>
 <header><div class="hd">
-  <div class="brand"><h1>首席情报官 · 每日动态情报</h1></div>
+  <div class="brand">
+    <h1>首席情报官 · 每日动态情报</h1>
+    <div class="datepick" id="datepick" style="display:none">
+      <span class="dp-ico">📅</span>
+      <select id="datesel"></select>
+      <span id="dpflag"></span>
+    </div>
+  </div>
   <div class="depttabs" id="depttabs"></div>
 </div></header>
 <div class="page" id="page"><div class="state">正在加载…</div></div>
@@ -262,10 +277,46 @@ function render(){
     `<div class="foot"><b>战略与综合支持部</b> 出品　/　相关问题咨询：wangchunhao.7、xiaoyuyan3</div>`;
 }
 
-fetch('data.json?_='+Date.now())
+// ---------- 历史日历：加载某一天的数据 ----------
+let LATEST=null;
+function showData(d){DATA=d;cur=d.depts[0].id;renderTabs();render();}
+function loadDay(date){
+  // 最新一天读根 data.json（命中 CDN 缓存，最快）；历史日读 archive/
+  const url=(date===LATEST?'data.json':'archive/data-'+date+'.json')+'?_='+Date.now();
+  fetch(url)
+    .then(r=>{if(!r.ok)throw new Error(r.status);return r.json();})
+    .then(d=>{showData(d);updateFlag(date);})
+    .catch(()=>{DATA=FALLBACK_DATA;showData(FALLBACK_DATA);});
+}
+function updateFlag(date){
+  const f=$('dpflag');
+  if(!f)return;
+  if(date===LATEST){f.className='dp-latest';f.textContent='最新';}
+  else{f.className='dp-hist';f.textContent='历史';}
+}
+
+// 启动：先拉 manifest 建日期选择器，失败则回退直接读 data.json
+fetch('manifest.json?_='+Date.now())
   .then(r=>{if(!r.ok)throw new Error(r.status);return r.json();})
-  .then(d=>{DATA=d;cur=d.depts[0].id;renderTabs();render();})
-  .catch(()=>{DATA=FALLBACK_DATA;cur=DATA.depts[0].id;renderTabs();render();});
+  .then(mf=>{
+    const dates=(mf&&mf.dates)||[];
+    if(!dates.length)throw new Error('empty manifest');
+    LATEST=mf.latest||dates[0];
+    const sel=$('datesel');
+    sel.innerHTML=dates.map(d=>`<option value="${d}">${d}</option>`).join('');
+    sel.value=LATEST;
+    sel.onchange=()=>loadDay(sel.value);
+    $('datepick').style.display='flex';
+    loadDay(LATEST);
+  })
+  .catch(()=>{
+    // 老入口 / manifest 缺失：保持原行为，直接读 data.json
+    fetch('data.json?_='+Date.now())
+      .then(r=>{if(!r.ok)throw new Error(r.status);return r.json();})
+      .then(d=>showData(d))
+      .catch(()=>showData(FALLBACK_DATA));
+  });
+
 </script>
 </body>
 </html>

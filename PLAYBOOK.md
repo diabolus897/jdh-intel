@@ -18,9 +18,10 @@
 7. python3 validate.py 自检，必须全过（看结尾「📋 修正清单」批量改错）
 8. python3 linkcheck.py 死链检测：☠️ 死链必须改/删，⚠️ 待核逐条 fetch 确认
 9. 本地 preview 渲染确认（可选但推荐）
-10. 更新 PROJECT_STATUS.md 第5节状态表 + SOURCES.md 实测标记
-11. git commit + push → Netlify 自动部署（约1分钟）
-12. 出自检报告：各维度条数、空维度原因、剔除/待核项、失败信源
+10. python3 archive.py 归档：生成 archive/data-<日期>.json + 重建 manifest.json
+11. 更新 PROJECT_STATUS.md 第5节状态表 + SOURCES.md 实测标记
+12. git commit + push（含 archive/ 与 manifest.json）→ Netlify 自动部署（约1分钟）
+13. 出自检报告：各维度条数、空维度原因、剔除/待核项、失败信源
 ```
 
 ---
@@ -157,12 +158,14 @@ git push   # Netlify 自动部署，约1分钟生效
 
 ---
 
-## 八、两个自检脚本分工（写完 data.json 必跑）
+## 八、三个收尾脚本分工（写完 data.json 必跑）
 
 | 脚本 | 查什么 | 特性 | 失败处理 |
 |---|---|---|---|
 | `python3 validate.py` | **结构契约**：6部门顺序、dims、字段齐全、summary≤60、日期倒序、卡片结构 | 零依赖、秒级、**必须全过** | 看结尾「📋 修正清单」(如 `summary 超长×2　缺字段×1`) 批量改 |
 | `python3 linkcheck.py` | **链接真实性**：所有 url 真实请求一次，防"看着真、点开404" | 需 requests、慢(并发)、网络相关 | ☠️ **死链**(404/410/DNS失败)必改或删；⚠️ **待核**(403/5xx/超时，多为反爬)逐条 fetch 确认，**别误删真链接** |
+| `python3 archive.py` | **每日归档**：data.json→archive/data-<日期>.json，重建 manifest.json（前端日期选择器数据源） | 零依赖、秒级 | generated 非法会拒绝归档；正常无需干预。**在 validate+linkcheck 全过后、push 前跑** |
 
-> 两者**故意拆开**：validate 是"必过的快校验"，linkcheck 是"慢的网络体检"，混在一起会让结构校验因网络抖动变得不稳定。
+> validate / linkcheck **故意拆开**：前者是"必过的快校验"，后者是"慢的网络体检"，混在一起会让结构校验因网络抖动变得不稳定。
 > linkcheck 参数：`--timeout 8 --workers 10`；`--strict` 把待核也算失败（一般不用）。
+> archive 读 data.json 的 `generated` 当日期；根 data.json 始终=最新一天（前端默认&兜底都读它），历史在 archive/。归档文件**必须随 push 进 git**，Netlify 才能部署出历史日。

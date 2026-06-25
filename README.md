@@ -26,7 +26,9 @@
 | **PLAYBOOK.md** | 执行剧本：子 agent 切分、prompt 模板、SOP | 实际抓取时照着跑 |
 | **validate.py** | 自检脚本（结构契约） | 写完 data.json 跑 `python3 validate.py` |
 | **linkcheck.py** | 死链检测（链接真实性，需 requests） | 提交前跑 `python3 linkcheck.py`，死链必处理 |
-| `data.json` | 前端读取的唯一数据源 | 每日产出 |
+| **archive.py** | 每日归档：生成 archive/data-<日期>.json + 重建 manifest.json | 提交前跑 `python3 archive.py` |
+| `data.json` | 前端读取的默认数据源（=最新一天副本） | 每日产出 |
+| `manifest.json` / `archive/` | 历史日历：日期清单 + 各日归档文件 | archive.py 自动维护 |
 | `index.html` | 静态前端 | 基本固定，少改 |
 
 ## 日常操作（每日更新 SOP 摘要）
@@ -36,8 +38,9 @@
 2. 按 PLAYBOOK 派子 agent 抓取（带 AGENTS.md 全套铁律 + SOURCES.md 信源）
 3. 汇总去重 → 按时效剔除超期 → 写入 data.json
 4. `python3 validate.py` 自检全过 + `python3 linkcheck.py` 死链检测
-5. 更新 PROJECT_STATUS.md 状态表 + SOURCES.md 实测标记
-6. `git add -A && git commit && git push` → 自动部署
+5. `python3 archive.py` 归档当天数据 + 重建 manifest
+6. 更新 PROJECT_STATUS.md 状态表 + SOURCES.md 实测标记
+7. `git add -A && git commit && git push` → 自动部署
 
 ## 6 个部门（顺序固定，不可改）
 
