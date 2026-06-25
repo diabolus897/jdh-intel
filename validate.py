@@ -83,6 +83,21 @@ def check_layers(did, dim, layers):
                         err(f"{tag} periods[{pi}] 缺 label")
                 if fin.get("url") and not str(fin["url"]).startswith("http"):
                     err(f"{tag} financials.url 非法：{fin.get('url')!r}")
+                # 经营速览扩展字段（全部可选，有才校验）
+                cov = fin.get("coverage")
+                if cov is not None and not isinstance(cov, dict):
+                    err(f"{tag} financials.coverage 应为对象")
+                strat = fin.get("strategy")
+                if strat is not None and not isinstance(strat, list):
+                    err(f"{tag} financials.strategy 应为数组")
+                memo = fin.get("memo")
+                if memo is not None:
+                    if not isinstance(memo, dict):
+                        err(f"{tag} financials.memo 应为对象")
+                    elif not memo.get("title"):
+                        err(f"{tag} financials.memo 缺 title")
+                    elif memo.get("url") and not str(memo["url"]).startswith("http"):
+                        err(f"{tag} financials.memo.url 非法：{memo.get('url')!r}")
             # 卡内动态流
             feed = c.get("items", [])
             if not isinstance(feed, list):
@@ -148,6 +163,8 @@ def check(path="data.json"):
         else:
             if len(musts) > 3:
                 warn(f"[{did}] musts {len(musts)} 条，契约建议挑最重要 3 条")
+            elif len(musts) < 3:
+                warn(f"[{did}] musts 仅 {len(musts)} 条，契约要求挑最重要 3 条")
             for i, m in enumerate(musts):
                 miss = MUST_FIELDS - set(m.keys())
                 if miss:

@@ -105,6 +105,20 @@
   .fin-grid .fv .yoy{font-size:10.5px;font-weight:600;color:var(--ink3);margin-left:4px}
   .fin-grid .fv .up{color:#1E8E5A}.fin-grid .fv .down{color:var(--hi)}
   .fin-na{color:var(--ink3);font-weight:500}
+  /* 经营速览卡升级 */
+  .fin-cov{font-size:11px;color:var(--ink2);line-height:1.5;margin-bottom:8px;padding-bottom:8px;border-bottom:1px dashed var(--line)}
+  .fin-cov b{color:var(--ink);font-weight:680}
+  .fin-grid .fr-hl{background:var(--brand-soft);margin:0 -4px;padding:2px 4px;border-radius:4px}
+  .fin-grid .fv .add{font-size:10px;font-weight:600;margin-left:3px}
+  .fin-grid .fv .add.up{color:#1E8E5A}.fin-grid .fv .add.down{color:var(--hi)}
+  .fin-strat{margin-top:9px;font-size:11.5px;line-height:1.6;color:var(--ink2)}
+  .fin-strat .fs-h{font-weight:700;color:var(--ink2);font-size:11px}
+  .fin-strat ul{margin:3px 0 0;padding-left:16px}
+  .fin-strat li{margin:1px 0}
+  .fin-memo{margin-top:8px;font-size:11.5px}
+  .fin-memo a{color:var(--brand);text-decoration:none;font-weight:600}
+  .fin-memo a:hover{text-decoration:underline}
+  .fin-memo .mm-date{color:var(--ink3);font-weight:500;margin-left:5px}
   /* 卡内动态流 */
   .cc-feed{margin-top:11px;display:flex;flex-direction:column;gap:9px}
   .feed-it{font-size:12.8px;line-height:1.5}
@@ -236,26 +250,68 @@ function renderLayers(layers){
   return h;
 }
 
-// 财报小卡：多期同口径横向对比
+// 经营速览卡：覆盖省份 + 多期财务双列对比 + 战略要点 + 投资者纪要
+function yoyHtml(v,cls){ // v 形如 "+1.54%" / "-26.44%"；cls: 'yoy'(inline) 或 'add'(门店增量)
+  if(!v) return '';
+  const s=String(v).trim();
+  const dir=/^[-－]/.test(s)?'down':'up';
+  const arrow=cls==='yoy'?(dir==='up'?'▲':'▼')+' ':'';
+  const txt=cls==='add'?'('+s+')':s;
+  return `<span class="${cls} ${dir}">${arrow}${esc(txt)}</span>`;
+}
 function renderFin(fin){
   const periods=fin.periods||[];
   if(!periods.length) return '';
-  const rows=[["营收","revenue"],["归母净利","profit"],["净利率","margin"],["门店数","stores"],["营收同比","yoy"]];
   const src=fin.url?`<span class="fin-src"><a href="${esc(fin.url)}" target="_blank" rel="noopener">来源 ↗</a></span>`:'';
-  let h=`<div class="fin"><div class="fin-h">📊 财报速览${src}</div><div class="fin-grid">`;
-  // 表头行
+  let h=`<div class="fin"><div class="fin-h">📊 经营速览${src}</div>`;
+  // 覆盖省份（可选）
+  const cov=fin.coverage;
+  if(cov&&(cov.provinces||cov.advantage)){
+    h+=`<div class="fin-cov">`+
+       (cov.provinces?`<b>${esc(cov.provinces)}</b>`:'')+
+       (cov.advantage?(cov.provinces?'　·　':'')+esc(cov.advantage):'')+`</div>`;
+  }
+  h+=`<div class="fin-grid">`;
+  // 表头
   h+=`<span class="fh"></span>`+periods.map(p=>`<span class="fh">${esc(p.label)}</span>`).join('');
-  rows.forEach(([lbl,key])=>{
-    // 跳过所有期都没有该字段的行
-    if(!periods.some(p=>p[key])) return;
-    h+=`<span class="fl">${lbl}</span>`;
+  // 一个普通指标行：value 可带 inline 同比(yoyKey) 与增量(addKey)
+  const row=(lbl,key,opt={})=>{
+    if(!periods.some(p=>p[key])) return '';
+    let r=`<span class="fl${opt.hl?' fr-hl':''}">${lbl}</span>`;
     periods.forEach(p=>{
       const v=p[key];
-      if(!v||v==="未查到"){h+=`<span class="fv fin-na">—</span>`;return;}
-      h+=`<span class="fv">${esc(v)}</span>`;
+      if(!v||v==="未查到"){r+=`<span class="fv fin-na${opt.hl?' fr-hl':''}">—</span>`;return;}
+      let cell=esc(v);
+      if(opt.yoyKey&&p[opt.yoyKey]) cell+=' '+yoyHtml(p[opt.yoyKey],'yoy');
+      if(opt.addKey&&p[opt.addKey]) cell+=' '+yoyHtml(p[opt.addKey],'add');
+      r+=`<span class="fv${opt.hl?' fr-hl':''}">${cell}</span>`;
     });
-  });
-  h+=`</div></div>`;
+    return r;
+  };
+  h+=row('营收','revenue',{yoyKey:periods.some(p=>p.revenueYoy)?'revenueYoy':'yoy'});
+  h+=row('归母净利','profit',{yoyKey:'profitYoy',hl:true});
+  h+=row('毛利率','grossMargin');
+  h+=row('净利率','margin');
+  h+=row('经营现金流','cashflow',{yoyKey:'cashflowYoy'});
+  h+=row('门店数','stores',{addKey:'storesAdd'});
+  h+=row('直营','storesDirect',{addKey:'storesDirectAdd'});
+  h+=row('加盟','storesFranchise',{addKey:'storesFranchiseAdd'});
+  h+=`</div>`;
+  // 战略要点（可选）
+  const strat=fin.strategy;
+  if(Array.isArray(strat)&&strat.length){
+    h+=`<div class="fin-strat"><span class="fs-h">🎯 战略要点</span><ul>`+
+       strat.map(s=>`<li>${esc(s)}</li>`).join('')+`</ul></div>`;
+  }
+  // 投资者纪要（可选）
+  const memo=fin.memo;
+  if(memo&&memo.title){
+    const dt=memo.date?`<span class="mm-date">${esc(memo.date)}</span>`:'';
+    h+=`<div class="fin-memo">📋 `+
+       (memo.url?`<a href="${esc(memo.url)}" target="_blank" rel="noopener">${esc(memo.title)} ↗</a>`:esc(memo.title))+
+       dt+`</div>`;
+  }
+  h+=`</div>`;
   return h;
 }
 
