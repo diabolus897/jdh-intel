@@ -13,6 +13,7 @@
 - ✗ **Bing 新闻页 / 品牌官网新闻页（Alcon、Bausch 等）** → 常返回 JS 空壳或 404，抓不到正文。换垂直媒体或官方公告。
 - ✗ **亿邦动力 618 频道页** → HTTP 403。
 - ⚠ **含手机号的页面**（部分中华网/网易号）→ 触发敏感词拦截。`zqrb.cn / ce.cn` 偶发 504；`toutiao` 正文需 JS 渲染抓不到。
+- 🆕 **WebFetch 抓某个具体 url 失败时的兜底：Jina Reader**。在原 url 前拼 `https://r.jina.ai/`（如 `https://r.jina.ai/https://www.toutiao.com/article/xxx`）再 WebFetch。它会**渲染 JS、绕过多数反爬，返回干净 Markdown 正文**，专治头条/JS 空壳/403 这类老大难。零成本、无需 key。**仅用于"我已知具体 url、但抓不到正文"的场景**，不替代 web_search 发现信源。抓到正文后日期/事实仍按铁律核验。
 - 原则：任一源 fetch 失败 → 用其他独立源交叉核日期与事实；**核不到就丢弃，绝不用记忆补**。
 
 ---

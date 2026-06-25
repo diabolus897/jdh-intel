@@ -213,6 +213,33 @@ def main():
         print(f"\n❌ 错误 {len(errors)} 条：")
         for e in errors:
             print("  - " + e)
+        # 修正清单：按类型聚合，方便一次性批量改完
+        buckets = {
+            "summary 超长": 0, "缺字段": 0, "url 非法": 0,
+            "date 格式": 0, "日期非倒序": 0, "rel 非法": 0,
+            "维度/顺序/name": 0, "卡片(layers)": 0, "其它": 0,
+        }
+        for e in errors:
+            if "summary 超长" in e:
+                buckets["summary 超长"] += 1
+            elif "缺字段" in e or "缺 name" in e or "缺 label" in e or "无 periods" in e:
+                buckets["缺字段"] += 1
+            elif "url" in e and "非法" in e:
+                buckets["url 非法"] += 1
+            elif "date 格式" in e:
+                buckets["date 格式"] += 1
+            elif "非倒序" in e:
+                buckets["日期非倒序"] += 1
+            elif "rel" in e and "非法" in e:
+                buckets["rel 非法"] += 1
+            elif ("dims" in e or "顺序" in e or "name 应为" in e):
+                buckets["维度/顺序/name"] += 1
+            elif ("layers" in e or "卡[" in e or "type 应为" in e):
+                buckets["卡片(layers)"] += 1
+            else:
+                buckets["其它"] += 1
+        summary = "　".join(f"{k}×{v}" for k, v in buckets.items() if v)
+        print(f"\n📋 修正清单：{summary}")
         print("\n校验未通过。")
         sys.exit(1)
     print("\n✅ 全部校验通过。")

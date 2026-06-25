@@ -24,7 +24,8 @@
 | **SOURCES.md** | 信源地图：哪个源出料、工具坑、绕过技巧（**信源唯一权威**） | 抓取前查，少走弯路 |
 | **SEARCH_GUIDE.md** | 检索手册：各部门必查信源、检索象限、品牌哨兵、筛选要点 | 抓某部门前连同 AGENTS 一起读 |
 | **PLAYBOOK.md** | 执行剧本：子 agent 切分、prompt 模板、SOP | 实际抓取时照着跑 |
-| **validate.py** | 自检脚本 | 写完 data.json 跑 `python3 validate.py` |
+| **validate.py** | 自检脚本（结构契约） | 写完 data.json 跑 `python3 validate.py` |
+| **linkcheck.py** | 死链检测（链接真实性，需 requests） | 提交前跑 `python3 linkcheck.py`，死链必处理 |
 | `data.json` | 前端读取的唯一数据源 | 每日产出 |
 | `index.html` | 静态前端 | 基本固定，少改 |
 
@@ -34,7 +35,7 @@
 1. 读 README + PROJECT_STATUS（带上下文）
 2. 按 PLAYBOOK 派子 agent 抓取（带 AGENTS.md 全套铁律 + SOURCES.md 信源）
 3. 汇总去重 → 按时效剔除超期 → 写入 data.json
-4. `python3 validate.py` 自检全过
+4. `python3 validate.py` 自检全过 + `python3 linkcheck.py` 死链检测
 5. 更新 PROJECT_STATUS.md 状态表 + SOURCES.md 实测标记
 6. `git add -A && git commit && git push` → 自动部署
 

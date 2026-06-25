@@ -19,6 +19,7 @@
 | `SEARCH_GUIDE.md` | 检索手册：各部门必查信源、检索象限、品牌哨兵、筛选要点 | 业务口径/信源沉淀时更新 |
 | `PLAYBOOK.md` | 执行剧本：子agent切分、prompt模板、SOP | 流程优化时改 |
 | `validate.py` | data.json 结构自检脚本 | 契约变更时改 |
+| `linkcheck.py` | 死链检测脚本（链接真实性护栏，需 requests） | 分级逻辑变更时改 |
 | `data.json` | 每日情报数据（前端读取的唯一数据源） | 每天由 agent 抓取生成 |
 | `index.html` | 前端展示（静态，`fetch('data.json')`） | 基本固定，少改 |
 | `PROJECT_STATUS.md` | 本交接文档 | 每轮收尾时更新 |
