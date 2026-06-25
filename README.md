@@ -33,11 +33,13 @@
 
 ## 日常操作（每日更新 SOP 摘要）
 
-完整步骤见 `PLAYBOOK.md`，速记：
+> **默认走「🟢 增量滚动池」模式**（2026-06-25 起）：data.json 是持续滚动的池子，不是每天重抓的快照。每天只补近 2 天新料、自动淘汰超期旧料，token/耗时砍到约 1/5～1/10。全量重抓降级为兜底（首次建池/长期没跑/口径大改时才用）。详见 `PLAYBOOK.md` 第〇节。
+
+完整步骤见 `PLAYBOOK.md`，速记（增量模式）：
 1. 读 README + PROJECT_STATUS（带上下文）
-2. 按 PLAYBOOK 派子 agent 抓取（带 AGENTS.md 全套铁律 + SOURCES.md 信源）
-3. 汇总去重 → 按时效剔除超期 → 写入 data.json
-4. `python3 validate.py` 自检全过 + `python3 linkcheck.py` 死链检测
+2. 以上一版 data.json 为基础池，按 PLAYBOOK 派子 agent **只抓近 2 天新料**（带 AGENTS.md 铁律 + SOURCES.md 信源）
+3. 新料与池子去重 → merge 进池 → 滚动淘汰超时效旧料 → 维度内日期倒序
+4. `python3 validate.py` 自检全过 + `python3 linkcheck.py`（聚焦本轮新增链接）
 5. `python3 archive.py` 归档当天数据 + 重建 manifest
 6. 更新 PROJECT_STATUS.md 状态表 + SOURCES.md 实测标记
 7. `git add -A && git commit && git push` → 自动部署
