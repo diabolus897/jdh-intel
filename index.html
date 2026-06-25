@@ -166,8 +166,8 @@ function renderBrief(dep){
   const secs=[...(b.sections||[])].sort((a,b2)=>DIM_ORDER.indexOf(a.dim)-DIM_ORDER.indexOf(b2.dim));
   secs.forEach(s=>{
     const st=DIMSTYLE[s.dim]||["#5F5E5A","#F1EFE8"];
-    // 即时零售：竞对动态用卡片化布局（O2O 层 + 连锁药店层）
-    if(b.layout==="instant" && s.layers){
+    // 卡片化布局（即时零售/医药竞对等）：section 含 layers 即走卡片渲染
+    if(b.layout && s.layers){
       const n=s.layers.reduce((a,l)=>a+(l.cards||[]).length,0);
       h+=`<div class="sec"><div class="sec-h" onclick="this.parentNode.classList.toggle('collapsed')">
         <span class="sec-bar" style="background:${st[0]}"></span><span class="sec-t">${s.dim}</span>
@@ -196,7 +196,7 @@ function renderLayers(layers){
   let h='';
   layers.forEach(layer=>{
     const cards=layer.cards||[];
-    h+=`<div class="layer-lbl"><span class="lb-dot"></span>${esc(layer.title)}<span class="lb-c">${cards.length} 家</span></div>`;
+    if(layer.title) h+=`<div class="layer-lbl"><span class="lb-dot"></span>${esc(layer.title)}<span class="lb-c">${cards.length} 家</span></div>`;
     h+=`<div class="ccards ${layer.type==='chain'?'chain':'o2o'}">`;
     cards.forEach(c=>{
       h+=`<div class="ccard"><div class="cc-hd"><span class="cc-name">${esc(c.name)}</span>`;

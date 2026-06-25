@@ -62,8 +62,7 @@ def check_layers(did, dim, layers):
     for li, layer in enumerate(layers):
         if layer.get("type") not in ("o2o", "chain"):
             err(f"[{did}/{dim}] layers[{li}] type 应为 o2o/chain，实际 {layer.get('type')!r}")
-        if not layer.get("title"):
-            err(f"[{did}/{dim}] layers[{li}] 缺 title")
+        # title 可空（单层卡片如医药竞对不显示分层标签）；多层时建议给 title
         cards = layer.get("cards", [])
         if not isinstance(cards, list):
             err(f"[{did}/{dim}] layers[{li}] cards 不是数组")
@@ -167,8 +166,8 @@ def check(path="data.json"):
         cnt = []
         for s in sections:
             dim = s.get("dim", "?")
-            # 即时零售竞对：卡片化布局（layers），单独校验
-            if did == "instant" and "layers" in s:
+            # 竞对动态卡片化布局（layers）：即时零售/医药等部门可用，单独校验
+            if "layers" in s:
                 n = check_layers(did, dim, s["layers"])
                 cnt.append(f"{dim}:{n}卡")
                 continue
