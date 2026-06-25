@@ -46,7 +46,8 @@
                 "source": "中财网",
                 "date": "2026-06-24",
                 "url": "https://industry.cfi.cn/p20260624001926.html",
-                "takeaway": "放大秒送优势主推应急/夜间场景的解酒护肝、维C泡腾、助眠品。"
+                "takeaway": "放大秒送优势主推应急/夜间场景的解酒护肝、维C泡腾、助眠品。",
+                "firstSeen": "2026-06-24"
               },
               {
                 "title": "618天猫健康保健榜前三:汤臣倍健、万益蓝WONDERLAB、Swisse",
@@ -55,7 +56,8 @@
                 "source": "21世纪经济报道",
                 "date": "2026-06-17",
                 "url": "https://www.21jingji.com/article/20260617/herald/fa0ce23808f63ff9dc61a3bc0f4db53f.html",
-                "takeaway": "重点扶持益生菌头部与新锐(万益蓝/Swisse益生菌)抢日常养护增量。"
+                "takeaway": "重点扶持益生菌头部与新锐(万益蓝/Swisse益生菌)抢日常养护增量。",
+                "firstSeen": "2026-06-17"
               },
               {
                 "title": "Swisse抖音+71.4%,新锐FoYes蛋白粉登顶抖音GMV",
@@ -64,7 +66,18 @@
                 "source": "创业邦/新浪财经",
                 "date": "2026-06-17",
                 "url": "https://www.cyzone.cn/article/829913.html",
-                "takeaway": "蛋白粉被抖音原生新锐颠覆,建新锐雷达提前在京东孵化下一个FoYes。"
+                "takeaway": "蛋白粉被抖音原生新锐颠覆,建新锐雷达提前在京东孵化下一个FoYes。",
+                "firstSeen": "2026-06-17"
+              },
+              {
+                "title": "抖音618保健品类目数据:天猫国际进口补剂翻倍,京东滋补保健+22%领跑",
+                "rel": "mid",
+                "summary": "21世纪经济报道:天猫国际鱼油/婴童钙铁锌破亿且翻倍,口服抗衰/维D/氨糖成交翻倍,孕产妇钙铁锌翻3倍",
+                "source": "21世纪经济报道",
+                "date": "2026-06-17",
+                "url": "https://www.21jingji.com/article/20260617/herald/24e512531d06c592cebd7b6025b81b54.html",
+                "takeaway": "天猫国际进口补剂(鱼油/抗衰/孕产钙铁锌)是翻倍增长高确定性赛道,JDH跨境保健应补齐孕产妇钙铁锌、口服抗衰、辅酶Q10货盘(鱼油130-400元、辅酶Q10超300元为主销带)",
+                "firstSeen": "2026-06-17"
               },
               {
                 "title": "天猫国际跨境保健翻倍、00后增三成、益生菌成618明星",
@@ -73,7 +86,8 @@
                 "source": "网经社",
                 "date": "2026-06-03",
                 "url": "https://www.100ec.cn/detail--6659871.html",
-                "takeaway": "选品向护肝/助眠/口服美容/益生菌+跨境进口倾斜,锁定00后运营。"
+                "takeaway": "选品向护肝/助眠/口服美容/益生菌+跨境进口倾斜,锁定00后运营。",
+                "firstSeen": "2026-06-03"
               }
             ]
           },
@@ -87,7 +101,8 @@
                 "source": "市场监管总局",
                 "date": "2026-06-08",
                 "url": "https://www.samr.gov.cn/xw/sj/art/2026/art_1d2d9c6fa91244728b17b3ca5115e047.html",
-                "takeaway": "梳理330个已注册品中JDH未上架的临床急需/罕见病全营养品推招商。"
+                "takeaway": "梳理330个已注册品中JDH未上架的临床急需/罕见病全营养品推招商。",
+                "firstSeen": "2026-06-08"
               },
               {
                 "title": "海关总署第280号令(进口食品境外生产企业注册新规)6月1日施行",
@@ -96,7 +111,8 @@
                 "source": "经济观察网(转海关总署)",
                 "date": "2026-06-01",
                 "url": "http://www.eeo.com.cn/2026/0319/812863.shtml",
-                "takeaway": "核查一般贸易供应商境外注册资质是否齐备,规避6月后到货受阻。"
+                "takeaway": "核查一般贸易供应商境外注册资质是否齐备,规避6月后到货受阻。",
+                "firstSeen": "2026-06-01"
               },
               {
                 "title": "三部门印发《保健食品护老提升专项行动工作方案》",
@@ -105,7 +121,8 @@
                 "source": "市场监管总局",
                 "date": "2026-05-25",
                 "url": "https://www.samr.gov.cn/xw/sj/art/2026/art_c944f6167f55450cbeb7c306c186afcd.html",
-                "takeaway": "商分盯老年保健赛道,采销对接品牌方在研新功能管线锁首发。"
+                "takeaway": "商分盯老年保健赛道,采销对接品牌方在研新功能管线锁首发。",
+                "firstSeen": "2026-05-25"
               }
             ]
           },
@@ -119,7 +136,28 @@
                 "source": "经济观察网",
                 "date": "2026-06-22",
                 "url": "https://www.eeo.com.cn/2026/0624/927218.shtml",
-                "takeaway": "高蛋白即饮/肠道健康是巨头押注高增长赛道,提前锁进口品/国产平替招商。"
+                "takeaway": "高蛋白即饮/肠道健康是巨头押注高增长赛道,提前锁进口品/国产平替招商。",
+                "firstSeen": "2026-06-22"
+              },
+              {
+                "title": "汤臣倍健6/18公告:5000万投资原粒半导体(关联交易)",
+                "rel": "lo",
+                "summary": "财务性投资持股0.97%,标的为前沿科技、与主业无直接关联",
+                "source": "中财网(公告)",
+                "date": "2026-06-18",
+                "url": "https://stock.cfi.cn/p20260618001460.html",
+                "takeaway": "与采销无直接关系,仅作品牌方资金动向留档,无需动作",
+                "firstSeen": "2026-06-18"
+              },
+              {
+                "title": "汤臣倍健6/15IR:抖音+跨境定为2026重点渠道,行业60%+销售来自线上",
+                "rel": "hi",
+                "summary": "公司线上线下各半,天猫+京东约占线上六成、抖音不足两成,药店份额不足20%",
+                "source": "中财网(IR记录表)",
+                "date": "2026-06-15",
+                "url": "https://stock.cfi.cn/p20260615002789.html",
+                "takeaway": "龙头加码抖音/跨境=对京东渠道分流,争取其京东专供品/控价让利,稳住天猫京东合占六成的基本盘",
+                "firstSeen": "2026-06-15"
               },
               {
                 "title": "仁和药业实控人变更:杨文龙0元转让给其子杨潇",
@@ -128,7 +166,8 @@
                 "source": "每日经济新闻",
                 "date": "2026-06-11",
                 "url": "https://www.nbd.com.cn/articles/2026-06-11/4423842.html",
-                "takeaway": "仁和进入二代接班期战略或调整,观察其线上经销政策锁合作窗口。"
+                "takeaway": "仁和进入二代接班期战略或调整,观察其线上经销政策锁合作窗口。",
+                "firstSeen": "2026-06-11"
               },
               {
                 "title": "雀巢全资收购德国即饮代餐品牌yfood,估值约4.5亿欧元",
@@ -137,7 +176,8 @@
                 "source": "顶端新闻",
                 "date": "2026-06-03",
                 "url": "https://www.topnews.cn/news/145FD2E548BE4E74",
-                "takeaway": "即饮代餐被雀巢/达能同步重押,提前布局RTD代餐选品。"
+                "takeaway": "即饮代餐被雀巢/达能同步重押,提前布局RTD代餐选品。",
+                "firstSeen": "2026-06-03"
               }
             ]
           },
@@ -145,13 +185,24 @@
             "dim": "新品动态",
             "items": [
               {
+                "title": "拜耳印度推Alka-Seltzer益生菌+抗酸剂泡腾剂",
+                "rel": "lo",
+                "summary": "小苏打(Svarjiksara)+源自咖喱酪乳的乳酸菌,主打速效缓解+长期肠道养护,称印度首款阿育吠陀类含益生菌抗酸产品",
+                "source": "NutraIngredients",
+                "date": "2026-06-24",
+                "url": "https://www.nutraingredients.com/Article/2026/06/24/bayer-india-combines-probiotics-antacid-amid-rising-self-care-trend/",
+                "takeaway": "海外市场暂无引进价值;留意功能性益生菌+即时缓解复合配方思路,可在国内肠胃调理选品中关注同类组合",
+                "firstSeen": "2026-06-24"
+              },
+              {
                 "title": "Akkermansia Pro GLP-1 Probiotic — Designs for Health",
                 "rel": "hi",
                 "summary": "巴氏灭活Akkermansia+BPL1后生元合生制剂,主打天然GLP-1通路代谢与体重管理。",
                 "source": "NutraIngredients",
                 "date": "2026-06-23",
                 "url": "https://www.nutraingredients.com/Article/2026/06/23/june-launch-pad-targeted-life-stage-support-gut-health-and-multi-benefit-formulations-dominate/",
-                "takeaway": "核查京东是否已有Akk合生元SKU,GLP-1减重叙事最热,评估引入或自营。"
+                "takeaway": "核查京东是否已有Akk合生元SKU,GLP-1减重叙事最热,评估引入或自营。",
+                "firstSeen": "2026-06-23"
               },
               {
                 "title": "Flatter Me Fiber GLP-1 Booster — HUM Nutrition",
@@ -160,7 +211,8 @@
                 "source": "NutraIngredients",
                 "date": "2026-06-23",
                 "url": "https://www.nutraingredients.com/Article/2026/06/23/june-launch-pad-targeted-life-stage-support-gut-health-and-multi-benefit-formulations-dominate/",
-                "takeaway": "纤维+GLP-1助推是DTC新打法,评估国货跟进或引入HUM。"
+                "takeaway": "纤维+GLP-1助推是DTC新打法,评估国货跟进或引入HUM。",
+                "firstSeen": "2026-06-23"
               },
               {
                 "title": "Swanson更年期日夜版:黑升麻/醉茄/甘氨酸镁/茶氨酸",
@@ -169,7 +221,8 @@
                 "source": "NutraIngredients",
                 "date": "2026-06-23",
                 "url": "https://www.nutraingredients.com/Article/2026/06/23/june-launch-pad-targeted-life-stage-support-gut-health-and-multi-benefit-formulations-dominate/",
-                "takeaway": "京东更年期类目偏空白,评估引入专项SKU。"
+                "takeaway": "京东更年期类目偏空白,评估引入专项SKU。",
+                "firstSeen": "2026-06-23"
               }
             ]
           }
@@ -228,14 +281,16 @@
                         "summary": "医药自营296.65亿(+13.6%)占86%;推药品半日达、医学大模型氢离子;自营SKU增79%至220万。",
                         "date": "2026-05-14",
                         "source": "东方财富/金融界",
-                        "url": "https://finance.eastmoney.com/a/202605153737847236.html"
+                        "url": "https://finance.eastmoney.com/a/202605153737847236.html",
+                        "firstSeen": "2026-05-14"
                       },
                       {
                         "title": "阿里健康发力医药全栈+医学AI双轮,把闪购生态写进医药战略",
                         "summary": "构建远场电商/闪购生态/创新药/医疗服务/供应链全栈;履约升半日达;独家接入BMJ 70本期刊。",
                         "date": "2026-05-14",
                         "source": "金融界",
-                        "url": "https://finance.jrj.com.cn/2026/05/15001157093512.shtml"
+                        "url": "https://finance.jrj.com.cn/2026/05/15001157093512.shtml",
+                        "firstSeen": "2026-05-14"
                       }
                     ]
                   },
@@ -248,7 +303,32 @@
                         "summary": "618即时零售平台保健品订单同比超120%,解酒护肝、助眠等夜间高频。",
                         "date": "2026-06-24",
                         "source": "中财网",
-                        "url": "https://industry.cfi.cn/p20260624001926.html"
+                        "url": "https://industry.cfi.cn/p20260624001926.html",
+                        "firstSeen": "2026-06-24"
+                      },
+                      {
+                        "title": "618 即时零售 GMV 份额第一,下单用户破亿",
+                        "summary": "第三方星图/网经社:美团闪购 618 即时零售 GMV 份额第一,同比增长超 100%;下单用户超 1 亿,人均客单价同比 +40%,60 多个品类成交翻倍。",
+                        "date": "2026-06-23",
+                        "source": "东方财富网",
+                        "url": "https://caifuhao.eastmoney.com/news/20260623152444154960890",
+                        "firstSeen": "2026-06-23"
+                      },
+                      {
+                        "title": "高考期间联合连锁设买药服务站",
+                        "summary": "6 月 7 日高考首日,美团买药联合叮当快药、高济、海王星辰等在京/汉/苏设服务站,防暑降温及清热祛暑类药品销量走高。",
+                        "date": "2026-06-07",
+                        "source": "新京报",
+                        "url": "https://www.bjnews.com.cn/detail/1780835556169158.html",
+                        "firstSeen": "2026-06-07"
+                      },
+                      {
+                        "title": "Q1 即时零售减亏,非餐日订单逼近 2000 万",
+                        "summary": "美团 2026Q1 营收 910 亿(+5.6%),经营亏损由上季 161 亿收窄至 65 亿;分析估算非餐饮即时配送日订单量逼近 2000 万。",
+                        "date": "2026-06-04",
+                        "source": "腾讯新闻/新浪财经",
+                        "url": "https://news.qq.com/rain/a/20260604A071HJ00",
+                        "firstSeen": "2026-06-04"
                       },
                       {
                         "title": "美团买药618打反内卷主张'减轻购药负担'",
@@ -273,7 +353,8 @@
                 "source": "中国经济网/中国网财经",
                 "date": "2026-06-01",
                 "url": "http://finance.ce.cn/insurance1/scrollnews/202606/t20260601_3000999.shtml",
-                "takeaway": "商保创新药目录扩容利好高价创新药院外/线上放量,扩充网售可承接货盘。"
+                "takeaway": "商保创新药目录扩容利好高价创新药院外/线上放量,扩充网售可承接货盘。",
+                "firstSeen": "2026-06-01"
               },
               {
                 "title": "NMPA《处方药网络零售合规指南》5月25日出台",
@@ -282,7 +363,18 @@
                 "source": "江苏新闻/Pharmnet",
                 "date": "2026-05-26",
                 "url": "https://www.jsw.com.cn/2026/0526/1959297.shtml",
-                "takeaway": "直接命中京东核心业务,法务/合规第一时间研读指南全文。"
+                "takeaway": "直接命中京东核心业务,法务/合规第一时间研读指南全文。",
+                "firstSeen": "2026-05-26"
+              },
+              {
+                "title": "新版《药品管理法实施条例》实施",
+                "rel": "hi",
+                "summary": "国务院令828号,细化全链条监管,明确网络禁售药品清单(注射剂、特定单方制剂等)。",
+                "source": "国家药监局",
+                "date": "2026-05-15",
+                "url": "https://www.ccfdie.org/cn/gdxw/webinfo/2026/06/1782095812068025.htm",
+                "takeaway": "核对自营/平台SKU是否触及网络禁售清单,下架违规品规",
+                "firstSeen": "2026-05-15"
               },
               {
                 "title": "国家卫健委等推进医疗服务价格改革(背景跟踪)",
@@ -305,7 +397,28 @@
                 "source": "新浪财经",
                 "date": "2026-06-23",
                 "url": "https://finance.sina.com.cn/stock/usstock/summary/2026-06-23/doc-iniekqut6487728.shtml",
-                "takeaway": "大MNC并购整合密集,关注新管线落地国内后的院外渠道首发机会。"
+                "takeaway": "大MNC并购整合密集,关注新管线落地国内后的院外渠道首发机会。",
+                "firstSeen": "2026-06-23"
+              },
+              {
+                "title": "恒瑞瑞维鲁胺片上市申请获EMA受理",
+                "rel": "mid",
+                "summary": "首个自研创新药递交欧盟,适应症为高瘤负荷转移性激素敏感性前列腺癌。",
+                "source": "格隆汇",
+                "date": "2026-06-22",
+                "url": "https://www.gelonghui.com/news/5255402",
+                "takeaway": "恒瑞前列腺癌线产品国际化,跟踪国内同适应症布局",
+                "firstSeen": "2026-06-22"
+              },
+              {
+                "title": "诺华泰菲乐联合迈吉宁新适应症在华获批",
+                "rel": "mid",
+                "summary": "获批用于BRAF V600E突变阳性放射性碘难治性分化型甲状腺癌(RAIR-DTC)。",
+                "source": "医药魔方ByDrug",
+                "date": "2026-06-10",
+                "url": "https://bydrug.pharmcube.com/news/detail/400695f8839c7ebc30306fe2585f630c",
+                "takeaway": "诺华新增甲状腺癌精准用药,关注新特药专区上架",
+                "firstSeen": "2026-06-10"
               },
               {
                 "title": "礼来38.3亿美元同步收购三家疫苗Biotech",
@@ -314,7 +427,8 @@
                 "source": "医药魔方ByDrug",
                 "date": "2026-05-26",
                 "url": "https://bydrug.pharmcube.com/news/detail/32225a2c9f26f2b40fecf5fcb5bb9e09",
-                "takeaway": "礼来减肥药外补强疫苗/抗感染,作中长期产品布局观察点。"
+                "takeaway": "礼来减肥药外补强疫苗/抗感染,作中长期产品布局观察点。",
+                "firstSeen": "2026-05-26"
               }
             ]
           },
@@ -328,7 +442,8 @@
                 "source": "荆楚网/医药魔方",
                 "date": "2026-06-11",
                 "url": "http://news.cnhubei.com/content/2026-06/12/content_20030260.html",
-                "takeaway": "口服+罕见病适合院外长期用药,提前布局PNH专科药货盘与患者服务。"
+                "takeaway": "口服+罕见病适合院外长期用药,提前布局PNH专科药货盘与患者服务。",
+                "firstSeen": "2026-06-11"
               }
             ]
           }
@@ -380,7 +495,8 @@
                 "source": "Chn大健康网",
                 "date": "2026-06-22",
                 "url": "https://www.healthcarechn.com/h-nd-3214.html",
-                "takeaway": "守专业器械首选定位,把CGM/呼吸机做深,警惕淘天向家用医疗上探。"
+                "takeaway": "守专业器械首选定位,把CGM/呼吸机做深,警惕淘天向家用医疗上探。",
+                "firstSeen": "2026-06-22"
               },
               {
                 "title": "微泰医疗618战报:抖音CGM销售+200%,达人直播暴涨8175%",
@@ -389,7 +505,8 @@
                 "source": "中华网",
                 "date": "2026-06-22",
                 "url": "https://hea.china.com/articles/20260624/202606241900479.html",
-                "takeaway": "CGM破圈为健康消费品,达人直播是核心增量,京东重点签约CGM达人专场。"
+                "takeaway": "CGM破圈为健康消费品,达人直播是核心增量,京东重点签约CGM达人专场。",
+                "firstSeen": "2026-06-22"
               },
               {
                 "title": "抖音商城618:12万商家直播成交翻倍,中小达人贡献80%+",
@@ -398,7 +515,8 @@
                 "source": "网经社",
                 "date": "2026-06-22",
                 "url": "https://www.100ec.cn/detail--6660449.html",
-                "takeaway": "警惕白牌/中腰部达人对鱼跃/欧姆龙低价分流,纳入器械竞品监测。"
+                "takeaway": "警惕白牌/中腰部达人对鱼跃/欧姆龙低价分流,纳入器械竞品监测。",
+                "firstSeen": "2026-06-22"
               },
               {
                 "title": "厂商货盘异动:鱼跃推可穿戴医疗、可孚联手飞利浦/华为鸿蒙",
@@ -407,7 +525,18 @@
                 "source": "东方财富",
                 "date": "2026-06-04",
                 "url": "https://fund.eastmoney.com/a/202606043760410442.html",
-                "takeaway": "可穿戴医疗是下一增量,京东抢新品首发/独家,绑鸿蒙IoT健康生态。"
+                "takeaway": "可穿戴医疗是下一增量,京东抢新品首发/独家,绑鸿蒙IoT健康生态。",
+                "firstSeen": "2026-06-04"
+              },
+              {
+                "title": "鱼跃多款健康设备接入蚂蚁阿福健康管理系统",
+                "rel": "mid",
+                "summary": "鱼跃血糖仪/血压计/呼吸机部分型号经授权后数据可同步至蚂蚁阿福个人健康档案",
+                "source": "东方财富(证券日报)",
+                "date": "2026-06-04",
+                "url": "https://fund.eastmoney.com/a/202606043760431779.html",
+                "takeaway": "阿里系(蚂蚁)正以健康数据中台绑定器械厂商,JDH应加快对鱼跃等头部品牌的同等深度接入,防止数据入口被截胡",
+                "firstSeen": "2026-06-04"
               }
             ]
           },
@@ -421,7 +550,8 @@
                 "source": "江苏检察网",
                 "date": "2026-06-23",
                 "url": "https://www.jsjc.gov.cn/yaowen/202606/t20260623_1339067.shtml",
-                "takeaway": "自查在售商家三类经营许可+注册证,下架三无品,防未成年销售风险。"
+                "takeaway": "自查在售商家三类经营许可+注册证,下架三无品,防未成年销售风险。",
+                "firstSeen": "2026-06-23"
               },
               {
                 "title": "第六批高值耗材国采(药涂球囊+泌尿介入)各省密集落地",
@@ -430,7 +560,8 @@
                 "source": "内蒙古日报",
                 "date": "2026-06-04",
                 "url": "http://szb.northnews.cn/nmgrb/html/2026-06/05/content_56898_281495.htm",
-                "takeaway": "平台同品类挂网价对标避免倒挂,关注落标厂商转院外/电商清库存机会。"
+                "takeaway": "平台同品类挂网价对标避免倒挂,关注落标厂商转院外/电商清库存机会。",
+                "firstSeen": "2026-06-04"
               },
               {
                 "title": "NMPA发布医疗器械分类调整两份新政(第52/53号公告)",
@@ -439,7 +570,8 @@
                 "source": "上海药监局转载",
                 "date": "2026-05-29",
                 "url": "https://yjj.sh.gov.cn/qtgzwj/20260601/0a62a32a100b49e89ddc56008ef8d11d.html",
-                "takeaway": "建分类变动监测,对降类品类预警补证,把握升类新增可上架品类招商窗口。"
+                "takeaway": "建分类变动监测,对降类品类预警补证,把握升类新增可上架品类招商窗口。",
+                "firstSeen": "2026-05-29"
               }
             ]
           },
@@ -453,7 +585,8 @@
                 "source": "证券之星",
                 "date": "2026-06-18",
                 "url": "https://stock.stockstar.com/RB2026061800022302.shtml",
-                "takeaway": "九安CGM+AI叙事升温、美国渠道强,提前接触其家用血糖/检测新品国内首发。"
+                "takeaway": "九安CGM+AI叙事升温、美国渠道强,提前接触其家用血糖/检测新品国内首发。",
+                "firstSeen": "2026-06-18"
               },
               {
                 "title": "鱼跃医疗:完成首次股份回购(2-4亿元方案,用于注销)",
@@ -462,7 +595,8 @@
                 "source": "北京商报",
                 "date": "2026-06-11",
                 "url": "https://www.bbtnews.com.cn/2026/0611/596003.shtml",
-                "takeaway": "借其线下收缩窗口博更优渠道返利。"
+                "takeaway": "借其线下收缩窗口博更优渠道返利。",
+                "firstSeen": "2026-06-11"
               },
               {
                 "title": "三诺生物:CGM海外破亿并盈利,二代过欧盟MDR,新增多国注册",
@@ -471,7 +605,8 @@
                 "source": "经济观察网",
                 "date": "2026-06-10",
                 "url": "http://www.eeo.com.cn/2026/0610/910247.shtml",
-                "takeaway": "三诺是国产CGM性价比标杆,iCan系列可作京东CGM主推国产款。"
+                "takeaway": "三诺是国产CGM性价比标杆,iCan系列可作京东CGM主推国产款。",
+                "firstSeen": "2026-06-10"
               }
             ]
           },
@@ -485,7 +620,8 @@
                 "source": "中国贸促会南京",
                 "date": "2026-06-17",
                 "url": "https://ccpit.nanjing.gov.cn/jmzx/202606/t20260617_5861772.html",
-                "takeaway": "免处方CGM向儿童破圈,前瞻布局非胰岛素+儿童家用CGM,把易用性作差异化。"
+                "takeaway": "免处方CGM向儿童破圈,前瞻布局非胰岛素+儿童家用CGM,把易用性作差异化。",
+                "firstSeen": "2026-06-17"
               },
               {
                 "title": "家用康复/中医理疗集群获二类证(翔宇低频电治疗仪等)",
@@ -494,7 +630,8 @@
                 "source": "河南药监局",
                 "date": "2026-06-05",
                 "url": "https://yjj.henan.gov.cn/2026/06-08/3363157.html",
-                "takeaway": "上市康复企业家用化是下沉信号,对接家用康复/中医理疗专区绑慢病人群。"
+                "takeaway": "上市康复企业家用化是下沉信号,对接家用康复/中医理疗专区绑慢病人群。",
+                "firstSeen": "2026-06-05"
               },
               {
                 "title": "耳内/耳背式助听器(欧仕达听力)获二类证",
@@ -503,7 +640,8 @@
                 "source": "福建药监局",
                 "date": "2026-06-05",
                 "url": "https://yjj.scjgj.fujian.gov.cn/zwgk/gstg/xzxkgg/202606/t20260605_7159735.htm",
-                "takeaway": "助听器是国家鼓励OTC化的高潜银发品类,设专区做适老化招商+听力自测引流。"
+                "takeaway": "助听器是国家鼓励OTC化的高潜银发品类,设专区做适老化招商+听力自测引流。",
+                "firstSeen": "2026-06-05"
               },
               {
                 "title": "雅培全球首款葡萄糖-酮体双传感CGM获欧盟CE",
@@ -512,7 +650,8 @@
                 "source": "雅培官方新闻室",
                 "date": "2026-05-27",
                 "url": "https://www.abbott.com/corpnewsroom/diabetes-care.html",
-                "takeaway": "CGM进入多标志物阶段(防DKA),国内无对标,关注入华作高端CGM招商前瞻。"
+                "takeaway": "CGM进入多标志物阶段(防DKA),国内无对标,关注入华作高端CGM招商前瞻。",
+                "firstSeen": "2026-05-27"
               }
             ]
           }
@@ -558,13 +697,24 @@
             "dim": "竞对动态",
             "items": [
               {
+                "title": "美瞳成隐形眼镜增长最快细分:增速34%,国货新锐主导、国际大牌掉队",
+                "rel": "hi",
+                "summary": "彩色隐形(美瞳)增速34%远超透明片;线上头部为moody/可啦啦等国货,强生博士伦仅列第8、9",
+                "source": "前瞻产业研究院",
+                "date": "2026-06-22",
+                "url": "https://xw.qianzhan.com/analyst/detail/220/260617-6363a7f3.html",
+                "takeaway": "选品向moody/可啦啦等国货新锐倾斜,详情页突出上眼展示+妆容搭配内容,匹配年轻女性风格化决策",
+                "firstSeen": "2026-06-22"
+              },
+              {
                 "title": "美团医美上线在线预约,覆盖1500+商家、240+城市",
                 "rel": "mid",
                 "summary": "美团医美推出全流程线上预约(可约/可改/有记录),已覆盖超1500家商家、240多城,7月将上线可约门店筛选",
                 "source": "网经社",
                 "date": "2026-06-11",
                 "url": "https://www.100ec.cn/detail--6660140.html",
-                "takeaway": "美团医美生态深化拉动院线术后修复器械/敷料需求,可作医美关联器械选品风向标,相关性中等"
+                "takeaway": "美团医美生态深化拉动院线术后修复器械/敷料需求,可作医美关联器械选品风向标,相关性中等",
+                "firstSeen": "2026-06-11"
               },
               {
                 "title": "美团618械字号医用敷料/修复喷雾销量翻倍,敷料+家用器械进健康增速前三",
@@ -573,7 +723,28 @@
                 "source": "21世纪经济报道",
                 "date": "2026-06-10",
                 "url": "https://www.21jingji.com/article/20260610/herald/d7161f7468a4124743bc4c7653af1d9b.html",
-                "takeaway": "美团即时零售把敷料+家用器械做成618增长极,京东到家应在医美敷料、家用监测器械加大小时达备货与控价。注:数据为天猫医药+美团买药合并口径"
+                "takeaway": "美团即时零售把敷料+家用器械做成618增长极,京东到家应在医美敷料、家用监测器械加大小时达备货与控价。注:数据为天猫医药+美团买药合并口径",
+                "firstSeen": "2026-06-10"
+              },
+              {
+                "title": "杰士邦天猫618成人计生类目成交TOP1,反超杜蕾斯",
+                "rel": "hi",
+                "summary": "天猫618成人计生品牌成交榜第一超杜蕾斯,并进天猫健康行业总榜TOP10,为唯一两性健康品牌",
+                "source": "艾瑞网",
+                "date": "2026-06-08",
+                "url": "https://news.iresearch.cn/yx/2026/06/557366.shtml",
+                "takeaway": "杰士邦在阿里端完成对杜蕾斯反超,JDH应评估其在京东端资源倾斜,避免阿里独占其上升势能",
+                "firstSeen": "2026-06-08"
+              },
+              {
+                "title": "隐形眼镜线上渠道格局:淘系50%、抖音30%、京东20%三足鼎立",
+                "rel": "hi",
+                "summary": "2025年隐形眼镜线上占比80%;电商份额淘系50%、抖音30%跃居第二、京东20%列第三",
+                "source": "前瞻产业研究院",
+                "date": "2026-06-01",
+                "url": "https://xw.qianzhan.com/analyst/detail/220/260528-fed04a37.html",
+                "takeaway": "京东隐形眼镜线上仅20%、落后抖音10个百分点。采销应强化美瞳内容化与达人种草,争夺18-34岁年轻女性,并评估小时达增量场景",
+                "firstSeen": "2026-06-01"
               },
               {
                 "title": "阿里把即时零售列为核心战略支柱,非餐零售订单增至去年3倍",
@@ -582,7 +753,8 @@
                 "source": "钛媒体",
                 "date": "2026-05-20",
                 "url": "https://www.tmtpost.com/8015952.html",
-                "takeaway": "阿里把即时零售提到战略最高位,警惕隐形眼镜/计生高频刚需被闪购补贴撬动,京东到家供给与价格优势需重估"
+                "takeaway": "阿里把即时零售提到战略最高位,警惕隐形眼镜/计生高频刚需被闪购补贴撬动,京东到家供给与价格优势需重估",
+                "firstSeen": "2026-05-20"
               },
               {
                 "title": "阿里健康FY2026财报:平台商家+26%、自营SKU+79%,确立医药全栈战略",
@@ -591,7 +763,8 @@
                 "source": "网易科技/金融界",
                 "date": "2026-05-14",
                 "url": "https://www.163.com/tech/article/KSTKNT2H00098IEO.html",
-                "takeaway": "对手供给快速扩张挤压消费器械招商窗口,JDH须对标品类丰富度与会员复购,重点防守头部品牌独家。注:财报未单列医疗器械"
+                "takeaway": "对手供给快速扩张挤压消费器械招商窗口,JDH须对标品类丰富度与会员复购,重点防守头部品牌独家。注:财报未单列医疗器械",
+                "firstSeen": "2026-05-14"
               }
             ]
           },
@@ -599,13 +772,24 @@
             "dim": "政策动态",
             "items": [
               {
+                "title": "近视防控镜乱象遭曝光,市监总局督促江苏河南核查",
+                "rel": "hi",
+                "summary": "媒体曝防控镜价格暴利、验光造假、以次充好,市监总局督促两地市监部门核查涉事门店",
+                "source": "中华网",
+                "date": "2026-06-17",
+                "url": "https://news.china.com/socialgd/10000169/20260617/49554371.html",
+                "takeaway": "防控镜/视力训练类目进监管高压区,采销须立即复核功效宣称,删除暗示延缓度数加深等医疗效果措辞",
+                "firstSeen": "2026-06-17"
+              },
+              {
                 "title": "河南药监械质量公告:中药熏蒸仪、磁疗贴抽检不合格",
                 "rel": "mid",
                 "summary": "5/29公告,陕西舒馫熏蒸仪因缺水报警功能、河南天中堂磁疗贴因药物成分不合格,已移交处置",
                 "source": "河南省药监局",
                 "date": "2026-05-29",
                 "url": "https://news.123ypw.com/content-40829.html",
-                "takeaway": "康复理疗/中医保健器械抽检趋严,采销选品须核验供应商抽检记录,优先有注册证+检测达标品牌"
+                "takeaway": "康复理疗/中医保健器械抽检趋严,采销选品须核验供应商抽检记录,优先有注册证+检测达标品牌",
+                "firstSeen": "2026-05-29"
               },
               {
                 "title": "医保个账白名单原文:面膜/隐形眼镜等不得纳入药店个账支付(5/19原文)",
@@ -614,7 +798,8 @@
                 "source": "北大法宝(政策原文)",
                 "date": "2026-05-19",
                 "url": "https://www.pkulaw.com/chl/ee23fd9537ad7dbabdfb.html",
-                "takeaway": "此为械字号面膜不进个账的源头文件,且明确含隐形眼镜。医用敷料+隐形眼镜药店医保卖点失效,采销预判线下转线上承接机会"
+                "takeaway": "此为械字号面膜不进个账的源头文件,且明确含隐形眼镜。医用敷料+隐形眼镜药店医保卖点失效,采销预判线下转线上承接机会",
+                "firstSeen": "2026-05-19"
               },
               {
                 "title": "全国定点药店医保基金专项飞检启动,周期2026-2028",
@@ -623,7 +808,8 @@
                 "source": "新华网",
                 "date": "2026-05-14",
                 "url": "http://www.hq.xinhuanet.com/20260531/7324cd5dbcfd427fa10597b087fb0965/c.html",
-                "takeaway": "飞检常态化叠加个账白名单,药店串换刷械字号路径被双重封堵,隐形眼镜/敷料/计生药店结算合规风险上升,自营合规承接是机会点"
+                "takeaway": "飞检常态化叠加个账白名单,药店串换刷械字号路径被双重封堵,隐形眼镜/敷料/计生药店结算合规风险上升,自营合规承接是机会点",
+                "firstSeen": "2026-05-14"
               },
               {
                 "title": "重庆悦鹿视光因无证生产销售视知觉训练治疗软件被罚",
@@ -632,7 +818,8 @@
                 "source": "重庆市药监局",
                 "date": "2026-04-20",
                 "url": "http://yaojianju.cq.gov.cn/zwgk_217/fdzdgknr/xzcf/xzcfjd/202604/t20260421_15625447.html",
-                "takeaway": "视力辅助是监管高压区,视知觉/弱视训练软件明确按II类械管,京东招商须严查注册证,无证软件是合规雷区"
+                "takeaway": "视力辅助是监管高压区,视知觉/弱视训练软件明确按II类械管,京东招商须严查注册证,无证软件是合规雷区",
+                "firstSeen": "2026-04-20"
               }
             ]
           },
@@ -646,7 +833,18 @@
                 "source": "智通财经",
                 "date": "2026-06-24",
                 "url": "https://www.zhitongcaijing.com/content/detail/1457917.html",
-                "takeaway": "巨子从敷料/护肤切入注射医美闭环,同品牌势能外溢,留意可复美敷料联动营销与新品引流。品类属注射非敷料"
+                "takeaway": "巨子从敷料/护肤切入注射医美闭环,同品牌势能外溢,留意可复美敷料联动营销与新品引流。品类属注射非敷料",
+                "firstSeen": "2026-06-24"
+              },
+              {
+                "title": "锦波生物创始人杨霞卸任总经理,前GSK高管高嵩接任",
+                "rel": "mid",
+                "summary": "6月23日聘原GSK中国高管高嵩任总经理,杨霞仍任董事长持股53.89%,2025营收15.95亿+10.6%",
+                "source": "中财网",
+                "date": "2026-06-23",
+                "url": "https://www.cfi.net.cn/p20260623000742.html",
+                "takeaway": "重组胶原蛋白原料龙头引入职业经理人,商业化或提速,关注其械字号自有品牌动向,可提前接触原料级合作",
+                "firstSeen": "2026-06-23"
               },
               {
                 "title": "ST人福(杰士邦母公司)调整2026定增,控股股东招商生科认购输血",
@@ -655,7 +853,8 @@
                 "source": "财中社",
                 "date": "2026-06-18",
                 "url": "https://stock.cfi.cn/p20260618001384.html",
-                "takeaway": "杰士邦母公司处保壳+资本运作期,结合618反超杜蕾斯战绩,可借势谈深度合作争独家/包销;同时关注母公司财务承压下供货稳定性"
+                "takeaway": "杰士邦母公司处保壳+资本运作期,结合618反超杜蕾斯战绩,可借势谈深度合作争独家/包销;同时关注母公司财务承压下供货稳定性",
+                "firstSeen": "2026-06-18"
               },
               {
                 "title": "未来穿戴(SKG母公司)港股招股书失效,中信建投国际独家保荐",
@@ -664,7 +863,18 @@
                 "source": "智通财经",
                 "date": "2026-06-17",
                 "url": "https://www.zhitongcaijing.com/content/detail/1455270.html",
-                "takeaway": "SKG是京东康复理疗类目头部供给,招股书失效反映上市节奏受阻,关注其后续是否调整价盘/渠道策略冲量"
+                "takeaway": "SKG是京东康复理疗类目头部供给,招股书失效反映上市节奏受阻,关注其后续是否调整价盘/渠道策略冲量",
+                "firstSeen": "2026-06-17"
+              },
+              {
+                "title": "敷尔佳拟新增'医疗器械互联网信息服务'经营范围",
+                "rel": "mid",
+                "summary": "6月9日董事会通过增加经营范围议案,6月25日临时股东会审议,指向线上业务加码",
+                "source": "中财网",
+                "date": "2026-06-09",
+                "url": "https://stock.cfi.cn/p20260609000510.html",
+                "takeaway": "敷尔佳加码线上自营,JDH应主动对接其线上化诉求争取首发/联合营销,防止流量倒向抖音自播",
+                "firstSeen": "2026-06-09"
               },
               {
                 "title": "倍轻松2026Q1净利亏损同比扩大535%,营销驱动模式承压",
@@ -673,7 +883,8 @@
                 "source": "证券之星",
                 "date": "2026-04-30",
                 "url": "https://stock.stockstar.com/RB2026043000010612.shtml",
-                "takeaway": "颈/肩部产品收入持续下滑、营销模式脆弱,头部品牌方承压意味类目景气度低,京东可借势谈账期或推白牌补位"
+                "takeaway": "颈/肩部产品收入持续下滑、营销模式脆弱,头部品牌方承压意味类目景气度低,京东可借势谈账期或推白牌补位",
+                "firstSeen": "2026-04-30"
               },
               {
                 "title": "巨子生物2025年报上市以来首次双降,可复美下半年下滑约22%",
@@ -682,7 +893,8 @@
                 "source": "东方财富",
                 "date": "2026-04-02",
                 "url": "https://finance.eastmoney.com/a/202604023693413956.html",
-                "takeaway": "头部品牌承压、研发占比仅1.6%,采销议价空间扩大;关注可复美在京东渠道的控价与流量补贴诉求。注:年报披露超30天,作竞对基本面背景"
+                "takeaway": "头部品牌承压、研发占比仅1.6%,采销议价空间扩大;关注可复美在京东渠道的控价与流量补贴诉求。注:年报披露超30天,作竞对基本面背景",
+                "firstSeen": "2026-04-02"
               }
             ]
           },
@@ -696,7 +908,8 @@
                 "source": "网易号(转载)",
                 "date": "2026-06-12",
                 "url": "https://c.m.163.com/news/a/KV8M6UBU05568W0A.html",
-                "takeaway": "中医保健器械从手动器具备案向电动仪器注册升级、门槛抬高,翔宇以正规军身份切入C端,可作合规艾灸仪招商标杆。建议NMPA二次核验"
+                "takeaway": "中医保健器械从手动器具备案向电动仪器注册升级、门槛抬高,翔宇以正规军身份切入C端,可作合规艾灸仪招商标杆。建议NMPA二次核验",
+                "firstSeen": "2026-06-12"
               }
             ]
           }
@@ -755,7 +968,32 @@
                         "summary": "618即时零售平台保健品订单同比超120%,解酒护肝、助眠等夜间高频。",
                         "date": "2026-06-24",
                         "source": "中财网",
-                        "url": "https://industry.cfi.cn/p20260624001926.html"
+                        "url": "https://industry.cfi.cn/p20260624001926.html",
+                        "firstSeen": "2026-06-24"
+                      },
+                      {
+                        "title": "618 即时零售 GMV 份额第一,下单用户破亿",
+                        "summary": "第三方星图/网经社:美团闪购 618 即时零售 GMV 份额第一,同比增长超 100%;下单用户超 1 亿,人均客单价同比 +40%,60 多个品类成交翻倍。",
+                        "date": "2026-06-23",
+                        "source": "东方财富网",
+                        "url": "https://caifuhao.eastmoney.com/news/20260623152444154960890",
+                        "firstSeen": "2026-06-23"
+                      },
+                      {
+                        "title": "高考期间联合连锁设买药服务站",
+                        "summary": "6 月 7 日高考首日,美团买药联合叮当快药、高济、海王星辰等在京/汉/苏设服务站,防暑降温及清热祛暑类药品销量走高。",
+                        "date": "2026-06-07",
+                        "source": "新京报",
+                        "url": "https://www.bjnews.com.cn/detail/1780835556169158.html",
+                        "firstSeen": "2026-06-07"
+                      },
+                      {
+                        "title": "Q1 即时零售减亏,非餐日订单逼近 2000 万",
+                        "summary": "美团 2026Q1 营收 910 亿(+5.6%),经营亏损由上季 161 亿收窄至 65 亿;分析估算非餐饮即时配送日订单量逼近 2000 万。",
+                        "date": "2026-06-04",
+                        "source": "腾讯新闻/新浪财经",
+                        "url": "https://news.qq.com/rain/a/20260604A071HJ00",
+                        "firstSeen": "2026-06-04"
                       },
                       {
                         "title": "美团买药618打反内卷主张'减轻购药负担'",
@@ -775,14 +1013,16 @@
                         "summary": "联合北京白求恩公益基金会、阿里健康公益及参天/齐鲁/恒瑞等药企,推主动健康管理。",
                         "date": "2026-06-06",
                         "source": "澎湃新闻",
-                        "url": "https://m.thepaper.cn/newsDetail_forward_165507"
+                        "url": "https://m.thepaper.cn/newsDetail_forward_165507",
+                        "firstSeen": "2026-06-06"
                       },
                       {
                         "title": "淘宝闪购爱眼日眼科用药销量攀升、眼护产品同比翻倍",
                         "summary": "借6·6爱眼日,眼科用药攀升;主打医保购药+7×24 AI找药+问医生闭环,设夜间护眼专场。",
                         "date": "2026-06-05",
                         "source": "中华网科技",
-                        "url": "https://m.tech.china.com/digi/articles/20260605/202606051886912.html"
+                        "url": "https://m.tech.china.com/digi/articles/20260605/202606051886912.html",
+                        "firstSeen": "2026-06-05"
                       }
                     ]
                   }
@@ -848,14 +1088,32 @@
                         "summary": "拟召开业绩说明会,回应商誉减值、门店与加盟战略等。",
                         "date": "2026-06-22",
                         "source": "巨潮资讯",
-                        "url": "http://www.cninfo.com.cn/new/disclosure/detail?orgId=9900023762&announcementId=1225380259&announcementTime=2026-06-22%2016:00"
+                        "url": "http://www.cninfo.com.cn/new/disclosure/detail?orgId=9900023762&announcementId=1225380259&announcementTime=2026-06-22%2016:00",
+                        "firstSeen": "2026-06-22"
+                      },
+                      {
+                        "title": "直营坪效逐季攀升,2026 中期分红获授权",
+                        "summary": "直营门店坪效从 2025 前三季度 47 元/㎡升至 2026Q1 的 49.4 元/㎡;2025 年分红 3.11 亿(占归母净利 81.48%),通过 2026 中期分红授权议案。",
+                        "date": "2026-06-19",
+                        "source": "东方财富网",
+                        "url": "https://finance.eastmoney.com/a/202606193776814781.html",
+                        "firstSeen": "2026-06-19"
+                      },
+                      {
+                        "title": "股东会推 「关系型」门店转型,应对行业出清",
+                        "summary": "6 月 18 日长沙股东会,董事长谢子龙解读《处方药网络零售合规指南》压实平台合规;引中康数据 2025 年药店行业净减 2.2 万家、头部市占率有望提升;约 1.5 万家门店推向「关系型」转型。",
+                        "date": "2026-06-18",
+                        "source": "网易/东方财富",
+                        "url": "https://m.163.com/dy/article/KVO8KAD705198CJN.html",
+                        "firstSeen": "2026-06-18"
                       },
                       {
                         "title": "机构交流纪要披露15,001家门店等经营数据",
                         "summary": "2026Q1末总店15,001(直营9,622+加盟5,379),另有联盟门店22,768家。",
                         "date": "2026-06-05",
                         "source": "巨潮资讯",
-                        "url": "http://www.cninfo.com.cn/new/disclosure/detail?orgId=9900023762&announcementId=1225354890&announcementTime=2026-06-05%2016:00"
+                        "url": "http://www.cninfo.com.cn/new/disclosure/detail?orgId=9900023762&announcementId=1225354890&announcementTime=2026-06-05%2016:00",
+                        "firstSeen": "2026-06-05"
                       }
                     ]
                   },
@@ -911,7 +1169,8 @@
                         "summary": "就门店扩张节奏、盈利质量等与投资者交流。",
                         "date": "2026-05-15",
                         "source": "巨潮资讯",
-                        "url": "http://www.cninfo.com.cn/new/disclosure/detail?orgId=9900023775&announcementId=1225308196&announcementTime=2026-05-15%2016:00"
+                        "url": "http://www.cninfo.com.cn/new/disclosure/detail?orgId=9900023775&announcementId=1225308196&announcementTime=2026-05-15%2016:00",
+                        "firstSeen": "2026-05-15"
                       }
                     ]
                   },
@@ -968,14 +1227,16 @@
                         "summary": "较上年评级无变化。",
                         "date": "2026-06-25",
                         "source": "证券时报",
-                        "url": "https://epaper.stcn.com/con/202606/25/content_2941905.html"
+                        "url": "https://epaper.stcn.com/con/202606/25/content_2941905.html",
+                        "firstSeen": "2026-06-25"
                       },
                       {
                         "title": "2025年度权益分派:每股派现0.49元,大参转债6/17起停止转股",
                         "summary": "权益分派实施,大参转债同步停止转股提示。",
                         "date": "2026-06-11",
                         "source": "中国证券报",
-                        "url": "https://paper.cnstock.com/html/2026-06/11/content_2230148.htm"
+                        "url": "https://paper.cnstock.com/html/2026-06/11/content_2230148.htm",
+                        "firstSeen": "2026-06-11"
                       }
                     ]
                   }
@@ -986,6 +1247,16 @@
           {
             "dim": "政策动态",
             "items": [
+              {
+                "title": "国家药监局发布《处方药网络零售合规指南》,禁秒开处方",
+                "rel": "hi",
+                "summary": "5 月 25 日发布,四章 42 条,要求实名购药、配备药师、严禁 AI 替代审方,压实平台资质审核责任。",
+                "source": "时代周报",
+                "date": "2026-05-25",
+                "url": "https://www.time-weekly.com/post/329771",
+                "takeaway": "减重药/防脱/ED 等热销品线上销售将受限,JDH 需即刻自查买药秒送审方流程与平台合规,把线上线下一致落到商品与药师配置上",
+                "firstSeen": "2026-05-25"
+              },
               {
                 "title": "处方流转电子化监管口径持续约束O2O外配处方",
                 "rel": "mid",
@@ -1007,7 +1278,18 @@
                 "source": "华声在线",
                 "date": "2026-06-17",
                 "url": "https://hunan.voc.com.cn/news/202606/32970195.html",
-                "takeaway": "AI药师99.6%是对外标杆,把能力开放给入驻药店巩固平台赋能心智。"
+                "takeaway": "AI药师99.6%是对外标杆,把能力开放给入驻药店巩固平台赋能心智。",
+                "firstSeen": "2026-06-17"
+              },
+              {
+                "title": "新石器 X6 无人车跑通医药仓-店-人全链路配送",
+                "rel": "hi",
+                "summary": "恒温车厢支持全天候配送,石家庄 120 店落地、综合成本降 64%,九州通跑通仓到店并向仓到医院延伸。",
+                "source": "中国经济新闻网",
+                "date": "2026-05-29",
+                "url": "https://www.cet.com.cn/chanjpd/10380009.shtml",
+                "takeaway": "无人化前置仓/末端配送已从试点转向规模化,JDH 应跟踪新石器等运力供应商合作窗口,在自营前置仓体系评估无人接驳的成本拐点",
+                "firstSeen": "2026-05-29"
               }
             ]
           },
@@ -1021,7 +1303,8 @@
                 "source": "中财网",
                 "date": "2026-06-24",
                 "url": "https://industry.cfi.cn/p20260624001926.html",
-                "takeaway": "即时零售是核心增长极,强化夜间运力+解酒护肝/维生素前置仓选品。"
+                "takeaway": "即时零售是核心增长极,强化夜间运力+解酒护肝/维生素前置仓选品。",
+                "firstSeen": "2026-06-24"
               },
               {
                 "title": "即时零售迈入万亿、医药增速31.3%领跑大盘",
@@ -1030,7 +1313,18 @@
                 "source": "中商情报网/医药魔方",
                 "date": "2026-06-23",
                 "url": "https://m.askci.com/news/chanye/20260623/094517278217911838857888.shtml",
-                "takeaway": "医药即时零售是存量时代核心增长极,可作内部立项/资源争取论据。"
+                "takeaway": "医药即时零售是存量时代核心增长极,可作内部立项/资源争取论据。",
+                "firstSeen": "2026-06-23"
+              },
+              {
+                "title": "医药国企发布并购需求:零售标的线上线下一体化能力优先",
+                "rel": "mid",
+                "summary": "广州产权交易所 6 月信息,某医药国企寻并购批发/零售/器械批发标的,净利一般不低于 1 亿。",
+                "source": "网易(广州产权交易所)",
+                "date": "2026-06-11",
+                "url": "https://bendi.news.163.com/guangdong/26/0611/17/KV5LV8AV04179NPJ.html",
+                "takeaway": "资本明确为 O2O 一体化能力定价,JDH 可关注区域连锁整合机会,具备线上运营能力的标的议价空间上升",
+                "firstSeen": "2026-06-11"
               }
             ]
           }
@@ -1076,13 +1370,24 @@
             "dim": "竞对动态",
             "items": [
               {
+                "title": "新氧联手阿里健康推出医美术后护理包,切入院线护肤",
+                "rel": "mid",
+                "summary": "新氧院线品牌SOYOUNG CLINIC与阿里健康奈妍合作,推II类器械组合的光电术后分阶护理包",
+                "source": "中国经济网",
+                "date": "2026-06-18",
+                "url": "http://bgimg.ce.cn/cysc/newmain/yc/jsxw/202606/t20260618_3040039.shtml",
+                "takeaway": "竞对在打通医美术后居家护理标准化场景,JDH可在医美术后修护品类组货并绑定院线背书,抢用户全周期心智",
+                "firstSeen": "2026-06-18"
+              },
+              {
                 "title": "2026医美'合规元年',6月多部门纠风、射频纳三类械",
                 "rel": "hi",
                 "summary": "整治虚假宣传/违规诊疗/非法药械/价格乱象,叠加射频美容设备纳入三类械管理。",
                 "source": "中研网",
                 "date": "2026-06-12",
                 "url": "https://www.chinairn.com/news/20260612/101649484.shtml",
-                "takeaway": "强监管利好合规平台,把资质/广告合规/药械UDI溯源做成准入壁垒与招商话术。"
+                "takeaway": "强监管利好合规平台,把资质/广告合规/药械UDI溯源做成准入壁垒与招商话术。",
+                "firstSeen": "2026-06-12"
               },
               {
                 "title": "新氧Q1财报:营收+45.6%创新高,医美治疗服务+185.8%",
@@ -1091,7 +1396,8 @@
                 "source": "新浪财经/观察者网",
                 "date": "2026-05-26",
                 "url": "https://finance.sina.com.cn/roll/2026-05-26/doc-inhzfmyh2837600.shtml",
-                "takeaway": "新氧直营低价持续烧钱,验证轻平台+履约赋能更适合京东打法。"
+                "takeaway": "新氧直营低价持续烧钱,验证轻平台+履约赋能更适合京东打法。",
+                "firstSeen": "2026-05-26"
               },
               {
                 "title": "新氧门店扩至59家(16城),41店单店盈利",
@@ -1100,7 +1406,8 @@
                 "source": "网经社",
                 "date": "2026-05-22",
                 "url": "https://www.100ec.cn/detail--6659838.html",
-                "takeaway": "据16城布点研判到店项目区域热度,对接新氧体系机构做线上预约+到店核销。"
+                "takeaway": "据16城布点研判到店项目区域热度,对接新氧体系机构做线上预约+到店核销。",
+                "firstSeen": "2026-05-22"
               },
               {
                 "title": "美年大健康×佰泽医疗签战略合作,共建全周期闭环",
@@ -1109,7 +1416,8 @@
                 "source": "腾讯新闻(界面/经观)",
                 "date": "2026-05-18",
                 "url": "https://news.qq.com/rain/a/20260518A07LOP00",
-                "takeaway": "体检龙头自建检后诊疗下游闭环会截留需求,谈检后异常→京东在线问诊/轻医美承接。"
+                "takeaway": "体检龙头自建检后诊疗下游闭环会截留需求,谈检后异常→京东在线问诊/轻医美承接。",
+                "firstSeen": "2026-05-18"
               }
             ]
           },
@@ -1123,7 +1431,8 @@
                 "source": "国家医保局官网",
                 "date": "2026-06-08",
                 "url": "https://www.nhsa.gov.cn/art/2026/6/9/art_104_20892.html",
-                "takeaway": "监管延伸到培训/营销链条,对机构培训获客+虚假种草形成直接合规压力。"
+                "takeaway": "监管延伸到培训/营销链条,对机构培训获客+虚假种草形成直接合规压力。",
+                "firstSeen": "2026-06-08"
               }
             ]
           },
@@ -1137,7 +1446,8 @@
                 "source": "证券日报",
                 "date": "2026-06-18",
                 "url": "http://www.zqrb.cn/gscy/ggkx/2026-06-18/A1781773390072.html",
-                "takeaway": "再生/水光供给端更卷,Q3获批节点列入哨兵清单跟踪。"
+                "takeaway": "再生/水光供给端更卷,Q3获批节点列入哨兵清单跟踪。",
+                "firstSeen": "2026-06-18"
               },
               {
                 "title": "爱美客肉毒新品'橙动力UP脸'定档7-16上市",
@@ -1146,7 +1456,18 @@
                 "source": "东方财富财富号",
                 "date": "2026-06-18",
                 "url": "https://caifuhao.eastmoney.com/news/20260618221327362544340",
-                "takeaway": "爱美客切入肉毒赛道直冲四环乐提葆中档卡位,关注上市后O2O承接。"
+                "takeaway": "爱美客切入肉毒赛道直冲四环乐提葆中档卡位,关注上市后O2O承接。",
+                "firstSeen": "2026-06-18"
+              },
+              {
+                "title": "爱美客嗨体扩适应症:获批用于面部改善皮肤干燥、肤色暗沉",
+                "rel": "mid",
+                "summary": "注射用透明质酸钠复合溶液(嗨体)NMPA变更注册获批,适用范围从颈纹扩至面部真皮浅层改善肤质",
+                "source": "证券时报网",
+                "date": "2026-06-09",
+                "url": "https://www.stcn.com/article/detail/3951302.html",
+                "takeaway": "龙头单品适应症扩容打开面部水光新场景,JDH可推动嗨体面部新适应症的合规组货与内容种草,匹配水光抗衰需求",
+                "firstSeen": "2026-06-09"
               }
             ]
           },
@@ -1160,7 +1481,8 @@
                 "source": "和讯网",
                 "date": "2026-06-17",
                 "url": "https://consume.hexun.com/2026-06-17/224343863.html",
-                "takeaway": "颈纹再生填充新代际,京东关注O2O承接;巨子成全球首家同握重组I+III型植入企业。"
+                "takeaway": "颈纹再生填充新代际,京东关注O2O承接;巨子成全球首家同握重组I+III型植入企业。",
+                "firstSeen": "2026-06-17"
               },
               {
                 "title": "巨子可丽金芯生753胶原针上市(中国首个重组I型天然序列注射剂)",
@@ -1169,7 +1491,8 @@
                 "source": "医药魔方",
                 "date": "2026-06-09",
                 "url": "https://bydrug.pharmcube.com/news/detail/74f8de226fb2b987377cefeedb892d27",
-                "takeaway": "再生针高端化商业化落地,适合O2O高客单承接。"
+                "takeaway": "再生针高端化商业化落地,适合O2O高客单承接。",
+                "firstSeen": "2026-06-09"
               },
               {
                 "title": "爱美客复合水光适应证变更,正式获面部水光适应证",
@@ -1178,7 +1501,8 @@
                 "source": "医药魔方",
                 "date": "2026-06-08",
                 "url": "https://bydrug.pharmcube.com/news/detail/bb63dddc426558d65a7588062e97ad0f",
-                "takeaway": "龙头入局合规面部水光,O2O水光项目供给扩容。"
+                "takeaway": "龙头入局合规面部水光,O2O水光项目供给扩容。",
+                "firstSeen": "2026-06-08"
               }
             ]
           }
