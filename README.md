@@ -23,7 +23,8 @@
 | **AGENTS.md** | 口径权威：6 部门配置、数据契约、质量铁律 | 抓取/改口径前必读 |
 | **SOURCES.md** | 信源地图：哪个源出料、工具坑、绕过技巧（**信源唯一权威**） | 抓取前查，少走弯路 |
 | **SEARCH_GUIDE.md** | 检索手册：各部门必查信源、检索象限、品牌哨兵、筛选要点 | 抓某部门前连同 AGENTS 一起读 |
-| **PLAYBOOK.md** | 执行剧本：子 agent 切分、prompt 模板、SOP | 实际抓取时照着跑 |
+| **PLAYBOOK.md** | 执行剧本：子 agent 切分、prompt 模板、SOP、harvest 格式 | 实际抓取时照着跑 |
+| **merge.py** | 增量合并脚本：harvest 新料并池 + 去重 + 滚动淘汰 + 标 firstSeen（增量模式核心） | 增量模式写完 harvest.json 后跑 `python3 merge.py harvest.json` |
 | **validate.py** | 自检脚本（结构契约） | 写完 data.json 跑 `python3 validate.py` |
 | **linkcheck.py** | 死链检测（链接真实性，需 requests） | 提交前跑 `python3 linkcheck.py`，死链必处理 |
 | **archive.py** | 每日归档：生成 archive/data-<日期>.json + 重建 manifest.json | 提交前跑 `python3 archive.py` |
@@ -38,7 +39,7 @@
 完整步骤见 `PLAYBOOK.md`，速记（增量模式）：
 1. 读 README + PROJECT_STATUS（带上下文）
 2. 以上一版 data.json 为基础池，按 PLAYBOOK 派子 agent **只抓近 2 天新料**（带 AGENTS.md 铁律 + SOURCES.md 信源）
-3. 新料与池子去重 → merge 进池 → 滚动淘汰超时效旧料 → 维度内日期倒序
+3. 把新料汇成 `harvest.json`（格式见 PLAYBOOK 第九节）→ `python3 merge.py harvest.json`（自动并池/去重/淘汰/标 firstSeen/重排）
 4. `python3 validate.py` 自检全过 + `python3 linkcheck.py`（聚焦本轮新增链接）
 5. `python3 archive.py` 归档当天数据 + 重建 manifest
 6. 更新 PROJECT_STATUS.md 状态表 + SOURCES.md 实测标记

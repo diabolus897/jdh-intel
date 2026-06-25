@@ -22,15 +22,15 @@
 2. 拿上一版 data.json 作为「基础池」起点（archive/ 里最新一天，或当前根 data.json）
 3. 算抓取窗口：近 2 天；若距上次成功跑 N 天，则窗口 = N+1 天
 4. 按「子agent切分策略」并行派抓取agent，**prompt 窗口改为该增量窗口**（只要新料，别再抓 30 天）
-5. 汇总新料 → 与基础池去重（url 同→丢；同公司同事换媒体→留信息全的）→ hi/mid 逐条 fetch 核日期
-6. merge 进池：新料并入对应维度 → 滚动淘汰超时效的旧料（竞对/政策/财报 30 天，新品 7 天）→ 维度内按日期倒序
-7. 更新 generated=今天；（可选）给本轮新增条目标记 firstSeen=今天，供前端"今日新增"高亮
-8. python3 validate.py 自检全过
-9. python3 linkcheck.py：只重点查本轮新增/改动条目的链接（老料上轮已验过），☠️死链必改/删
-10. python3 archive.py 归档 + 重建 manifest
-11. 更新 PROJECT_STATUS.md 状态表 + SOURCES.md 实测标记
-12. git commit + push（含 archive/ 与 manifest.json）→ Netlify 自动部署
-13. 出自检报告：本轮新增 N 条、淘汰 M 条超期、各维度现存条数、空维度说明、失败信源
+5. 汇总新料 → hi/mid 逐条 fetch 核日期 → 写成 harvest.json（格式见第九节，只写新料）
+6. python3 merge.py harvest.json：自动并池 + 跨池去重 + 滚动淘汰超期 + 标 firstSeen + 重排（新增置顶）
+   （去重/淘汰/firstSeen 由脚本做，不再手工。先 `--dry` 看报告，确认无误再正式跑）
+7. python3 validate.py 自检全过
+8. python3 linkcheck.py：本轮新增条目的链接重点查（老料上轮已验过），☠️死链必改/删
+9. python3 archive.py 归档 + 重建 manifest
+10. 更新 PROJECT_STATUS.md 状态表 + SOURCES.md 实测标记
+11. git commit + push（含 archive/ 与 manifest.json）→ Netlify 自动部署
+12. 出自检报告：merge 报告里的本轮新增 N 条 / 淘汰 M 条 + 各维度现存条数 + 空维度说明 + 失败信源
 ```
 
 **增量模式的关键纪律**：
@@ -226,23 +226,23 @@ git push   # Netlify 自动部署，约1分钟生效
 
 ---
 
-## 七、跨期去重（对照近7天历史，防旧闻重报）
+## 七、跨期去重（已由 merge.py 自动化，见第九节）
 
 **痛点**：同一件事隔几天换个媒体重发，容易被当成新料再报，业务方看重复。
 
-**轻量做法（不上向量库，57条/天用不着）**：写入前把今日候选与近 7 天历史比一遍——
-- **底库**：历史归档 `archive/data-*.json`（归档功能上线后即天然去重库；上线前用上一版 data.json）。
-- **判重**：
-  - url 完全相同 → 直接丢（同一篇）。
-  - 标题/主体高度重合（同公司同一件事，仅措辞/媒体不同）→ 人工判，留信息最全的一条，旧的丢。
-- 只看近 7 天即可（更早的本就超时效）。这本是去重时的固有判断，历史库只是给一份"过去报过什么"的速查锚点。
+**做法（2026-06-25 起由 `merge.py` 自动做，不再手工）**：merge 时把当日新料(harvest)与基础池逐条比对——
+- url 归一化（去协议/www/锚点/尾斜杠）后相同 → 视为同一篇，用新料内容、保留原 firstSeen。
+- 无 url 时按归一化标题（去标点空白）判重。
+- 跨期：池里旧料天然就是"过去报过什么"的底库；超时效的会被自动淘汰，不会越积越多。
+> 注：标题措辞差异大、但确属"同公司同一件事"的，脚本可能判不出（只看 url/归一化标题）。这类**在写 harvest 前人工合并**——这是增量模式下唯一仍需人判的去重场景，量很小。
 
 ---
 
-## 八、三个收尾脚本分工（写完 data.json 必跑）
+## 八、四个收尾脚本分工（增量/全量通用）
 
 | 脚本 | 查什么 | 特性 | 失败处理 |
 |---|---|---|---|
+| `python3 merge.py harvest.json` | **增量合并**：新料并池+跨池去重+滚动淘汰超期+标 firstSeen+重排(新增置顶) | 零依赖、秒级、**仅增量模式用** | 先 `--dry` 看报告；harvest.generated 非法会拒绝 |
 | `python3 validate.py` | **结构契约**：6部门顺序、dims、字段齐全、summary≤60、日期倒序、卡片结构 | 零依赖、秒级、**必须全过** | 看结尾「📋 修正清单」(如 `summary 超长×2　缺字段×1`) 批量改 |
 | `python3 linkcheck.py` | **链接真实性**：所有 url 真实请求一次，防"看着真、点开404" | 需 requests、慢(并发)、网络相关 | ☠️ **死链**(404/410/DNS失败)必改或删；⚠️ **待核**(403/5xx/超时，多为反爬)逐条 fetch 确认，**别误删真链接** |
 | `python3 archive.py` | **每日归档**：data.json→archive/data-<日期>.json，重建 manifest.json（前端日期选择器数据源） | 零依赖、秒级 | generated 非法会拒绝归档；正常无需干预。**在 validate+linkcheck 全过后、push 前跑** |
@@ -250,3 +250,42 @@ git push   # Netlify 自动部署，约1分钟生效
 > validate / linkcheck **故意拆开**：前者是"必过的快校验"，后者是"慢的网络体检"，混在一起会让结构校验因网络抖动变得不稳定。
 > linkcheck 参数：`--timeout 8 --workers 10`；`--strict` 把待核也算失败（一般不用）。
 > archive 读 data.json 的 `generated` 当日期；根 data.json 始终=最新一天（前端默认&兜底都读它），历史在 archive/。归档文件**必须随 push 进 git**，Netlify 才能部署出历史日。
+> **全量模式**不跑 merge.py（直接写整份 data.json）；增量模式跑顺序：merge → validate → linkcheck → archive。
+
+---
+
+## 九、增量核心：harvest.json 格式 + merge.py（2026-06-25 落地，阶段B）
+
+增量模式下，**主控不直接手写整份 data.json**，而是把当日新料汇成一个轻量 `harvest.json`，交给 `merge.py` 合进基础池。**好处**：只写新料（十几条）而非复刻整份（74条），省 token；去重/淘汰/firstSeen/排序全自动，少出错。
+
+### harvest.json 格式（只写当日新料，没料的部门/维度直接省略）
+```json
+{
+  "generated": "2026-06-26",
+  "leads":  { "nutri": "今日营养保健一句话概览" },
+  "musts":  { "nutri": [ {"dim":"竞对动态","rel":"hi","title":"","note":"","url":"https://..."} ] },
+  "add": {
+    "nutri":   { "新品动态": [ {"title":"","rel":"hi","summary":"≤60字","source":"","date":"2026-06-26","url":"https://...","takeaway":""} ] },
+    "instant": { "竞对动态": { "美团买药": [ {"title":"","summary":"","date":"2026-06-26","source":"","url":"https://..."} ] },
+                 "政策动态": [ {"title":"", "...": "普通item"} ] }
+  },
+  "financials": { "instant": { "老百姓": { "coverage":{}, "periods":[], "strategy":[], "memo":{} } } }
+}
+```
+- **非卡片化维度** → `add[部门][维度]` = 条目数组。
+- **卡片化维度**（instant 全竞对 / pharma 竞对）→ `add[部门][维度]` = `{卡名: [条目]}`（按卡名分组）。卡名要与池里一致（美团买药/淘宝闪购买药/老百姓/益丰药房/大参林/阿里健康）。
+- `leads`/`musts`/`financials` 都可选；`financials` 只在季度财报更新时写。
+- **美团买药卡只写在 instant**；merge.py 会自动把它同步到 pharma（同源铁律），不用两处都写。
+
+### merge.py 做了什么（自动，不用手工）
+1. 以基础池为底，把 `add` 的新料并入对应部门/维度/卡。
+2. **去重**：新料 vs 池，url 归一化或标题归一化相同→留新料内容、继承原 firstSeen。
+3. **firstSeen**：池里没有的条目=今天首见（前端🆕高亮）；池里已有的复用旧 firstSeen；老料回填 firstSeen=其 date。
+4. **滚动淘汰**：新品维度超 7 天、其余维度超 30 天的旧料自动剔除（待核日期保留）。
+5. **重排**：本轮新增置顶，其余按日期倒序。
+6. **同源同步**：pharma 美团卡 = instant 美团卡。
+
+用法：`python3 merge.py harvest.json --dry`（看报告）→ 确认 → `python3 merge.py harvest.json`（写回 data.json）。
+测试用：`--pool X.json --out Y.json` 指定池与输出，不动 data.json。
+
+> **firstSeen 字段**：merge.py 自动维护，写进每条 item。validate.py 视其为额外字段（不报错），前端据 `firstSeen==generated` 判"今日新增"。全量模式产出的 data.json 没有 firstSeen 也没关系（前端不亮🆕，只是当天不区分新旧）。

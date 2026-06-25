@@ -60,6 +60,12 @@
   .dimtag{font-size:11px;font-weight:650;padding:2px 8px;border-radius:6px}
   .rel{font-size:10.5px;font-weight:750;padding:2px 7px;border-radius:6px;letter-spacing:.3px}
   .rel.hi{background:var(--hi-bg);color:var(--hi)}.rel.mid{background:var(--mid-bg);color:var(--mid)}.rel.lo{background:var(--lo-bg);color:var(--lo)}
+  /* 新鲜度标记 */
+  .fresh{font-size:10px;font-weight:800;letter-spacing:.3px;padding:2px 7px;border-radius:6px;background:#FFF3D6;color:#A8730A;border:1px solid #F0C56A;white-space:nowrap}
+  .item.is-new{border-color:#F0C56A;box-shadow:0 0 0 1px rgba(240,197,106,.35)}
+  .feed-it.is-new{position:relative;padding-left:9px}
+  .feed-it.is-new::before{content:"";position:absolute;left:0;top:3px;bottom:3px;width:3px;border-radius:2px;background:#F0C56A}
+  .sec-new{font-size:11px;font-weight:700;color:#A8730A;background:#FFF3D6;border:1px solid #F0C56A;padding:1px 7px;border-radius:6px;margin-left:2px}
 
   /* ---------- 维度分区 ---------- */
   .sec{margin-top:24px}
@@ -171,6 +177,10 @@ function esc(t){return (t||"").replace(/&/g,"&amp;").replace(/</g,"&lt;").replac
 function relLabel(r){return r==="hi"?"高相关":r==="mid"?"中相关":"低相关"}
 function dimTag(d){const s=DIMSTYLE[d]||["#5F5E5A","#F1EFE8"];return `<span class="dimtag" style="background:${s[1]};color:${s[0]}">${d}</span>`}
 function dateVal(d){const m=(d||"").match(/(\d{4})-(\d{1,2})(?:-(\d{1,2}))?/);if(!m)return 0;return new Date(+m[1],+m[2]-1,+(m[3]||1)).getTime();}
+// 新鲜度：firstSeen==本批 generated 即"本轮首次入池"→今日新增
+function isNew(it){return it && it.firstSeen && DATA && it.firstSeen===DATA.generated;}
+function freshBadge(it){return isNew(it)?'<span class="fresh">🆕 今日新增</span>':'';}
+function countNew(items){return (items||[]).filter(isNew).length;}
 
 function renderTabs(){
   $('depttabs').innerHTML=DATA.depts.map(d=>
@@ -180,7 +190,7 @@ function setDept(id){cur=id;renderTabs();render();window.scrollTo(0,0);}
 
 function renderBrief(dep){
   const b=dep.brief;
-  let h=`<div class="statusbar"><span><span class="pulse"></span>更新 <b>${esc(DATA.generated)}</b></span><span>窗口 <b>近 7 日</b></span><span>按时间倒序</span></div>
+  let h=`<div class="statusbar"><span><span class="pulse"></span>更新 <b>${esc(DATA.generated)}</b></span><span>🆕 今日新增置顶</span><span>滚动情报池</span></div>
     <h2 class="dept">${dep.name} · 今日动态</h2>
     <div class="lead">${esc(b.lead)}</div>
     <div class="eyebrow">今日必读</div><div class="musts">`;
@@ -206,14 +216,15 @@ function renderBrief(dep){
       return;
     }
     const items=[...(s.items||[])].sort((a,b2)=>dateVal(b2.date)-dateVal(a.date));
+    const nNew=countNew(items);
     h+=`<div class="sec"><div class="sec-h" onclick="this.parentNode.classList.toggle('collapsed')">
       <span class="sec-bar" style="background:${st[0]}"></span><span class="sec-t">${s.dim}</span>
-      <span class="sec-c">${items.length} 条</span><span class="sec-chev">▾</span></div><div class="items">`;
-    if(!items.length){h+=`<div class="empty-dim">今日暂无最新动态</div>`;}
+      <span class="sec-c">${items.length} 条</span>${nNew?`<span class="sec-new">🆕 ${nNew}</span>`:''}<span class="sec-chev">▾</span></div><div class="items">`;
+    if(!items.length){h+=`<div class="empty-dim">今日无新动态</div>`;}
     else items.forEach(it=>{
       const tk=it.takeaway?`<div class="tk">→ 对JDH：${esc(it.takeaway)}</div>`:'';
-      h+=`<div class="item"><div class="it">${esc(it.title)}</div><div class="id">${esc(it.summary)}</div>${tk}
-        <div class="im"><span class="rel ${it.rel}">${relLabel(it.rel)}</span><span>${esc(it.source)} · ${esc(it.date)}</span><a href="${esc(it.url)}" target="_blank" rel="noopener">原文 ↗</a></div></div>`;
+      h+=`<div class="item${isNew(it)?' is-new':''}"><div class="it">${esc(it.title)}</div><div class="id">${esc(it.summary)}</div>${tk}
+        <div class="im"><span class="rel ${it.rel}">${relLabel(it.rel)}</span>${freshBadge(it)}<span>${esc(it.source)} · ${esc(it.date)}</span><a href="${esc(it.url)}" target="_blank" rel="noopener">原文 ↗</a></div></div>`;
     });
     h+=`</div></div>`;
   });
@@ -237,8 +248,8 @@ function renderLayers(layers){
       const items=[...(c.items||[])].sort((a,b)=>dateVal(b.date)-dateVal(a.date));
       if(!items.length){h+=`<div class="feed-empty">窗口内暂无新动态</div>`;}
       else items.forEach(it=>{
-        h+=`<div class="feed-it"><div class="ft">`+
-           (it.url?`<a href="${esc(it.url)}" target="_blank" rel="noopener">${esc(it.title)}</a>`:esc(it.title))+`</div>`;
+        h+=`<div class="feed-it${isNew(it)?' is-new':''}"><div class="ft">`+
+           (it.url?`<a href="${esc(it.url)}" target="_blank" rel="noopener">${esc(it.title)}</a>`:esc(it.title))+freshBadge(it)+`</div>`;
         if(it.summary) h+=`<div class="id" style="margin-top:3px">${esc(it.summary)}</div>`;
         h+=`<div class="fmeta"><span>${esc(it.source||'')}${it.date?' · '+esc(it.date):''}</span>`+
            (it.url?`<a href="${esc(it.url)}" target="_blank" rel="noopener" style="margin-left:auto">原文 ↗</a>`:'')+`</div></div>`;

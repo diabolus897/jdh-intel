@@ -17,7 +17,8 @@
 | `AGENTS.md` | 工作手册：部门配置、数据契约、质量护栏 | 人工（口径变更时改） |
 | `SOURCES.md` | 信源地图：有效/失效源、工具坑、绕过技巧（信源唯一权威） | 每轮重抓后回填实测标记 |
 | `SEARCH_GUIDE.md` | 检索手册：各部门必查信源、检索象限、品牌哨兵、筛选要点 | 业务口径/信源沉淀时更新 |
-| `PLAYBOOK.md` | 执行剧本：子agent切分、prompt模板、SOP | 流程优化时改 |
+| `PLAYBOOK.md` | 执行剧本：子agent切分、prompt模板、SOP、harvest格式 | 流程优化时改 |
+| `merge.py` | 增量合并：harvest新料并池+去重+滚动淘汰+标firstSeen+重排（增量模式核心） | 合并逻辑/淘汰窗口变更时改 |
 | `validate.py` | data.json 结构自检脚本 | 契约变更时改 |
 | `linkcheck.py` | 死链检测脚本（链接真实性护栏，需 requests） | 分级逻辑变更时改 |
 | `archive.py` | 每日归档脚本：生成 archive/data-<日期>.json + 重建 manifest.json | 数据流变更时改 |
@@ -38,6 +39,7 @@
 - `item` 字段：`{title, rel(hi/mid/lo), summary(≤60字), source, date, url, takeaway}`
 - 维度内 `items` 按日期从新到旧排；无料维度 `items: []`（前端显示"今日暂无最新动态"）
 - 6 部门维度集：前 5 个用「竞对动态/政策动态/工业动态/新品动态」；**即时零售 instant 用「竞对动态/政策动态/新技术·新模式/行业·资本」**
+- **【2026-06-25 新增】增量滚动池（阶段B/C）**：① 每条 item 可带可选字段 `firstSeen`（首次入池日期，merge.py 自动维护，不手写）；② 前端据 `firstSeen===generated` 显示「🆕今日新增」徽标 + 置顶 + 卡片高亮，统计栏改为「滚动情报池 / 🆕今日新增置顶」，空维度文案改「今日无新动态」。全量模式产出无 firstSeen 也合法（当天不亮🆕）。merge.py/harvest 详见 PLAYBOOK 第九节。
 - **【2026-06-24 新增】即时零售 instant 竞对动态已卡片化**：`brief.layout="instant"`，竞对 section 用 `layers`（O2O 2卡 + 连锁药店 3卡，连锁卡含财报小卡 `financials.periods`），不再用 `items`；其余 3 维度与其他 5 部门仍用普通 `items`。精确契约见 `AGENTS.md`「即时零售专属结构」段落。
 - **【2026-06-25 新增】医药 pharma 竞对也卡片化**：`brief.layout="pharma"`，竞对 section 用 `layers`（单层、2 卡：阿里健康 + 美团买药，无财报小卡）。**美团买药卡与 instant 部门同源同数据**。政策口径扩为医保局+卫健委+药监局；工业按 26 品牌 watchlist 抓取、上限放宽到 ~5 条。layers 校验已通用化（任何部门有 layers 即走 check_layers）。
 
@@ -82,7 +84,7 @@
 1. 新会话带上 `AGENTS.md` + 本文件 + `PLAYBOOK.md`。
 2. 以上一版 data.json（archive/ 最新一天）为基础池起点。
 3. 派子 agent **只抓近 2 天新料**（漏跑则窗口=间隔天数+1天 buffer），用 PLAYBOOK 3.1 增量 prompt 模板；hi/mid 逐条 fetch 核日期。
-4. 新料与池子去重 → merge → 滚动淘汰超时效（竞对/政策/财报 30 天、新品 7 天）→ 维度内日期倒序 → generated=今天。
+4. 新料汇成 `harvest.json`（格式见 PLAYBOOK 第九节）→ `python3 merge.py harvest.json`（自动并池/跨池去重/滚动淘汰超期/标 firstSeen/重排，先 `--dry` 看报告）。
 5. `python3 validate.py` 全过 + `python3 linkcheck.py`（聚焦本轮新增链接）+ `python3 archive.py` 归档。
 6. `git commit && push` → Netlify 自动部署。
 7. 出自检报告：本轮新增 N 条 / 淘汰 M 条 / 各维度现存条数 / 空维度说明 / 失败信源。更新本文件第 5 节状态表。
