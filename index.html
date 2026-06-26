@@ -160,6 +160,7 @@
   .cprof-lbl .lb-upd{font-size:10.5px;font-weight:700;color:var(--brand-deep);background:var(--brand-soft);padding:2px 7px;border-radius:5px;margin-left:auto}
   .cprof-cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:12px;align-items:stretch}
   .cprof{background:var(--paper);border:1px solid var(--line);border-radius:13px;overflow:hidden}
+  .cprof.collapsed{align-self:start}
   .cprof-hd{display:flex;align-items:center;gap:8px;padding:13px 16px;cursor:pointer;user-select:none;background:#FAFBFA;border-bottom:1px solid var(--line)}
   .cprof.collapsed .cprof-hd{border-bottom:none}
   .cprof-ico{font-size:14px}
@@ -409,7 +410,7 @@ function renderProfileCards(deptId){
     <div class="cprof-cards">`;
   chains.forEach(c=>{
     const periods=c.periods||[];
-    h+=`<div class="cprof collapsed"><div class="cprof-hd" onclick="this.parentNode.classList.toggle('collapsed')">
+    h+=`<div class="cprof collapsed"><div class="cprof-hd" onclick="toggleProfile(this.parentNode)">
       <span class="cprof-ico">🏥</span><span class="cprof-nm">${esc(c.name)}</span>`;
     if(c.code) h+=`<span class="cprof-code">${esc(c.code)}</span>`;
     h+=`<span class="cprof-tag">财务·战略</span><span class="cprof-chev">▾</span></div><div class="cprof-body">`;
@@ -418,7 +419,7 @@ function renderProfileCards(deptId){
       h+=`<div class="cprof-fin" style="grid-template-columns:auto repeat(${periods.length},1fr)">`;
       h+=`<span class="pf-cnr"></span>`+periods.map(p=>`<span class="pf-ph">${esc(p.label||'')}</span>`).join('');
       const row=(lbl,key,opt={})=>{
-        if(!periods.some(p=>p[key])) return '';
+        if(!opt.always && !periods.some(p=>p[key])) return '';
         let r=`<span class="pf-l${opt.hl?' pf-hl':''}">${lbl}</span>`;
         periods.forEach(p=>{
           const v=p[key];
@@ -436,8 +437,8 @@ function renderProfileCards(deptId){
       h+=row('净利率','margin');
       h+=row('经营现金流','cashflow',{yoyKey:'cashflowYoy'});
       h+=row('门店数','stores',{addKey:'storesAdd'});
-      h+=row('直营','storesDirect',{addKey:'storesDirectAdd'});
-      h+=row('加盟','storesFranchise',{addKey:'storesFranchiseAdd'});
+      h+=row('直营','storesDirect',{addKey:'storesDirectAdd',always:true});
+      h+=row('加盟','storesFranchise',{addKey:'storesFranchiseAdd',always:true});
       h+=`</div>`;
     }
     // 覆盖省份（列出具体省份名 + 高亮优势省）；无名单则回退一句话概括
@@ -497,7 +498,34 @@ function render(){
   const dep=DATA.depts.find(d=>d.id===cur);
   $('page').innerHTML=(dep.brief?renderBrief(dep):renderSkeleton(dep))+
     `<div class="foot"><b>战略与综合支持部</b> 出品　/　相关问题咨询：wangchunhao.7、xiaoyuyan3</div>`;
+  scheduleAlign();
 }
+
+// 经营档案卡横向对齐：同一行内已展开的卡，逐板块（财务表/省份/战略/纪要）按最大高度补齐；折叠卡不参与
+function alignProfileCards(){
+  const SECS=['.cprof-fin','.cprof-prov','.cprof-strat','.cprof-memo'];
+  document.querySelectorAll('.cprof-cards').forEach(cont=>{
+    const cards=[...cont.querySelectorAll('.cprof')];
+    // 先全部清零，保证重测准确
+    cards.forEach(c=>SECS.forEach(s=>{const el=c.querySelector(s);if(el)el.style.minHeight='';}));
+    // 仅已展开卡参与，按所在行（offsetTop）分组
+    const rows={};
+    cards.filter(c=>!c.classList.contains('collapsed'))
+      .forEach(c=>{const k=Math.round(c.offsetTop);(rows[k]=rows[k]||[]).push(c);});
+    Object.values(rows).forEach(group=>{
+      if(group.length<2)return;
+      SECS.forEach(s=>{
+        let max=0;
+        group.forEach(c=>{const el=c.querySelector(s);if(el)max=Math.max(max,el.getBoundingClientRect().height);});
+        if(max>0)group.forEach(c=>{const el=c.querySelector(s);if(el)el.style.minHeight=max+'px';});
+      });
+    });
+  });
+}
+function toggleProfile(card){card.classList.toggle('collapsed');scheduleAlign();}
+let _alignT;
+function scheduleAlign(){clearTimeout(_alignT);_alignT=setTimeout(alignProfileCards,60);}
+window.addEventListener('resize',scheduleAlign);
 
 // ---------- 历史日历：加载某一天的数据 ----------
 let LATEST=null;

@@ -19,7 +19,7 @@
             "profit": "3.82亿", "profitYoy": "-26.44%",
             "grossMargin": "32.30%", "margin": "2.43%",
             "cashflow": "31.43亿", "cashflowYoy": "+55.08%",
-            "stores": "14,975", "storesDirect": "9,732", "storesFranchise": "5,243"
+            "stores": "14,975", "storesAdd": "+875", "storesDirect": "9,732", "storesDirectAdd": "+84", "storesFranchise": "5,243", "storesFranchiseAdd": "+791"
           },
           {
             "label": "2026Q1",
@@ -27,7 +27,7 @@
             "profit": "2.64亿", "profitYoy": "+5.27%",
             "grossMargin": "33.51%", "margin": "5.52%",
             "cashflow": "8.59亿", "cashflowYoy": "+6.76%",
-            "stores": "15,001", "storesDirect": "9,622", "storesFranchise": "5,379"
+            "stores": "15,001", "storesAdd": "+26", "storesDirect": "9,622", "storesDirectAdd": "-110", "storesFranchise": "5,379", "storesFranchiseAdd": "+136"
           }
         ],
         "strategy": {
@@ -87,7 +87,7 @@
             "profit": "16.78亿", "profitYoy": "+9.81%",
             "grossMargin": "39.36%", "margin": "7.49%",
             "cashflow": "33.58亿",
-            "stores": "14,831", "storesAdd": "+147"
+            "stores": "14,831", "storesAdd": "+694", "storesDirect": "10,518", "storesDirectAdd": "+193", "storesFranchise": "4,313", "storesFranchiseAdd": "+501"
           },
           {
             "label": "2026Q1",
@@ -95,7 +95,7 @@
             "profit": "5.00亿", "profitYoy": "+11.14%",
             "grossMargin": "40.04%", "margin": "8.97%",
             "cashflow": "10.56亿",
-            "stores": "14,943", "storesAdd": "+112"
+            "stores": "14,943", "storesAdd": "+112", "storesDirect": "10,516", "storesDirectAdd": "-2", "storesFranchise": "4,427", "storesFranchiseAdd": "+114"
           }
         ],
         "strategy": {
@@ -172,14 +172,15 @@
             "profit": "12.35亿", "profitYoy": "+35.04%",
             "grossMargin": "34.32%", "margin": "4.94%",
             "cashflow": "53.50亿", "cashflowYoy": "+72.24%",
-            "stores": "17,758", "storesDirect": "10,468", "storesFranchise": "7,290", "storesAdd": "+1,205"
+            "stores": "17,758", "storesAdd": "+1,741", "storesDirect": "10,468", "storesDirectAdd": "+501", "storesFranchise": "7,290", "storesFranchiseAdd": "+1,240"
           },
           {
             "label": "2026Q1",
             "revenue": "69.73亿", "revenueYoy": "+0.25%",
             "profit": "5.11亿", "profitYoy": "+11.12%",
             "grossMargin": "36.05%", "margin": "7.80%",
-            "cashflow": "9.68亿"
+            "cashflow": "9.68亿",
+            "stores": "18,044", "storesAdd": "+286", "storesDirect": "10,516", "storesDirectAdd": "+48", "storesFranchise": "7,528", "storesFranchiseAdd": "+238"
           }
         ],
         "strategy": {
