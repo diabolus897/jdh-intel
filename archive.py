@@ -13,6 +13,10 @@
   data.json (根, 当天工作文件 = 最新归档副本，前端默认&兜底都读它)
   archive/data-YYYY-MM-DD.json (每日一份历史)
   manifest.json: {"dates":[新→旧], "latest": dates[0]}
+
+注：profiles.json（连锁药房季度档案）、newproducts.json（新品周报）均**不归档**——
+它们是"当前态"单文件（季度/每周才手动更新），历史日也读同一份当前文件
+（前端面板/新品区不随日期切换变）。本脚本只处理 data.json 的日更归档。
 """
 import json
 import os

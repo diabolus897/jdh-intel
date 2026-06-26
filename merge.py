@@ -27,8 +27,8 @@
     "instant":{ "竞对动态": { "美团买药":[item], "老百姓":[item] },   # 卡片化维度=按卡名分组
                "政策动态": [ item ] },         # 非卡片化维度=条目数组
     ...
-  },
-  "financials": { "instant": { "老百姓": { ...经营速览卡... } } }   # 可选：季度才更新
+  }
+  # 注：连锁经营档案(财报/省份/战略)不走 harvest——已迁至 profiles.json，季度手动更新。
 }
 item 字段同数据契约：{title, rel, summary, source, date, url, takeaway}（卡内可省 rel/takeaway）。
 没有新料的部门/维度可省略；某维度今日无新料就别写它——池里旧料会自动保留+老化。
@@ -213,7 +213,7 @@ def main():
     add = harvest.get("add", {}) or {}
     leads = harvest.get("leads", {}) or {}
     musts = harvest.get("musts", {}) or {}
-    fins = harvest.get("financials", {}) or {}
+    # 注：连锁经营档案(财报/省份/战略)已迁至 profiles.json，季度手动更新，merge 不再处理 financials。
 
     merged = copy.deepcopy(pool)
     merged["generated"] = today_str
@@ -237,7 +237,6 @@ def main():
             brief["musts"] = musts[did]
 
         dept_add = add.get(did, {})
-        dept_fin = fins.get(did, {})
 
         for sec in brief.get("sections", []):
             dim = sec.get("dim")
@@ -247,9 +246,6 @@ def main():
                 for layer in sec["layers"]:
                     for card in layer.get("cards", []):
                         name = card.get("name")
-                        # 季度财报更新（有才覆盖）
-                        if name in dept_fin:
-                            card["financials"] = dept_fin[name]
                         new_items = card_add.get(name, [])
                         kept, n_new, n_ev, n_pd = merge_item_list(
                             card.get("items", []), new_items, dim, today_str)
@@ -258,6 +254,10 @@ def main():
                             report.append((did, f"{dim}/{name}", n_new, n_ev))
                         tot_new += n_new; tot_eq += n_ev
             else:
+                # 新品维度已迁到 newproducts.json（每周挂载），merge 不再处理——跳过，保持 data.json 里为空 []
+                if dim == "新品动态":
+                    sec["items"] = []
+                    continue
                 new_items = dept_add.get(dim, [])
                 if isinstance(new_items, dict):
                     new_items = []  # 容错：非卡片化维度误填了 dict

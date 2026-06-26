@@ -1,0 +1,146 @@
+{
+  "updated": "2026-06-26",
+  "week": "第1期(迁移自日抓基础池)",
+  "depts": {
+    "nutri": [
+      {
+        "title": "拜耳印度推Alka-Seltzer益生菌+抗酸剂泡腾剂",
+        "rel": "lo",
+        "summary": "小苏打(Svarjiksara)+源自咖喱酪乳的乳酸菌,主打速效缓解+长期肠道养护,称印度首款阿育吠陀类含益生菌抗酸产品",
+        "source": "NutraIngredients",
+        "date": "2026-06-24",
+        "url": "https://www.nutraingredients.com/Article/2026/06/24/bayer-india-combines-probiotics-antacid-amid-rising-self-care-trend/",
+        "takeaway": "海外市场暂无引进价值;留意功能性益生菌+即时缓解复合配方思路,可在国内肠胃调理选品中关注同类组合",
+        "firstSeen": "2026-06-24"
+      },
+      {
+        "title": "Akkermansia Pro GLP-1 Probiotic — Designs for Health",
+        "rel": "hi",
+        "summary": "巴氏灭活Akkermansia+BPL1后生元合生制剂,主打天然GLP-1通路代谢与体重管理。",
+        "source": "NutraIngredients",
+        "date": "2026-06-23",
+        "url": "https://www.nutraingredients.com/Article/2026/06/23/june-launch-pad-targeted-life-stage-support-gut-health-and-multi-benefit-formulations-dominate/",
+        "takeaway": "核查京东是否已有Akk合生元SKU,GLP-1减重叙事最热,评估引入或自营。",
+        "firstSeen": "2026-06-23"
+      },
+      {
+        "title": "Flatter Me Fiber GLP-1 Booster — HUM Nutrition",
+        "rel": "mid",
+        "summary": "膳食纤维+18种消化酶+绿茶咖啡因粉剂,绑定GLP-1代谢与肠道概念。",
+        "source": "NutraIngredients",
+        "date": "2026-06-23",
+        "url": "https://www.nutraingredients.com/Article/2026/06/23/june-launch-pad-targeted-life-stage-support-gut-health-and-multi-benefit-formulations-dominate/",
+        "takeaway": "纤维+GLP-1助推是DTC新打法,评估国货跟进或引入HUM。",
+        "firstSeen": "2026-06-23"
+      },
+      {
+        "title": "Swanson更年期日夜版:黑升麻/醉茄/甘氨酸镁/茶氨酸",
+        "rel": "mid",
+        "summary": "非激素日夜双配方,分管能量情绪与睡眠,命中甘氨酸镁+茶氨酸成分哨兵。",
+        "source": "NutraIngredients",
+        "date": "2026-06-23",
+        "url": "https://www.nutraingredients.com/Article/2026/06/23/june-launch-pad-targeted-life-stage-support-gut-health-and-multi-benefit-formulations-dominate/",
+        "takeaway": "京东更年期类目偏空白,评估引入专项SKU。",
+        "firstSeen": "2026-06-23"
+      }
+    ],
+    "pharma": [
+      {
+        "title": "国产首个口服CFB抑制剂兰诺可泮片(依适宁)获批治PNH",
+        "rel": "hi",
+        "summary": "武汉朗来1类创新药,全球第二、国内首款国产口服CFB抑制剂;头对头优于依库珠单抗。",
+        "source": "荆楚网/医药魔方",
+        "date": "2026-06-11",
+        "url": "http://news.cnhubei.com/content/2026-06/12/content_20030260.html",
+        "takeaway": "口服+罕见病适合院外长期用药,提前布局PNH专科药货盘与患者服务。",
+        "firstSeen": "2026-06-11"
+      }
+    ],
+    "device": [
+      {
+        "title": "Dexcom Stelo获FDA儿科许可(首款面向儿童OTC CGM)",
+        "rel": "hi",
+        "summary": "6/12 FDA批准首款面向2岁+儿童的非处方连续血糖监测仪(6/23官方宣布)。",
+        "source": "中国贸促会南京",
+        "date": "2026-06-17",
+        "url": "https://ccpit.nanjing.gov.cn/jmzx/202606/t20260617_5861772.html",
+        "takeaway": "免处方CGM向儿童破圈,前瞻布局非胰岛素+儿童家用CGM,把易用性作差异化。",
+        "firstSeen": "2026-06-17"
+      },
+      {
+        "title": "家用康复/中医理疗集群获二类证(翔宇低频电治疗仪等)",
+        "rel": "mid",
+        "summary": "河南药监第62号公告:翔宇便携低频电治疗仪、坐式艾灸仪/电动拔罐仪等约8款获二类证。",
+        "source": "河南药监局",
+        "date": "2026-06-05",
+        "url": "https://yjj.henan.gov.cn/2026/06-08/3363157.html",
+        "takeaway": "上市康复企业家用化是下沉信号,对接家用康复/中医理疗专区绑慢病人群。",
+        "firstSeen": "2026-06-05"
+      },
+      {
+        "title": "耳内/耳背式助听器(欧仕达听力)获二类证",
+        "rel": "mid",
+        "summary": "闽械注准20262190115/116,自助验配级家用听力器械。",
+        "source": "福建药监局",
+        "date": "2026-06-05",
+        "url": "https://yjj.scjgj.fujian.gov.cn/zwgk/gstg/xzxkgg/202606/t20260605_7159735.htm",
+        "takeaway": "助听器是国家鼓励OTC化的高潜银发品类,设专区做适老化招商+听力自测引流。",
+        "firstSeen": "2026-06-05"
+      },
+      {
+        "title": "雅培全球首款葡萄糖-酮体双传感CGM获欧盟CE",
+        "rel": "hi",
+        "summary": "5/27获CE,全球首款双代谢物传感技术,连续监测血糖+血酮(防DKA),美国年内拟上市。",
+        "source": "雅培官方新闻室",
+        "date": "2026-05-27",
+        "url": "https://www.abbott.com/corpnewsroom/diabetes-care.html",
+        "takeaway": "CGM进入多标志物阶段(防DKA),国内无对标,关注入华作高端CGM招商前瞻。",
+        "firstSeen": "2026-05-27"
+      }
+    ],
+    "consumer": [
+      {
+        "title": "翔宇医疗中医艾灸仪获医疗器械注册证(豫械注准20262200363)",
+        "rel": "mid",
+        "summary": "型号XY-ZYAJ-I/II,河南省药监核发注册类(非备案),属带能量输出仪器,注册证核准日待核",
+        "source": "网易号(转载)",
+        "date": "2026-06-12",
+        "url": "https://c.m.163.com/news/a/KV8M6UBU05568W0A.html",
+        "takeaway": "中医保健器械从手动器具备案向电动仪器注册升级、门槛抬高,翔宇以正规军身份切入C端,可作合规艾灸仪招商标杆。建议NMPA二次核验",
+        "firstSeen": "2026-06-12"
+      }
+    ],
+    "medical": [
+      {
+        "title": "巨子生物交联重组III型胶原蛋白植入剂获械三证(全球首款颈纹)",
+        "rel": "hi",
+        "summary": "物理交联无化学残留,用于颈纹填充(国械注准20263131219)。",
+        "source": "和讯网",
+        "date": "2026-06-17",
+        "url": "https://consume.hexun.com/2026-06-17/224343863.html",
+        "takeaway": "颈纹再生填充新代际,京东关注O2O承接;巨子成全球首家同握重组I+III型植入企业。",
+        "firstSeen": "2026-06-17"
+      },
+      {
+        "title": "巨子可丽金芯生753胶原针上市(中国首个重组I型天然序列注射剂)",
+        "rel": "hi",
+        "summary": "753氨基酸刷新序列长度新高(国械注准20253132049)。",
+        "source": "医药魔方",
+        "date": "2026-06-09",
+        "url": "https://bydrug.pharmcube.com/news/detail/74f8de226fb2b987377cefeedb892d27",
+        "takeaway": "再生针高端化商业化落地,适合O2O高客单承接。",
+        "firstSeen": "2026-06-09"
+      },
+      {
+        "title": "爱美客复合水光适应证变更,正式获面部水光适应证",
+        "rel": "hi",
+        "summary": "由颈纹填充扩为面部真皮浅层改善,系NMPA第五款复合水光(国械注准20163131804变更)。",
+        "source": "医药魔方",
+        "date": "2026-06-08",
+        "url": "https://bydrug.pharmcube.com/news/detail/bb63dddc426558d65a7588062e97ad0f",
+        "takeaway": "龙头入局合规面部水光,O2O水光项目供给扩容。",
+        "firstSeen": "2026-06-08"
+      }
+    ]
+  }
+}

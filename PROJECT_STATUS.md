@@ -1,7 +1,7 @@
 # 项目状态与交接文档（PROJECT_STATUS）
 
 > 本文件用于跨会话接续。新会话只需带上 `AGENTS.md`（工作手册）+ 本文件，即可无缝继续，不依赖历史对话记忆。
-> 最后更新：2026-06-25（**增量滚动池 阶段A/B/C 全落地 + 基础池补全至~100条 + 新增"不放京东自家"铁律**）
+> 最后更新：2026-06-26（**v2 产品改造 + 新品改周报挂载：三层数据架构成型（日更 data.json / 周报 newproducts.json / 季度 profiles.json）**）
 
 ## 1. 这是什么项目
 
@@ -23,6 +23,8 @@
 | `linkcheck.py` | 死链检测脚本（链接真实性护栏，需 requests） | 分级逻辑变更时改 |
 | `archive.py` | 每日归档脚本：生成 archive/data-<日期>.json + 重建 manifest.json | 数据流变更时改 |
 | `data.json` | 每日情报数据（前端默认数据源 = 最新一天副本） | 每天由 agent 抓取生成 |
+| `newproducts.json` | 新品周报（5 部门新品），前端新品区读取；用户每周提供后整份替换，merge/archive 不碰 | 每周手动替换 |
+| `profiles.json` | 连锁药房季度静态档案（省份/财报/战略），前端折叠对比表读取；merge.py 不碰、不归档 | 财报季手动更新 |
 | `manifest.json` / `archive/` | 历史日历：日期清单（倒序）+ 各日归档文件 | archive.py 自动维护 |
 | `index.html` | 前端展示（静态，`fetch('data.json')`） | 基本固定，少改 |
 | `PROJECT_STATUS.md` | 本交接文档 | 每轮收尾时更新 |
@@ -42,6 +44,19 @@
 - **【2026-06-25 新增】增量滚动池（阶段B/C）**：① 每条 item 可带可选字段 `firstSeen`（首次入池日期，merge.py 自动维护，不手写）；② 前端据 `firstSeen===generated` 显示「🆕今日新增」徽标 + 置顶 + 卡片高亮，统计栏改为「滚动情报池 / 🆕今日新增置顶」，空维度文案改「今日无新动态」。全量模式产出无 firstSeen 也合法（当天不亮🆕）。merge.py/harvest 详见 PLAYBOOK 第九节。
 - **【2026-06-24 新增】即时零售 instant 竞对动态已卡片化**：`brief.layout="instant"`，竞对 section 用 `layers`（O2O 2卡 + 连锁药店 3卡，连锁卡含财报小卡 `financials.periods`），不再用 `items`；其余 3 维度与其他 5 部门仍用普通 `items`。精确契约见 `AGENTS.md`「即时零售专属结构」段落。
 - **【2026-06-25 新增】医药 pharma 竞对也卡片化**：`brief.layout="pharma"`，竞对 section 用 `layers`（单层、2 卡：阿里健康 + 美团买药，无财报小卡）。**美团买药卡与 instant 部门同源同数据**。政策口径扩为医保局+卫健委+药监局；工业按 26 品牌 watchlist 抓取、上限放宽到 ~5 条。layers 校验已通用化（任何部门有 layers 即走 check_layers）。
+- **【2026-06-26 v2 改造】呈现优化 + 数据分层**：
+  - **`lead` 字段废弃**：`brief` 不再写 lead，导读由「今日必读」承担（前端不渲染 lead，旧归档残留兼容）。
+  - **今日必读判据明文化**：`rel=hi` 且满足（有行动窗口/竞对已落地/赛道结构变化）之一；`note` 写"对 JDH 的具体动作含义"。
+  - **政策 `effective` 字段（可选）**：政策类 item 可带真实生效日，前端渲染"⏳距生效 N 天 / ✅已生效"徽标。**只在确有生效日时填，不编造**。
+  - **连锁经营档案迁出到 `profiles.json`**：省份/财报/战略从 data.json 连锁卡的 `financials` 迁到独立季度档案 `profiles.json`（merge.py 永不碰、archive.py 不归档、历史日也读当前态）。前端在即时零售「今日必读」后渲染**可折叠三家对比表面板**。连锁竞对卡只剩动态流。`coverage` 统一为 `{count, advantage}`、`strategy` 标 `source`（MD&A/投资者交流）。
+  - **归类去重护栏#12**：行业大盘/赛道数据只进「行业·资本」，竞对卡只放该对手自己的动作。
+  - **连锁动态流去财务噪音**：派息/可转债/评级/权益分派不进 items（属档案财务面）。
+- **【2026-06-26 新品改周报挂载】三层数据架构成型**：
+  - 新品（具体新品/获批）**不再日抓**，改为接用户每周「新品周报」整份挂载到 `newproducts.json`，保持一周。
+  - 5 部门（nutri/pharma/device/consumer/medical）新品区前端从 newproducts.json 读，显示"📅 新品周报·更新于X"徽标；data.json 新品 section 保留但 items 恒空。
+  - merge.py 跳过新品维度、archive.py 不归档 newproducts、validate.py 加 check_products 校验。
+  - 首期已迁现有 13 条（nutri 4/pharma 1/device 4/consumer 1/medical 3）。
+  - **三层架构**：快流 data.json（日更，merge 滚动）/ 中流 newproducts.json（周更，整份替换）/ 慢流 profiles.json（季度，手动）——按更新频率分层，各走各的维护节奏。
 
 ## 4. 时效口径（已固化，分级）
 

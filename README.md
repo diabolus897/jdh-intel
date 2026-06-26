@@ -29,6 +29,8 @@
 | **linkcheck.py** | 死链检测（链接真实性，需 requests） | 提交前跑 `python3 linkcheck.py`，死链必处理 |
 | **archive.py** | 每日归档：生成 archive/data-<日期>.json + 重建 manifest.json | 提交前跑 `python3 archive.py` |
 | `data.json` | 前端读取的默认数据源（=最新一天副本） | 每日产出 |
+| `newproducts.json` | **新品周报**（5 部门新品）：前端新品区读它，每周用户提供后**整份替换**，merge/archive 都不碰 | 每周更新 |
+| `profiles.json` | 连锁药房**季度静态档案**（省份/财报/战略）：前端折叠对比表读它，merge.py 永不碰、不归档、季度手动更 | 财报季更新 |
 | `manifest.json` / `archive/` | 历史日历：日期清单 + 各日归档文件 | archive.py 自动维护 |
 | `index.html` | 静态前端 | 基本固定，少改 |
 

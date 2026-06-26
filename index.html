@@ -62,10 +62,15 @@
   .rel.hi{background:var(--hi-bg);color:var(--hi)}.rel.mid{background:var(--mid-bg);color:var(--mid)}.rel.lo{background:var(--lo-bg);color:var(--lo)}
   /* 新鲜度标记 */
   .fresh{font-size:10px;font-weight:800;letter-spacing:.3px;padding:2px 7px;border-radius:6px;background:#FFF3D6;color:#A8730A;border:1px solid #F0C56A;white-space:nowrap}
+  /* 政策生效倒计时 */
+  .eff{font-size:10px;font-weight:800;letter-spacing:.3px;padding:2px 7px;border-radius:6px;white-space:nowrap}
+  .eff-soon{background:#FBEAE8;color:#C0392B;border:1px solid #E8A89F}
+  .eff-on{background:#E1F5EE;color:#0A5340;border:1px solid #8FCFB8}
   .item.is-new{border-color:#F0C56A;box-shadow:0 0 0 1px rgba(240,197,106,.35)}
   .feed-it.is-new{position:relative;padding-left:9px}
   .feed-it.is-new::before{content:"";position:absolute;left:0;top:3px;bottom:3px;width:3px;border-radius:2px;background:#F0C56A}
   .sec-new{font-size:11px;font-weight:700;color:#A8730A;background:#FFF3D6;border:1px solid #F0C56A;padding:1px 7px;border-radius:6px;margin-left:2px}
+  .sec-wk{font-size:11px;font-weight:700;color:#0C447C;background:#E6F1FB;border:1px solid #A9CCEC;padding:1px 8px;border-radius:6px;margin-left:6px;white-space:nowrap}
 
   /* ---------- 维度分区 ---------- */
   .sec{margin-top:24px}
@@ -90,7 +95,7 @@
   .layer-lbl{display:flex;align-items:center;gap:8px;font-size:12.5px;font-weight:700;color:var(--ink2);margin:14px 0 10px}
   .layer-lbl .lb-dot{width:6px;height:6px;border-radius:50%;background:var(--brand)}
   .layer-lbl .lb-c{font-size:11.5px;color:var(--ink3);font-weight:500}
-  .ccards{display:grid;gap:12px}
+  .ccards{display:grid;gap:12px;align-items:start}
   .ccards.o2o{grid-template-columns:repeat(auto-fit,minmax(300px,1fr))}
   .ccards.chain{grid-template-columns:repeat(auto-fit,minmax(320px,1fr))}
   .ccard{background:var(--paper);border:1px solid var(--line);border-radius:13px;padding:15px 16px;transition:.16s}
@@ -108,7 +113,7 @@
   .fin-grid .fh{color:var(--ink3);font-weight:600;font-size:10.5px;letter-spacing:.3px}
   .fin-grid .fl{color:var(--ink3);font-size:11.5px}
   .fin-grid .fv{font-weight:680;color:var(--ink);font-variant-numeric:tabular-nums}
-  .fin-grid .fv .yoy{font-size:10.5px;font-weight:600;color:var(--ink3);margin-left:4px}
+  .fin-grid .fv .yoy{font-size:10.5px;font-weight:600;color:var(--ink3);margin-left:4px;white-space:nowrap}
   .fin-grid .fv .up{color:#1E8E5A}.fin-grid .fv .down{color:var(--hi)}
   .fin-na{color:var(--ink3);font-weight:500}
   /* 经营速览卡升级 */
@@ -125,8 +130,48 @@
   .fin-memo a{color:var(--brand);text-decoration:none;font-weight:600}
   .fin-memo a:hover{text-decoration:underline}
   .fin-memo .mm-date{color:var(--ink3);font-weight:500;margin-left:5px}
+  /* ---------- 连锁药房经营档案：折叠面板 + 三家对比表 ---------- */
+  .cpanel{background:var(--paper);border:1px solid var(--line);border-radius:13px;margin:18px 0 4px;overflow:hidden}
+  .cp-h{display:flex;align-items:center;gap:8px;padding:13px 16px;cursor:pointer;user-select:none;background:#FAFBFA;border-bottom:1px solid var(--line)}
+  .cp-ico{font-size:15px}
+  .cp-t{font-size:14.5px;font-weight:700;color:var(--ink)}
+  .cp-sub{font-size:11px;color:var(--ink3);font-weight:500}
+  .cp-upd{font-size:10.5px;font-weight:700;color:var(--brand-deep);background:var(--brand-soft);padding:2px 7px;border-radius:5px;margin-left:auto}
+  .cp-chev{color:var(--ink3);font-size:13px;transition:.2s;margin-left:8px}
+  .cpanel.collapsed .cp-chev{transform:rotate(-90deg)}
+  .cpanel.collapsed .cp-h{border-bottom:none}
+  .cpanel.collapsed .cp-body{display:none}
+  .cp-body{padding:14px 16px 16px}
+  .ctable{display:grid;gap:6px 14px;font-size:12.5px;align-items:baseline}
+  .ct-cnr{}
+  .ct-name{font-size:13.5px;font-weight:720;color:var(--ink);padding-bottom:6px;border-bottom:2px solid var(--brand-soft);display:flex;flex-direction:column;gap:1px}
+  .ct-code{font-size:10px;font-weight:600;color:var(--ink3)}
+  .ct-l{color:var(--ink3);font-weight:600;font-size:11.5px;white-space:nowrap}
+  .ct-v{font-weight:680;color:var(--ink);font-variant-numeric:tabular-nums;white-space:nowrap}
+  .ct-v .yoy{font-size:10.5px;font-weight:600;color:var(--ink3);margin-left:4px;white-space:nowrap}
+  .ct-v .add{font-size:10px;font-weight:600;margin-left:3px;white-space:nowrap}
+  .ct-v .up,.ct-v .yoy.up,.ct-v .add.up{color:#1E8E5A}
+  .ct-v .down,.ct-v .yoy.down,.ct-v .add.down{color:var(--hi)}
+  .ct-hl{background:var(--brand-soft);margin:0 -5px;padding:2px 5px;border-radius:4px}
+  .ct-na{color:var(--ink3);font-weight:500}
+  .cp-cols{display:grid;gap:14px;margin-top:16px;padding-top:14px;border-top:1px dashed var(--line)}
+  .cp-col{font-size:11.5px;line-height:1.5}
+  .cp-cn{font-size:12.5px;font-weight:700;color:var(--ink);margin-bottom:5px}
+  .cp-adv{color:var(--ink2);margin-bottom:7px}
+  .cp-strat .cp-sh{font-weight:700;color:var(--ink2);font-size:11px;display:flex;align-items:center;gap:6px}
+  .cp-src{font-size:9.5px;font-weight:700;color:var(--ink3);background:var(--lo-bg);padding:1px 6px;border-radius:5px}
+  .cp-strat ul{margin:4px 0 0;padding-left:15px;color:var(--ink2)}
+  .cp-strat li{margin:2px 0}
+  .cp-memo{margin-top:8px}
+  .cp-memo a{color:var(--brand);text-decoration:none;font-weight:600}
+  .cp-memo a:hover{text-decoration:underline}
+  .cp-md{color:var(--ink3);font-weight:500;margin-left:5px}
+  @media(max-width:640px){.cp-cols{grid-template-columns:1fr!important}}
   /* 卡内动态流 */
-  .cc-feed{margin-top:11px;display:flex;flex-direction:column;gap:9px}
+  .cc-feed{margin-top:11px;display:flex;flex-direction:column;gap:9px;max-height:208px;overflow-y:auto}
+  .cc-feed::-webkit-scrollbar{width:5px}
+  .cc-feed::-webkit-scrollbar-thumb{background:var(--line2);border-radius:3px}
+  .cc-feed{scrollbar-width:thin}
   .feed-it{font-size:12.8px;line-height:1.5}
   .feed-it .ft{font-weight:640;color:var(--ink)}
   .feed-it .ft a{text-decoration:none}.feed-it .ft a:hover{color:var(--brand)}
@@ -171,7 +216,7 @@ function orderDims(arr){return [...arr].sort((a,b)=>(DIM_ORDER.indexOf(a)+99)%10
 
 const FALLBACK_DATA={"generated":"—","depts":[{"id":"nutri","name":"营养保健","dims":["竞对动态","政策动态","工业动态","新品动态"],"brief":null}]};
 
-let DATA=null, cur=null;
+let DATA=null, cur=null, PROFILES=null, PRODUCTS=null;
 const $=id=>document.getElementById(id);
 function esc(t){return (t||"").replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;")}
 function relLabel(r){return r==="hi"?"高相关":r==="mid"?"中相关":"低相关"}
@@ -181,6 +226,16 @@ function dateVal(d){const m=(d||"").match(/(\d{4})-(\d{1,2})(?:-(\d{1,2}))?/);if
 function isNew(it){return it && it.firstSeen && DATA && it.firstSeen===DATA.generated;}
 function freshBadge(it){return isNew(it)?'<span class="fresh">🆕 今日新增</span>':'';}
 function countNew(items){return (items||[]).filter(isNew).length;}
+// 政策生效倒计时徽标：item.effective='YYYY-MM-DD' 时显示「⏳ 距生效 N 天 / ✅ 已生效」
+function effBadge(it){
+  if(!it||!it.effective) return '';
+  const t=dateVal(it.effective); if(!t) return '';
+  const today=DATA&&DATA.generated?dateVal(DATA.generated):0;
+  if(!today) return '';
+  const days=Math.round((t-today)/864e5);
+  if(days>0) return `<span class="eff eff-soon">⏳ 距生效 ${days} 天</span>`;
+  return `<span class="eff eff-on">✅ 已生效</span>`;
+}
 
 function renderTabs(){
   $('depttabs').innerHTML=DATA.depts.map(d=>
@@ -192,7 +247,6 @@ function renderBrief(dep){
   const b=dep.brief;
   let h=`<div class="statusbar"><span><span class="pulse"></span>更新 <b>${esc(DATA.generated)}</b></span><span>🆕 今日新增置顶</span><span>滚动情报池</span></div>
     <h2 class="dept">${dep.name} · 今日动态</h2>
-    <div class="lead">${esc(b.lead)}</div>
     <div class="eyebrow">今日必读</div><div class="musts">`;
   (b.musts||[]).forEach((m,i)=>{
     h+=`<div class="must"><div class="no">必读 ${String(i+1).padStart(2,'0')}</div>
@@ -201,6 +255,8 @@ function renderBrief(dep){
       <div class="tagrow">${dimTag(m.dim)}<span class="rel ${m.rel}">${relLabel(m.rel)}</span></div></div>`;
   });
   h+=`</div>`;
+  // 即时零售：连锁药房经营档案（季度静态面板，今日必读后、维度分区前）
+  if(dep.id==='instant') h+=renderChainPanel();
   // 维度分区：竞对在前，items 按日期倒序
   const secs=[...(b.sections||[])].sort((a,b2)=>DIM_ORDER.indexOf(a.dim)-DIM_ORDER.indexOf(b2.dim));
   secs.forEach(s=>{
@@ -215,6 +271,24 @@ function renderBrief(dep){
       h+=`</div></div>`;
       return;
     }
+    // 新品动态：改读周报 newproducts.json（中流数据，每周挂载），不读 data.json 的 items
+    if(s.dim==='新品动态'){
+      const prods=(PRODUCTS&&PRODUCTS.depts&&PRODUCTS.depts[dep.id])||[];
+      const pitems=[...prods].sort((a,b2)=>dateVal(b2.date)-dateVal(a.date));
+      const wkBadge=PRODUCTS&&PRODUCTS.updated?`<span class="sec-wk">📅 新品周报 · 更新于 ${esc(PRODUCTS.updated)}</span>`:'';
+      h+=`<div class="sec"><div class="sec-h" onclick="this.parentNode.classList.toggle('collapsed')">
+        <span class="sec-bar" style="background:${st[0]}"></span><span class="sec-t">${s.dim}</span>
+        <span class="sec-c">${pitems.length} 条</span>${wkBadge}<span class="sec-chev">▾</span></div><div class="items">`;
+      if(!PRODUCTS){h+=`<div class="empty-dim">新品见每周周报（加载中…）</div>`;}
+      else if(!pitems.length){h+=`<div class="empty-dim">本周周报暂无该部门新品</div>`;}
+      else pitems.forEach(it=>{
+        const tk=it.takeaway?`<div class="tk">→ 对JDH：${esc(it.takeaway)}</div>`:'';
+        h+=`<div class="item"><div class="it">${esc(it.title)}</div><div class="id">${esc(it.summary)}</div>${tk}
+          <div class="im"><span class="rel ${it.rel}">${relLabel(it.rel)}</span><span>${esc(it.source)} · ${esc(it.date)}</span><a href="${esc(it.url)}" target="_blank" rel="noopener">原文 ↗</a></div></div>`;
+      });
+      h+=`</div></div>`;
+      return;
+    }
     const items=[...(s.items||[])].sort((a,b2)=>dateVal(b2.date)-dateVal(a.date));
     const nNew=countNew(items);
     h+=`<div class="sec"><div class="sec-h" onclick="this.parentNode.classList.toggle('collapsed')">
@@ -224,7 +298,7 @@ function renderBrief(dep){
     else items.forEach(it=>{
       const tk=it.takeaway?`<div class="tk">→ 对JDH：${esc(it.takeaway)}</div>`:'';
       h+=`<div class="item${isNew(it)?' is-new':''}"><div class="it">${esc(it.title)}</div><div class="id">${esc(it.summary)}</div>${tk}
-        <div class="im"><span class="rel ${it.rel}">${relLabel(it.rel)}</span>${freshBadge(it)}<span>${esc(it.source)} · ${esc(it.date)}</span><a href="${esc(it.url)}" target="_blank" rel="noopener">原文 ↗</a></div></div>`;
+        <div class="im"><span class="rel ${it.rel}">${relLabel(it.rel)}</span>${freshBadge(it)}${effBadge(it)}<span>${esc(it.source)} · ${esc(it.date)}</span><a href="${esc(it.url)}" target="_blank" rel="noopener">原文 ↗</a></div></div>`;
     });
     h+=`</div></div>`;
   });
@@ -243,7 +317,6 @@ function renderLayers(layers){
       if(c.code) h+=`<span class="cc-code">${esc(c.code)}</span>`;
       if(c.tag) h+=`<span class="cc-tag">${esc(c.tag)}</span>`;
       h+=`</div>`;
-      if(c.financials) h+=renderFin(c.financials);
       h+=`<div class="cc-feed">`;
       const items=[...(c.items||[])].sort((a,b)=>dateVal(b.date)-dateVal(a.date));
       if(!items.length){h+=`<div class="feed-empty">窗口内暂无新动态</div>`;}
@@ -261,7 +334,7 @@ function renderLayers(layers){
   return h;
 }
 
-// 经营速览卡：覆盖省份 + 多期财务双列对比 + 战略要点 + 投资者纪要
+// 连锁药房经营档案（季度静态，读 profiles.json）：可折叠面板 + 三家对比表
 function yoyHtml(v,cls){ // v 形如 "+1.54%" / "-26.44%"；cls: 'yoy'(inline) 或 'add'(门店增量)
   if(!v) return '';
   const s=String(v).trim();
@@ -270,36 +343,35 @@ function yoyHtml(v,cls){ // v 形如 "+1.54%" / "-26.44%"；cls: 'yoy'(inline) �
   const txt=cls==='add'?'('+s+')':s;
   return `<span class="${cls} ${dir}">${arrow}${esc(txt)}</span>`;
 }
-function renderFin(fin){
-  const periods=fin.periods||[];
-  if(!periods.length) return '';
-  const src=fin.url?`<span class="fin-src"><a href="${esc(fin.url)}" target="_blank" rel="noopener">来源 ↗</a></span>`:'';
-  let h=`<div class="fin"><div class="fin-h">📊 经营速览${src}</div>`;
-  // 覆盖省份（可选）
-  const cov=fin.coverage;
-  if(cov&&(cov.provinces||cov.advantage)){
-    h+=`<div class="fin-cov">`+
-       (cov.provinces?`<b>${esc(cov.provinces)}</b>`:'')+
-       (cov.advantage?(cov.provinces?'　·　':'')+esc(cov.advantage):'')+`</div>`;
-  }
-  h+=`<div class="fin-grid">`;
-  // 表头
-  h+=`<span class="fh"></span>`+periods.map(p=>`<span class="fh">${esc(p.label)}</span>`).join('');
-  // 一个普通指标行：value 可带 inline 同比(yoyKey) 与增量(addKey)
+function renderChainPanel(){
+  const chains=(PROFILES&&PROFILES.instant&&PROFILES.instant.chains)||[];
+  if(!chains.length) return '';
+  const upd=PROFILES.updated?`<span class="cp-upd">口径 ${esc(PROFILES.updated)}</span>`:'';
+  // 取每家“头条期”=periods[0]（2025年报，口径最全、可横向比）
+  const head=chains.map(c=>(c.periods&&c.periods[0])||{});
+  const pLabel=head.find(p=>p.label)?head.find(p=>p.label).label:'';
+  let h=`<div class="cpanel collapsed"><div class="cp-h" onclick="this.parentNode.classList.toggle('collapsed')">
+    <span class="cp-ico">📁</span><span class="cp-t">连锁药房经营档案</span>
+    <span class="cp-sub">季度更新 · 不随日更变${pLabel?' · '+esc(pLabel):''}</span>${upd}<span class="cp-chev">▾</span></div>
+    <div class="cp-body">`;
+  // 对比表
+  h+=`<div class="ctable" style="grid-template-columns:auto repeat(${chains.length},1fr)">`;
+  h+=`<span class="ct-cnr"></span>`+chains.map(c=>
+    `<span class="ct-name">${esc(c.name)}${c.code?`<span class="ct-code">${esc(c.code)}</span>`:''}</span>`).join('');
   const row=(lbl,key,opt={})=>{
-    if(!periods.some(p=>p[key])) return '';
-    let r=`<span class="fl${opt.hl?' fr-hl':''}">${lbl}</span>`;
-    periods.forEach(p=>{
+    if(!head.some(p=>p[key])) return '';
+    let r=`<span class="ct-l${opt.hl?' ct-hl':''}">${lbl}</span>`;
+    head.forEach(p=>{
       const v=p[key];
-      if(!v||v==="未查到"){r+=`<span class="fv fin-na${opt.hl?' fr-hl':''}">—</span>`;return;}
+      if(!v||v==='未查到'){r+=`<span class="ct-v ct-na${opt.hl?' ct-hl':''}">—</span>`;return;}
       let cell=esc(v);
       if(opt.yoyKey&&p[opt.yoyKey]) cell+=' '+yoyHtml(p[opt.yoyKey],'yoy');
       if(opt.addKey&&p[opt.addKey]) cell+=' '+yoyHtml(p[opt.addKey],'add');
-      r+=`<span class="fv${opt.hl?' fr-hl':''}">${cell}</span>`;
+      r+=`<span class="ct-v${opt.hl?' ct-hl':''}">${cell}</span>`;
     });
     return r;
   };
-  h+=row('营收','revenue',{yoyKey:periods.some(p=>p.revenueYoy)?'revenueYoy':'yoy'});
+  h+=row('营收','revenue',{yoyKey:'revenueYoy'});
   h+=row('归母净利','profit',{yoyKey:'profitYoy',hl:true});
   h+=row('毛利率','grossMargin');
   h+=row('净利率','margin');
@@ -307,22 +379,33 @@ function renderFin(fin){
   h+=row('门店数','stores',{addKey:'storesAdd'});
   h+=row('直营','storesDirect',{addKey:'storesDirectAdd'});
   h+=row('加盟','storesFranchise',{addKey:'storesFranchiseAdd'});
-  h+=`</div>`;
-  // 战略要点（可选）
-  const strat=fin.strategy;
-  if(Array.isArray(strat)&&strat.length){
-    h+=`<div class="fin-strat"><span class="fs-h">🎯 战略要点</span><ul>`+
-       strat.map(s=>`<li>${esc(s)}</li>`).join('')+`</ul></div>`;
-  }
-  // 投资者纪要（可选）
-  const memo=fin.memo;
-  if(memo&&memo.title){
-    const dt=memo.date?`<span class="mm-date">${esc(memo.date)}</span>`:'';
-    h+=`<div class="fin-memo">📋 `+
-       (memo.url?`<a href="${esc(memo.url)}" target="_blank" rel="noopener">${esc(memo.title)} ↗</a>`:esc(memo.title))+
-       dt+`</div>`;
+  // 覆盖省份（来自 coverage.count）
+  if(chains.some(c=>c.coverage&&c.coverage.count)){
+    let r=`<span class="ct-l">覆盖省份</span>`;
+    chains.forEach(c=>{const n=c.coverage&&c.coverage.count;r+=`<span class="ct-v">${n?esc(String(n))+' 省':'—'}</span>`;});
+    h+=r;
   }
   h+=`</div>`;
+  // 表下：每家 优势省 + 战略要点（标来源）+ 纪要
+  h+=`<div class="cp-cols" style="grid-template-columns:repeat(${chains.length},1fr)">`;
+  chains.forEach(c=>{
+    h+=`<div class="cp-col"><div class="cp-cn">${esc(c.name)}</div>`;
+    if(c.coverage&&c.coverage.advantage) h+=`<div class="cp-adv">📍 ${esc(c.coverage.advantage)}</div>`;
+    const st=c.strategy;
+    if(st&&Array.isArray(st.points)&&st.points.length){
+      const srcTag=st.source?`<span class="cp-src">${esc(st.source)}</span>`:'';
+      h+=`<div class="cp-strat"><div class="cp-sh">🎯 战略要点${srcTag}</div><ul>`+
+         st.points.map(p=>`<li>${esc(p)}</li>`).join('')+`</ul></div>`;
+    }
+    const m=c.memo;
+    if(m&&m.title){
+      const dt=m.date?`<span class="cp-md">${esc(m.date)}</span>`:'';
+      h+=`<div class="cp-memo">📋 `+
+         (m.url?`<a href="${esc(m.url)}" target="_blank" rel="noopener">${esc(m.title)} ↗</a>`:esc(m.title))+dt+`</div>`;
+    }
+    h+=`</div>`;
+  });
+  h+=`</div></div></div>`;
   return h;
 }
 
@@ -361,6 +444,18 @@ function updateFlag(date){
   if(date===LATEST){f.className='dp-latest';f.textContent='最新';}
   else{f.className='dp-hist';f.textContent='历史';}
 }
+
+// 启动：并行拉季度档案 profiles.json（独立，失败不阻断主流程，面板自动不显示）
+fetch('profiles.json?_='+Date.now())
+  .then(r=>{if(!r.ok)throw new Error(r.status);return r.json();})
+  .then(p=>{PROFILES=p;if(DATA&&cur==='instant')render();})
+  .catch(()=>{PROFILES=null;});
+
+// 启动：并行拉新品周报 newproducts.json（中流数据，每周挂载；失败降级，新品区显示占位）
+fetch('newproducts.json?_='+Date.now())
+  .then(r=>{if(!r.ok)throw new Error(r.status);return r.json();})
+  .then(p=>{PRODUCTS=p;if(DATA)render();})
+  .catch(()=>{PRODUCTS=null;});
 
 // 启动：先拉 manifest 建日期选择器，失败则回退直接读 data.json
 fetch('manifest.json?_='+Date.now())

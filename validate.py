@@ -215,9 +215,106 @@ def check(path="data.json"):
         stats.append(f"[{did}] {DEPT_NAMES.get(did)}: " + " / ".join(cnt))
 
 
+def check_profiles(path="profiles.json"):
+    """校验 profiles.json（连锁药房季度档案）。文件不存在=跳过（前端面板自动不显示）。"""
+    import os
+    if not os.path.exists(path):
+        stats.append("[profiles] profiles.json 不存在（跳过校验，前端面板不显示）")
+        return
+    try:
+        with open(path, encoding="utf-8") as f:
+            p = json.load(f)
+    except json.JSONDecodeError as e:
+        err(f"[profiles] JSON 不合法：{e}")
+        return
+    chains = (p.get("instant", {}) or {}).get("chains", [])
+    if not isinstance(chains, list) or not chains:
+        err("[profiles] instant.chains 缺失或为空")
+        return
+    names = [c.get("name") for c in chains]
+    for c in chains:
+        nm = c.get("name", "?")
+        tag = f"[profiles] {nm}"
+        if not c.get("name"):
+            err(f"{tag} 缺 name")
+        periods = c.get("periods", [])
+        if not isinstance(periods, list) or not periods:
+            err(f"{tag} periods 缺失或为空")
+        else:
+            for pi, pr in enumerate(periods):
+                if not pr.get("label"):
+                    err(f"{tag} periods[{pi}] 缺 label")
+        strat = c.get("strategy")
+        if strat is not None:
+            if not isinstance(strat, dict):
+                err(f"{tag} strategy 应为对象 {{source, points}}")
+            else:
+                if strat.get("source") and strat["source"] not in ("MD&A", "投资者交流"):
+                    warn(f"{tag} strategy.source 建议为 'MD&A' 或 '投资者交流'，实际 {strat.get('source')!r}")
+                if not isinstance(strat.get("points", []), list):
+                    err(f"{tag} strategy.points 应为数组")
+        cov = c.get("coverage")
+        if cov is not None and not isinstance(cov, dict):
+            err(f"{tag} coverage 应为对象 {{count, advantage}}")
+        memo = c.get("memo")
+        if memo is not None:
+            if not isinstance(memo, dict):
+                err(f"{tag} memo 应为对象")
+            elif memo.get("url") and not str(memo["url"]).startswith("http"):
+                err(f"{tag} memo.url 非法：{memo.get('url')!r}")
+    stats.append(f"[profiles] 连锁档案 {len(chains)} 家：{', '.join(names)}（口径 {p.get('updated','?')}）")
+
+
+# 新品周报字段（与 data.json item 同；卡内不强制 takeaway，但周报建议带）
+PRODUCT_FIELDS = {"title", "rel", "summary", "source", "date", "url"}
+PRODUCT_DEPTS = {"nutri", "pharma", "device", "consumer", "medical"}
+
+
+def check_products(path="newproducts.json"):
+    """校验 newproducts.json（新品周报，中流数据）。文件不存在=跳过（前端降级显示占位）。"""
+    import os
+    if not os.path.exists(path):
+        stats.append("[newproducts] newproducts.json 不存在（跳过校验，前端新品区显示占位）")
+        return
+    try:
+        with open(path, encoding="utf-8") as f:
+            p = json.load(f)
+    except json.JSONDecodeError as e:
+        err(f"[newproducts] JSON 不合法：{e}")
+        return
+    depts = p.get("depts", {})
+    if not isinstance(depts, dict):
+        err("[newproducts] depts 应为对象 {部门id: [items]}")
+        return
+    cnt = []
+    for did, items in depts.items():
+        if did not in PRODUCT_DEPTS:
+            err(f"[newproducts] 未知部门 id：{did!r}（应 ∈ {sorted(PRODUCT_DEPTS)}）")
+        if not isinstance(items, list):
+            err(f"[newproducts/{did}] items 不是数组")
+            continue
+        for j, it in enumerate(items):
+            miss = PRODUCT_FIELDS - set(it.keys())
+            if miss:
+                err(f"[newproducts/{did}] items[{j}] 缺字段 {miss}")
+            if it.get("rel") not in REL_VALUES:
+                err(f"[newproducts/{did}] items[{j}] rel 非法：{it.get('rel')!r}")
+            if not str(it.get("url", "")).startswith("http"):
+                err(f"[newproducts/{did}] items[{j}] url 非法：{it.get('url')!r}")
+            if not valid_date(it.get("date", "")):
+                err(f"[newproducts/{did}] items[{j}] date 格式错：{it.get('date')!r}")
+            slen = len(str(it.get("summary", "")))
+            if slen > SUMMARY_MAX:
+                err(f"[newproducts/{did}] items[{j}] summary 超长({slen}>{SUMMARY_MAX})")
+        cnt.append(f"{did}:{len(items)}")
+    stats.append(f"[newproducts] 新品周报（{p.get('updated','?')} {p.get('week','')}）：" + " / ".join(cnt))
+
+
 def main():
     path = sys.argv[1] if len(sys.argv) > 1 else "data.json"
     check(path)
+    check_profiles()
+    check_products()
 
     print(f"=== 自检：{path} ===")
     for s in stats:
