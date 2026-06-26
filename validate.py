@@ -254,8 +254,23 @@ def check_profiles(path="profiles.json"):
                 if not isinstance(strat.get("points", []), list):
                     err(f"{tag} strategy.points 应为数组")
         cov = c.get("coverage")
-        if cov is not None and not isinstance(cov, dict):
-            err(f"{tag} coverage 应为对象 {{count, advantage}}")
+        if cov is not None:
+            if not isinstance(cov, dict):
+                err(f"{tag} coverage 应为对象 {{count, advantage, provinces, advProvinces}}")
+            else:
+                for k in ("provinces", "advProvinces"):
+                    if k in cov and not isinstance(cov[k], list):
+                        err(f"{tag} coverage.{k} 应为数组")
+                # 优势省应是布局省的子集（有才校验）
+                prov = cov.get("provinces")
+                adv = cov.get("advProvinces")
+                if isinstance(prov, list) and isinstance(adv, list):
+                    extra = [x for x in adv if x not in prov]
+                    if extra:
+                        warn(f"{tag} advProvinces 含未在 provinces 列出的省：{extra}")
+        sd = c.get("strategyDetail")
+        if sd is not None and not isinstance(sd, list):
+            err(f"{tag} strategyDetail 应为数组 [{{h, items[]}}]")
         memo = c.get("memo")
         if memo is not None:
             if not isinstance(memo, dict):
@@ -303,9 +318,16 @@ def check_products(path="newproducts.json"):
                 err(f"[newproducts/{did}] items[{j}] url 非法：{it.get('url')!r}")
             if not valid_date(it.get("date", "")):
                 err(f"[newproducts/{did}] items[{j}] date 格式错：{it.get('date')!r}")
+            # 周报 summary 为原文概述（不受日抓 60 字限制）；过长仅提示
             slen = len(str(it.get("summary", "")))
-            if slen > SUMMARY_MAX:
-                err(f"[newproducts/{did}] items[{j}] summary 超长({slen}>{SUMMARY_MAX})")
+            if slen > 120:
+                warn(f"[newproducts/{did}] items[{j}] summary 偏长({slen})：{it.get('title')!r}")
+            # jd/zy 在售状态（可选，有才校验取值）
+            for k in ("jd", "zy"):
+                if k in it and it[k] not in ("有", "无", "待核"):
+                    err(f"[newproducts/{did}] items[{j}] {k} 取值非法：{it.get(k)!r}（应为 有/无/待核）")
+            if "tags" in it and not isinstance(it["tags"], list):
+                err(f"[newproducts/{did}] items[{j}] tags 应为数组")
         cnt.append(f"{did}:{len(items)}")
     stats.append(f"[newproducts] 新品周报（{p.get('updated','?')} {p.get('week','')}）：" + " / ".join(cnt))
 

@@ -1,145 +1,253 @@
 {
-  "updated": "2026-06-26",
-  "week": "第1期(迁移自日抓基础池)",
+  "updated": "2026-06-18",
+  "week": "第2期 · 截至 0618",
+  "note": "全球新品雷达（周报）。5部门新品，前端新品区读取；每周用户提供后整份替换，merge/archive 不碰。summary 为周报原文概述（不受日抓60字限制）。",
+  "deptSummary": {
+    "pharma": "新增3条。氘可来昔替尼国内新适应症但自营已有、非缺口；另2条列入提示关注：BGM0504（GLP-1/GIP减重NDA受理）、卡匹色替（前列腺癌AKT，国内该适应症未上市）。本周可关注卡匹色替的自营机会。",
+    "device": "新增3条。Solius Pro（FDA OTC家用UVB光疗）最具零售价值、自营无；Dexcom Stelo获FDA首个儿童OTC CGM；上海空山慈无创脑机/神经调控，家庭端产品仍在器械注册申报阶段，列入观察。",
+    "consumer": "新增1条（卫康隐形眼镜护理液，6/16进入NMPA送达目录）；待业务确认，暂不计入自营无销售。",
+    "nutri": "新增5条、均海外高端、自营无：LYMA ID²、Elysium Creatine+、INSTYTUTUM、Flovis、VitaDog；抗衰/长寿与“检测+补剂”组合是本周主线。",
+    "medical": "新增10条，合规锚点扎实（多为6/12–6/16 NMPA三类送达）：医美再生材料密集（巨子颈纹植入剂、芳禾少女胶原、景嘉/天莱雅透明质酸、SKINVIVE颈部），高端影像AI体检（联影、复影），高端健管（Stelo儿童CGM、Sysmex阿尔茨海默血检、Healthspan居家激素）。"
+  },
   "depts": {
     "nutri": [
       {
-        "title": "拜耳印度推Alka-Seltzer益生菌+抗酸剂泡腾剂",
-        "rel": "lo",
-        "summary": "小苏打(Svarjiksara)+源自咖喱酪乳的乳酸菌,主打速效缓解+长期肠道养护,称印度首款阿育吠陀类含益生菌抗酸产品",
-        "source": "NutraIngredients",
-        "date": "2026-06-24",
-        "url": "https://www.nutraingredients.com/Article/2026/06/24/bayer-india-combines-probiotics-antacid-amid-rising-self-care-trend/",
-        "takeaway": "海外市场暂无引进价值;留意功能性益生菌+即时缓解复合配方思路,可在国内肠胃调理选品中关注同类组合",
-        "firstSeen": "2026-06-24"
-      },
-      {
-        "title": "Akkermansia Pro GLP-1 Probiotic — Designs for Health",
+        "title": "LYMA · ID²",
         "rel": "hi",
-        "summary": "巴氏灭活Akkermansia+BPL1后生元合生制剂,主打天然GLP-1通路代谢与体重管理。",
-        "source": "NutraIngredients",
-        "date": "2026-06-23",
-        "url": "https://www.nutraingredients.com/Article/2026/06/23/june-launch-pad-targeted-life-stage-support-gut-health-and-multi-benefit-formulations-dominate/",
-        "takeaway": "核查京东是否已有Akk合生元SKU,GLP-1减重叙事最热,评估引入或自营。",
-        "firstSeen": "2026-06-23"
+        "summary": "英国高端品牌，产品入驻Harrods健康专区；主打肌肤、睡眠与压力管理；拥有配方专利、有效成分达到临床起效剂量",
+        "source": "PR Newswire",
+        "date": "2026-06-18",
+        "url": "https://www.prnewswire.com/news-releases/lyma-launches-the-formula-the-longevity-world-didnt-know-it-was-missing-302800493.html",
+        "takeaway": "高端益生菌差异化标杆，评估自营引入或代理",
+        "jd": "无", "zy": "无",
+        "tags": ["新配方组合·新场景", "英国", "益生菌/肠道"]
       },
       {
-        "title": "Flatter Me Fiber GLP-1 Booster — HUM Nutrition",
-        "rel": "mid",
-        "summary": "膳食纤维+18种消化酶+绿茶咖啡因粉剂,绑定GLP-1代谢与肠道概念。",
-        "source": "NutraIngredients",
-        "date": "2026-06-23",
-        "url": "https://www.nutraingredients.com/Article/2026/06/23/june-launch-pad-targeted-life-stage-support-gut-health-and-multi-benefit-formulations-dominate/",
-        "takeaway": "纤维+GLP-1助推是DTC新打法,评估国货跟进或引入HUM。",
-        "firstSeen": "2026-06-23"
+        "title": "Elysium Health · Creatine+",
+        "rel": "hi",
+        "summary": "美国抗衰品牌；首款主打长寿抗衰的肌酸复配产品，核心功效提升肌力、运动恢复力、认知功能；斯坦福长寿中心背书",
+        "source": "PR Newswire",
+        "date": "2026-06-18",
+        "url": "https://www.prnewswire.com/news-releases/elysium-health-announces-the-launch-of-creatine-a-first-of-its-kind-longevity-focused-creatine-system-designed-to-support-strength-recovery-and-cognition-302799866.html",
+        "takeaway": "自营引入高端抗衰营养，绑定长寿叙事",
+        "jd": "无", "zy": "无",
+        "tags": ["新配方组合·新场景", "美国", "运动/抗衰"]
       },
       {
-        "title": "Swanson更年期日夜版:黑升麻/醉茄/甘氨酸镁/茶氨酸",
+        "title": "INSTYTUTUM / Longevity Supplements",
+        "rel": "hi",
+        "summary": "瑞士抗衰品牌；成分NMN+反式白藜芦醇；补剂+生物年龄检测试剂+小程序管理的综合方案可系统售卖",
+        "source": "Nutraceutical Business Review",
+        "date": "2026-06-18",
+        "url": "https://nutraceuticalbusinessreview.com/instytutum-launches-liposomal-nmn-supplement-age-test-longevity",
+        "takeaway": "评估“检测+补剂”组合落地，可系统化售卖",
+        "jd": "无", "zy": "无",
+        "tags": ["新品牌·新剂型·新模式", "瑞士", "抗衰"]
+      },
+      {
+        "title": "Flovis · ホワイトエラン",
         "rel": "mid",
-        "summary": "非激素日夜双配方,分管能量情绪与睡眠,命中甘氨酸镁+茶氨酸成分哨兵。",
+        "summary": "面向45岁+女性，主打护肤品+营养补剂的结合场景，母公司为日本生物科学研究所",
+        "source": "PR TIMES",
+        "date": "2026-06-18",
+        "url": "https://prtimes.jp/main/html/rd/p/000000002.000178413.html",
+        "jd": "无", "zy": "无",
+        "tags": ["新品牌·新组合·新人群", "日本", "美容抗衰/心脑"]
+      },
+      {
+        "title": "VitaDog Nutrition · Daily All-in-One",
+        "rel": "lo",
+        "summary": "25年8月成立，新锐宠物补剂品牌，覆盖犬类关节、消化、皮毛、免疫与认知改善",
         "source": "NutraIngredients",
-        "date": "2026-06-23",
-        "url": "https://www.nutraingredients.com/Article/2026/06/23/june-launch-pad-targeted-life-stage-support-gut-health-and-multi-benefit-formulations-dominate/",
-        "takeaway": "京东更年期类目偏空白,评估引入专项SKU。",
-        "firstSeen": "2026-06-23"
+        "date": "2026-06-18",
+        "url": "https://www.vitadognutrition.com/?srsltid=AfmBOorjDXwj3HWFQDoSSGzhasckRPMF5y_pO13lbPBSnC1Fv7Ianfl0",
+        "jd": "无", "zy": "无",
+        "tags": ["新品牌", "美国", "宠物功能/保健"]
       }
     ],
     "pharma": [
       {
-        "title": "国产首个口服CFB抑制剂兰诺可泮片(依适宁)获批治PNH",
-        "rel": "hi",
-        "summary": "武汉朗来1类创新药,全球第二、国内首款国产口服CFB抑制剂;头对头优于依库珠单抗。",
-        "source": "荆楚网/医药魔方",
-        "date": "2026-06-11",
-        "url": "http://news.cnhubei.com/content/2026-06/12/content_20030260.html",
-        "takeaway": "口服+罕见病适合院外长期用药,提前布局PNH专科药货盘与患者服务。",
-        "firstSeen": "2026-06-11"
+        "title": "氘可来昔替尼片（颂狄多®）新适应症",
+        "rel": "mid",
+        "summary": "国内唯一可同时治PsO+PsA的口服靶向药；ACR20达54.2%；院外口服便利，但武田zasocitinib在银屑病适应症头对头击败本品需关注",
+        "source": "搜狐/NMPA获批",
+        "date": "待核",
+        "url": "https://m.sohu.com/a/1037382095_114988?scm=10001.325_13-325_13.0.0-0-0-0-0.5_1334",
+        "takeaway": "自营已有、非缺口；关注头对头竞品zasocitinib进度",
+        "jd": "有", "zy": "有",
+        "tags": ["获批", "国内", "TYK2·风湿免疫"]
+      },
+      {
+        "title": "BGM0504注射液",
+        "rel": "mid",
+        "summary": "GLP-1/GIP双靶减重NDA；III期52周15mg组减重19.2%，媲美替尔泊肽；国产第三家GLP-1/GIP双靶NDA（继恒瑞HRS9531、翰森奥莱泊肽后）",
+        "source": "搜狐/CDE受理",
+        "date": "待核",
+        "url": "https://www.sohu.com/a/1035113359_122014422",
+        "jd": "无", "zy": "无", "watch": true,
+        "tags": ["受理", "国内", "GLP-1/GIP减重", "提示关注·未上市"]
+      },
+      {
+        "title": "卡匹色替（TRUQAP®/capivasertib）",
+        "rel": "mid",
+        "summary": "首个且唯一PTEN缺陷型mCRPC靶向治疗；CAPItello-281 rPFS 33.2 vs 25.7个月；ODAC 7:1:1通过；国内已获批乳腺癌适应症",
+        "source": "新浪/FDA获批",
+        "date": "待核",
+        "url": "https://cj.sina.com.cn/articles/view/5952915705/162d248f9067033zl4?froms=ggmp",
+        "takeaway": "国内已有乳腺癌适应症在售，关注前列腺癌方向自营机会",
+        "jd": "有", "zy": "无", "watch": true,
+        "tags": ["获批", "海外", "AKT抑制剂·前列腺癌", "提示关注·该适应症国内未上市"]
       }
     ],
     "device": [
       {
-        "title": "Dexcom Stelo获FDA儿科许可(首款面向儿童OTC CGM)",
+        "title": "Stelo Glucose Biosensor System（Dexcom 思达乐）",
         "rel": "hi",
-        "summary": "6/12 FDA批准首款面向2岁+儿童的非处方连续血糖监测仪(6/23官方宣布)。",
-        "source": "中国贸促会南京",
-        "date": "2026-06-17",
-        "url": "https://ccpit.nanjing.gov.cn/jmzx/202606/t20260617_5861772.html",
-        "takeaway": "免处方CGM向儿童破圈,前瞻布局非胰岛素+儿童家用CGM,把易用性作差异化。",
-        "firstSeen": "2026-06-17"
+        "summary": "FDA首次批准2岁及以上儿童OTC使用的连续血糖监测系统，免处方，免胰岛素人群居家使用；与App配对，15分钟更新血糖、每片佩戴最长15天，需成人监护；不适用于透析或低血糖警报需求人群",
+        "source": "FDA / Medical Device Network / HCPLive",
+        "date": "2026-06-12",
+        "url": "https://www.fda.gov/news-events/press-announcements/fda-clears-first-over-counter-continuous-glucose-monitor-children",
+        "takeaway": "免处方CGM向儿童破圈；CGM三类/处方边界，自营短期难落地，作高端健管储备",
+        "jd": "无", "zy": "无",
+        "tags": ["新品上市", "海外", "血糖CGM（儿童OTC）"]
       },
       {
-        "title": "家用康复/中医理疗集群获二类证(翔宇低频电治疗仪等)",
-        "rel": "mid",
-        "summary": "河南药监第62号公告:翔宇便携低频电治疗仪、坐式艾灸仪/电动拔罐仪等约8款获二类证。",
-        "source": "河南药监局",
-        "date": "2026-06-05",
-        "url": "https://yjj.henan.gov.cn/2026/06-08/3363157.html",
-        "takeaway": "上市康复企业家用化是下沉信号,对接家用康复/中医理疗专区绑慢病人群。",
-        "firstSeen": "2026-06-05"
+        "title": "上海空山慈科技（Kongshanci）",
+        "rel": "lo",
+        "summary": "无创脑机接口与神经调控公司，技术架构“全脑功能连接计算引擎+机器人导航+多模态闭环调控”，含经颅聚焦超声平台；产品覆盖院内精神与认知障碍治疗+情绪/睡眠障碍家庭治疗（家庭端仍在器械注册申报阶段）",
+        "source": "投资界（pedaily）/ 动脉网",
+        "date": "2026-06-18",
+        "url": "https://news.pedaily.cn/202606/565175.shtml",
+        "takeaway": "家庭端产品仍在注册申报阶段，列入观察",
+        "jd": "无", "zy": "无",
+        "tags": ["新增融资", "国内", "神经调控/脑机交互（在研）"]
       },
       {
-        "title": "耳内/耳背式助听器(欧仕达听力)获二类证",
-        "rel": "mid",
-        "summary": "闽械注准20262190115/116,自助验配级家用听力器械。",
-        "source": "福建药监局",
-        "date": "2026-06-05",
-        "url": "https://yjj.scjgj.fujian.gov.cn/zwgk/gstg/xzxkgg/202606/t20260605_7159735.htm",
-        "takeaway": "助听器是国家鼓励OTC化的高潜银发品类,设专区做适老化招商+听力自测引流。",
-        "firstSeen": "2026-06-05"
-      },
-      {
-        "title": "雅培全球首款葡萄糖-酮体双传感CGM获欧盟CE",
+        "title": "Solius Pro（Solius Labs）",
         "rel": "hi",
-        "summary": "5/27获CE,全球首款双代谢物传感技术,连续监测血糖+血酮(防DKA),美国年内拟上市。",
-        "source": "雅培官方新闻室",
-        "date": "2026-05-27",
-        "url": "https://www.abbott.com/corpnewsroom/diabetes-care.html",
-        "takeaway": "CGM进入多标志物阶段(防DKA),国内无对标,关注入华作高端CGM招商前瞻。",
-        "firstSeen": "2026-05-27"
+        "summary": "首款 FDA-cleared OTC Class II 家用 UVB 光疗设备；内置肤色传感器，每周1次、单次<5分钟，维D生成与情绪调节；$2,995硬件+$10/月会员",
+        "source": "CNET / Business Wire / Citeline",
+        "date": "2026-06-16",
+        "url": "https://www.businesswire.com/news/home/20260616282212/en/Solius-Labs-Launches-Worlds-First-Personalized-Sunlight-Medical-Device",
+        "takeaway": "高端家用光疗卡位机会，评估海外购/引入自营",
+        "jd": "无", "zy": "无",
+        "tags": ["新品上市", "海外", "光疗/医美皮肤健康器械（跨品线索）"]
       }
     ],
     "consumer": [
       {
-        "title": "翔宇医疗中医艾灸仪获医疗器械注册证(豫械注准20262200363)",
-        "rel": "mid",
-        "summary": "型号XY-ZYAJ-I/II,河南省药监核发注册类(非备案),属带能量输出仪器,注册证核准日待核",
-        "source": "网易号(转载)",
-        "date": "2026-06-12",
-        "url": "https://c.m.163.com/news/a/KV8M6UBU05568W0A.html",
-        "takeaway": "中医保健器械从手动器具备案向电动仪器注册升级、门槛抬高,翔宇以正规军身份切入C端,可作合规艾灸仪招商标杆。建议NMPA二次核验",
-        "firstSeen": "2026-06-12"
+        "title": "隐形眼镜护理液（Weicon 卫康）",
+        "rel": "lo",
+        "summary": "老牌镜片企业上海卫康光学获批的最新隐形眼镜护理液，于6月16日正式进入NMPA电子医疗器械批准证明文件送达信息目录",
+        "source": "国家药品监督管理局",
+        "date": "2026-06-16",
+        "url": "https://www.nmpa.gov.cn/zwfw/sdxx/sdxxylqx/qxpjfb/20260616160415176.html",
+        "jd": "待核", "zy": "待核",
+        "tags": ["新品上市", "国内", "隐形眼镜及护理"]
       }
     ],
     "medical": [
       {
-        "title": "巨子生物交联重组III型胶原蛋白植入剂获械三证(全球首款颈纹)",
+        "title": "胸部核医学图像辅助分诊软件·联影智能",
+        "rel": "mid",
+        "summary": "面向胸部核医学影像的AI辅助分诊软件，可嵌入PET/CT、核医学高端筛查后的影像二读/分诊流程，提升高端影像体检的差异化与医生效率",
+        "source": "NMPA监管获批",
+        "date": "2026-06-15",
+        "url": "https://www.nmpa.gov.cn/zwfw/sdxx/sdxxylqx/qxpjfb/20260615160121190.html?utm_source=chatgpt.com",
+        "jd": "待核", "zy": "待核",
+        "tags": ["体检", "国内", "高端影像与AI体检"]
+      },
+      {
+        "title": "颅内动脉瘤磁共振造影图像辅助检测软件·复影医疗",
+        "rel": "mid",
+        "summary": "基于磁共振造影图像进行颅内动脉瘤AI辅助检测，可作为高端脑血管风险筛查、脑健康体检中的AI二读项目补充",
+        "source": "NMPA监管获批",
+        "date": "2026-06-16",
+        "url": "https://www.nmpa.gov.cn/zwfw/sdxx/sdxxylqx/qxpjfb/20260616160527142.html?utm_source=chatgpt.com",
+        "jd": "待核", "zy": "待核",
+        "tags": ["体检", "国内", "脑健康/脑血管AI影像"]
+      },
+      {
+        "title": "交联重组胶原蛋白植入剂·巨子生物",
         "rel": "hi",
-        "summary": "物理交联无化学残留,用于颈纹填充(国械注准20263131219)。",
-        "source": "和讯网",
+        "summary": "重组III型胶原蛋白植入剂，物理交联形成三维网状凝胶，用于颈部皮内真皮层注射填充、纠正颈部中重度横纹；注册证国械注准20263131219，属颈纹填充新型再生材料机会",
+        "source": "港交所披露易",
         "date": "2026-06-17",
-        "url": "https://consume.hexun.com/2026-06-17/224343863.html",
-        "takeaway": "颈纹再生填充新代际,京东关注O2O承接;巨子成全球首家同握重组I+III型植入企业。",
-        "firstSeen": "2026-06-17"
+        "url": "https://www1.hkexnews.hk/listedco/listconews/sehk/2026/0617/2026061700545_c.pdf",
+        "takeaway": "颈纹再生填充新代际，关注O2O高客单承接",
+        "jd": "待核", "zy": "待核",
+        "tags": ["医美", "国内", "注射填充与再生材料"]
       },
       {
-        "title": "巨子可丽金芯生753胶原针上市(中国首个重组I型天然序列注射剂)",
-        "rel": "hi",
-        "summary": "753氨基酸刷新序列长度新高(国械注准20253132049)。",
-        "source": "医药魔方",
-        "date": "2026-06-09",
-        "url": "https://bydrug.pharmcube.com/news/detail/74f8de226fb2b987377cefeedb892d27",
-        "takeaway": "再生针高端化商业化落地,适合O2O高客单承接。",
-        "firstSeen": "2026-06-09"
+        "title": "娇元少女® COLLARRIA® 胶原蛋白植入剂·芳禾生物",
+        "rel": "mid",
+        "summary": "SPF猪源I型胶原蛋白注射植入剂，注册证国械注准20263131252；行业信息称适用于面部真皮组织填充以纠正额部中重度动力性皱纹（眉间纹、额头纹、鱼尾纹）",
+        "source": "NMPA监管获批",
+        "date": "2026-06-17",
+        "url": "https://www.nmpa.gov.cn/zwfw/sdxx/sdxxylqx/qxpjfb/20260617173835108.html",
+        "jd": "待核", "zy": "待核",
+        "tags": ["医美", "国内", "注射填充与再生材料"]
       },
       {
-        "title": "爱美客复合水光适应证变更,正式获面部水光适应证",
+        "title": "注射用透明质酸钠溶液·浙江景嘉医疗科技",
+        "rel": "lo",
+        "summary": "注射用透明质酸钠溶液，NMPA送达显示注册证号国械注准20263131236、批准日期2026-6-16；可作合规水光/肤质管理供应商访谈线索，具体适用范围以注册证说明书核验",
+        "source": "NMPA监管获批",
+        "date": "2026-06-16",
+        "url": "https://www.nmpa.gov.cn/zwfw/sdxx/sdxxylqx/qxpjfb/20260617173835108.html?utm_source=chatgpt.com",
+        "jd": "待核", "zy": "待核",
+        "tags": ["医美", "国内", "肤质管理/水光类合规注射"]
+      },
+      {
+        "title": "注射用交联透明质酸钠凝胶·江苏天莱雅生物科技",
+        "rel": "lo",
+        "summary": "交联透明质酸钠凝胶类注射填充材料，NMPA 2026-06-12送达信息列示该产品及企业；公司官网披露“获批第三类医疗器械注册证”，注册证号、适用部位及是否首证需进一步核验",
+        "source": "NMPA监管获批",
+        "date": "2026-06-12",
+        "url": "https://www.nmpa.gov.cn/zwfw/sdxx/sdxxylqx/qxpjfb/20260612153405149.html",
+        "jd": "待核", "zy": "待核",
+        "tags": ["医美", "国内", "注射填充与再生材料"]
+      },
+      {
+        "title": "SKINVIVE by JUVÉDERM® 颈部外观改善适应证",
+        "rel": "mid",
+        "summary": "Allergan Aesthetics/AbbVie旗下HA微滴注射产品，FDA于窗口期批准新增用于21岁以上成人颈纹/颈部外观改善；厂商称效果维持约6个月，并要求购买和施治前完成指定培训",
+        "source": "FDA监管获批",
+        "date": "待核",
+        "url": "https://www.accessdata.fda.gov/scripts/cdrh/cfdocs/cfpma/pma.cfm?ID=P110033S099",
+        "jd": "待核", "zy": "待核",
+        "tags": ["医美", "海外", "注射填充/颈部肤质抗衰"]
+      },
+      {
+        "title": "Dexcom Stelo OTC CGM 儿童适用扩展",
         "rel": "hi",
-        "summary": "由颈纹填充扩为面部真皮浅层改善,系NMPA第五款复合水光(国械注准20163131804变更)。",
-        "source": "医药魔方",
-        "date": "2026-06-08",
-        "url": "https://bydrug.pharmcube.com/news/detail/bb63dddc426558d65a7588062e97ad0f",
-        "takeaway": "龙头入局合规面部水光,O2O水光项目供给扩容。",
-        "firstSeen": "2026-06-08"
+        "summary": "FDA于2026-06-12清除Stelo成为首个可用于儿童的OTC连续血糖监测系统，传感器最长15天，可把血糖趋势用于饮食、运动和生活方式干预；适合观察“14-30天代谢管理包”升级方向",
+        "source": "FDA监管获批",
+        "date": "2026-06-12",
+        "url": "https://www.fda.gov/news-events/press-announcements/fda-clears-first-over-counter-continuous-glucose-monitor-children",
+        "takeaway": "观察“14-30天代谢管理包”升级方向",
+        "jd": "待核", "zy": "待核",
+        "tags": ["高端健管", "海外", "连续监测/CGM"]
+      },
+      {
+        "title": "Sysmex HISCL™ 阿尔茨海默血液标志物检测平台",
+        "rel": "mid",
+        "summary": "Sysmex Europe发布HISCL平台用于阿尔茨海默血液生物标志物检测，Aβ42/40比值为CE-IVD、p-Tau217为RUO，常规静脉采血后17分钟出结果，可作高端脑健康筛查/记忆门诊合作趋势线索",
+        "source": "厂商新品 / 学术临床",
+        "date": "2026-06-17",
+        "url": "https://www.prnewswire.co.uk/news-releases/sysmex-launches-hiscl-platform-enabling-faster-scalable-alzheimers-blood-testing-302800074.html",
+        "jd": "待核", "zy": "待核",
+        "tags": ["高端健管", "海外", "脑健康/阿尔茨海默血液标志物"]
+      },
+      {
+        "title": "Healthspan by Science&Humans 居家激素血液检测",
+        "rel": "mid",
+        "summary": "加拿大Science&Humans发布居家采血方案，检测睾酮、游离睾酮、SHBG、雌二醇、孕酮等激素指标，由持证临床人员审核结果并可付费咨询，适合作高端健管激素面板和远程复测模式参考",
+        "source": "厂商新品",
+        "date": "2026-06-16",
+        "url": "https://www.newswire.ca/news-releases/healthspan-by-science-amp-humans-makes-blood-collection-simpler-and-more-accessible-for-canadians-seeking-insights-into-their-hormone-health-880796341.html",
+        "jd": "待核", "zy": "待核",
+        "tags": ["高端健管", "海外", "功能医学/激素健康面板"]
       }
     ]
   }

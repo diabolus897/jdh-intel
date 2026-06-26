@@ -1,7 +1,7 @@
 # 项目状态与交接文档（PROJECT_STATUS）
 
 > 本文件用于跨会话接续。新会话只需带上 `AGENTS.md`（工作手册）+ 本文件，即可无缝继续，不依赖历史对话记忆。
-> 最后更新：2026-06-26（**v2 产品改造 + 新品改周报挂载：三层数据架构成型（日更 data.json / 周报 newproducts.json / 季度 profiles.json）**）
+> 最后更新：2026-06-26（**v3 呈现改造：竞对卡等高 + 连锁经营档案重构为独立可展开卡片 + 新品区升级为「全球新品雷达」并挂载周报第2期22条**）
 
 ## 1. 这是什么项目
 
@@ -57,6 +57,13 @@
   - merge.py 跳过新品维度、archive.py 不归档 newproducts、validate.py 加 check_products 校验。
   - 首期已迁现有 13 条（nutri 4/pharma 1/device 4/consumer 1/medical 3）。
   - **三层架构**：快流 data.json（日更，merge 滚动）/ 中流 newproducts.json（周更，整份替换）/ 慢流 profiles.json（季度，手动）——按更新频率分层，各走各的维护节奏。
+- **【2026-06-26 v3 呈现改造：竞对卡等高 + 连锁档案重构 + 全球新品雷达】**（纯前端+数据文件，不碰抓取链路）：
+  - **竞对卡等高**：`.ccard` 改定高 330px 的 flex 列布局（header 固定、`.cc-feed` flex 撑满内部滚动），pharma/instant 所有竞对卡统一高度、溢出滚动。
+  - **连锁经营档案重构**：从「今日必读后的横向三家对比表」改为「**连锁动态卡下方、每家一张可展开卡片**」。`renderChainPanel()`→`renderProfileCards(deptId)`（泛化读 `PROFILES[deptId].chains`，为其他部门建档铺路）。每卡含：两期财务小表（2025年报+2026Q1，**数字右对齐** `.pf-v text-align:right`）、覆盖省份（列具体省名+优势省绿底高亮）、战略详情（`strategyDetail` 分段可滚动 max-height:230px）、纪要。
+  - **profiles.json 扩字段**：`coverage` 加 `provinces[]`/`advProvinces[]`（用户提供：老百姓18省/9优势、益丰10/6、大参林21/4；修正了用户名单两处笔误——老百姓"山西"重复→改"陕西"、大参林"附件"→"福建"）；新增 `strategyDetail:[{h,items[]}]` 承接三家大段战略（业绩说明会/投资者交流口径）。
+  - **全球新品雷达**：新品维度前端展示名改「🛰️ 全球新品雷达」（数据契约 key 仍是「新品动态」不变）。新品卡升级为周报样式：京东/自营在售徽标（`jd`/`zy`=有绿/无红/待核灰）+ `tags[]` + `watch:true` 归到底部「⚠️ 提示关注」分组 + 部门 `deptSummary` 本周小结。
+  - **newproducts.json 整份替换为周报第2期**（截至0618，22条）：nutri5/pharma3/device3/consumer1/medical10，扩 `week/deptSummary` + 每条 `jd/zy/tags/watch`。周报「整体Top5/一句话总览」按部门渲染下不展示（已与用户确认取舍）。
+  - **validate.py 同步**：`check_products` 放宽 summary 长度（周报为原文概述）+ 校验 jd/zy/tags 可选字段；`check_profiles` 加 coverage.provinces/advProvinces + strategyDetail 校验。全过。
 
 ## 4. 时效口径（已固化，分级）
 
