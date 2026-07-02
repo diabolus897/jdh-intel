@@ -90,6 +90,12 @@
   .im a{color:var(--brand);font-weight:600;text-decoration:none;margin-left:auto}
   .im a:hover{text-decoration:underline}
   .empty-dim{grid-column:1/-1;padding:14px 16px;border:1px dashed var(--line2);border-radius:10px;font-size:13px;color:var(--ink3)}
+  /* 今日无新增提示条 + 往期分割线（普通维度 & 连锁卡 feed 通用） */
+  .no-new{grid-column:1/-1;font-size:12.5px;color:var(--ink3);background:#FAFBFA;border:1px dashed var(--line2);border-radius:10px;padding:9px 13px;display:flex;align-items:center;gap:6px}
+  .past-sep{grid-column:1/-1;display:flex;align-items:center;gap:10px;font-size:11px;color:var(--ink3);margin:3px 0 1px;letter-spacing:.3px}
+  .past-sep::before,.past-sep::after{content:"";flex:1;height:1px;background:var(--line)}
+  .cc-feed .no-new{font-size:11px;padding:6px 9px;margin-bottom:6px}
+  .cc-feed .past-sep{font-size:10px;margin:5px 0 6px}
 
   /* ---------- 全球新品雷达：周报卡（京东/自营徽标 + tags + 提示关注分组） ---------- */
   .np-list{display:block!important}
@@ -336,11 +342,18 @@ function renderBrief(dep){
       <span class="sec-bar" style="background:${st[0]}"></span><span class="sec-t">${s.dim}</span>
       <span class="sec-c">${items.length} 条</span>${nNew?`<span class="sec-new">🆕 ${nNew}</span>`:''}<span class="sec-chev">▾</span></div><div class="items">`;
     if(!items.length){h+=`<div class="empty-dim">今日无新动态</div>`;}
-    else items.forEach(it=>{
-      const tk=it.takeaway?`<div class="tk">→ 对JDH：${esc(it.takeaway)}</div>`:'';
-      h+=`<div class="item${isNew(it)?' is-new':''}"><div class="it">${esc(it.title)}</div><div class="id">${esc(it.summary)}</div>${tk}
-        <div class="im"><span class="rel ${it.rel}">${relLabel(it.rel)}</span>${freshBadge(it)}${effBadge(it)}<span>${esc(it.source)} · ${esc(it.date)}</span><a href="${esc(it.url)}" target="_blank" rel="noopener">原文 ↗</a></div></div>`;
-    });
+    else{
+      const itemHtml=it=>{
+        const tk=it.takeaway?`<div class="tk">→ 对JDH：${esc(it.takeaway)}</div>`:'';
+        return `<div class="item${isNew(it)?' is-new':''}"><div class="it">${esc(it.title)}</div><div class="id">${esc(it.summary)}</div>${tk}
+          <div class="im"><span class="rel ${it.rel}">${relLabel(it.rel)}</span>${freshBadge(it)}${effBadge(it)}<span>${esc(it.source)} · ${esc(it.date)}</span><a href="${esc(it.url)}" target="_blank" rel="noopener">原文 ↗</a></div></div>`;
+      };
+      const fresh=items.filter(isNew), past=items.filter(it=>!isNew(it));
+      fresh.forEach(it=>{h+=itemHtml(it);});
+      if(!fresh.length) h+=`<div class="no-new">📭 今日无新增，以下为往期最新动态</div>`;
+      else if(past.length) h+=`<div class="past-sep">往期动态</div>`;
+      past.forEach(it=>{h+=itemHtml(it);});
+    }
     h+=`</div></div>`;
   });
   return h;
@@ -361,13 +374,21 @@ function renderLayers(layers,deptId){
       h+=`<div class="cc-feed">`;
       const items=[...(c.items||[])].sort((a,b)=>dateVal(b.date)-dateVal(a.date));
       if(!items.length){h+=`<div class="feed-empty">窗口内暂无新动态</div>`;}
-      else items.forEach(it=>{
-        h+=`<div class="feed-it${isNew(it)?' is-new':''}"><div class="ft">`+
-           (it.url?`<a href="${esc(it.url)}" target="_blank" rel="noopener">${esc(it.title)}</a>`:esc(it.title))+freshBadge(it)+`</div>`;
-        if(it.summary) h+=`<div class="id" style="margin-top:3px">${esc(it.summary)}</div>`;
-        h+=`<div class="fmeta"><span>${esc(it.source||'')}${it.date?' · '+esc(it.date):''}</span>`+
-           (it.url?`<a href="${esc(it.url)}" target="_blank" rel="noopener" style="margin-left:auto">原文 ↗</a>`:'')+`</div></div>`;
-      });
+      else{
+        const feedIt=it=>{
+          let x=`<div class="feed-it${isNew(it)?' is-new':''}"><div class="ft">`+
+             (it.url?`<a href="${esc(it.url)}" target="_blank" rel="noopener">${esc(it.title)}</a>`:esc(it.title))+freshBadge(it)+`</div>`;
+          if(it.summary) x+=`<div class="id" style="margin-top:3px">${esc(it.summary)}</div>`;
+          x+=`<div class="fmeta"><span>${esc(it.source||'')}${it.date?' · '+esc(it.date):''}</span>`+
+             (it.url?`<a href="${esc(it.url)}" target="_blank" rel="noopener" style="margin-left:auto">原文 ↗</a>`:'')+`</div></div>`;
+          return x;
+        };
+        const fresh=items.filter(isNew), past=items.filter(it=>!isNew(it));
+        fresh.forEach(it=>{h+=feedIt(it);});
+        if(!fresh.length) h+=`<div class="no-new">📭 今日无新增，下为往期</div>`;
+        else if(past.length) h+=`<div class="past-sep">往期动态</div>`;
+        past.forEach(it=>{h+=feedIt(it);});
+      }
       h+=`</div></div>`;
     });
     h+=`</div>`;
